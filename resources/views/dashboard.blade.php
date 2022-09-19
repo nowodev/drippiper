@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-dashboard-layout>
     <x-slot name="header">
             {{ __('Dashboard') }}
     </x-slot>
@@ -8,4 +8,4 @@
             {{ __('You are logged in!') }}
         </div>
     </div>
-</x-app-layout>
+</x-dashboard-layout>
