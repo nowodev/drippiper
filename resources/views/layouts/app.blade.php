@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,23 +9,18 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+
     <body>
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
-            @include('layouts.navigation')
+        @include('layouts.header')
 
-            <div class="flex overflow-hidden flex-col flex-1">
-                @include('layouts.header')
-
-                <main class="overflow-y-auto overflow-x-hidden flex-1 bg-gray-200">
-                    <div class="container px-6 py-8 mx-auto">
-                        {{ $slot }}
-                    </div>
-                </main>
-            </div>
-        </div>
+        <main>
+            {{ $slot }}
+        </main>
     </body>
+
 </html>
