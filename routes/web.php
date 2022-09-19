@@ -3,6 +3,10 @@
 use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\ProfileController as CustomerProfileController;
 use App\Http\Controllers\Customer\ProfileController as AdminProfileController;
 
@@ -25,9 +29,17 @@ require __DIR__ . '/auth.php';
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
-    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+    Route::view('/', 'admin.dashboard')->name('dashboard');
 
-    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::resource('products', ProductController::class);
+
+    Route::resource('orders', OrderController::class);
+
+    Route::resource('customers', CustomerController::class)->only('index', 'show');
+
+    Route::resource('transaction', TransactionController::class)->only('index', 'show');
+
+    // Route::get('settings', [SettingController::class, 'index'])->name('users');
 
     Route::get('profile', [AdminProfileController::class, 'show'])->name('profile.show');
 

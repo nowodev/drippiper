@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="header">
-        {{ __('Users') }}
+        {{ __('Customers') }}
     </x-slot>
 
     <div class="inline-block overflow-hidden min-w-full rounded-lg shadow">
@@ -18,13 +18,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($users as $user)
+                @foreach($customers as $customer)
                 <tr>
                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                        <p class="text-gray-900 whitespace-no-wrap">{{ $user->name }}</p>
+                        <p class="text-gray-900 whitespace-no-wrap">{{ $customer->name }}</p>
                     </td>
                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                        <p class="text-gray-900 whitespace-no-wrap">{{ $user->email }}</p>
+                        <p class="text-gray-900 whitespace-no-wrap">{{ $customer->email }}</p>
                     </td>
                 </tr>
                 @endforeach
@@ -33,7 +33,7 @@
 
         <div
             class="flex flex-col items-center px-5 py-5 bg-white border-t xs:flex-row xs:justify-between">
-            {{ $users->links() }}
+            {{ $customers->links() }}
         </div>
     </div>
 
