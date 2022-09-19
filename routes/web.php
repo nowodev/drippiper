@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProfileController as CustomerProfileController;
+use App\Http\Controllers\Customer\ProfileController as AdminProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +21,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+require __DIR__ . '/auth.php';
 
-require __DIR__.'/auth.php';
+// Admin route
+Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
+    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::view('about', 'about')->name('about');
+    Route::get('users', [UserController::class, 'index'])->name('users');
 
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('profile', [AdminProfileController::class, 'show'])->name('profile.show');
 
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile', [AdminProfileController::class, 'update'])->name('profile.update');
+});
+
+// Customer route
+Route::middleware('auth')->name('customer.')->group(function () {
+    Route::view('/dashboard', 'customer.dashboard')->name('dashboard');
+
+    Route::get('profile', [CustomerProfileController::class, 'show'])->name('profile.show');
+
+    Route::put('profile', [CustomerProfileController::class, 'update'])->name('profile.update');
 });

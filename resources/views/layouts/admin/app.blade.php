@@ -14,10 +14,10 @@
     </head>
     <body>
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
-            @include('layouts.dashboard.navigation')
+            @include('layouts.admin.navigation')
 
             <div class="flex overflow-hidden flex-col flex-1">
-                @include('layouts.dashboard.header')
+                @include('layouts.admin.header')
 
                 <main class="overflow-y-auto overflow-x-hidden flex-1 bg-gray-200">
                     <div class="container px-6 py-8 mx-auto">
