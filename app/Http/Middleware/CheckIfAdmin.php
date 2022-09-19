@@ -16,8 +16,6 @@ class CheckIfAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-
-    info($request);
         if ($request->user()->type != \App\Enums\UserType::ADMIN->value) {
             abort(404);
         }

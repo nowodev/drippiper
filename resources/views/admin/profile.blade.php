@@ -1,4 +1,4 @@
-<x-dashboard-layout>
+<x-admin-layout>
     <x-slot name="header">
         {{ __('My profile') }}
     </x-slot>
@@ -25,14 +25,14 @@
 
     <x-errors class="mb-4" :errors="$errors" />
 
-    <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+    <div class="overflow-hidden bg-white shadow-md sm:rounded-lg">
         <div class="p-6 border-b border-gray-200">
 
-            <form action="{{ route('profile.update') }}" method="POST">
+            <form action="{{ route('admin.profile.update') }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div>
                         <x-label for="name" :value="__('Name')" />
                         <x-input type="text" name="name" id="name"
@@ -67,4 +67,4 @@
 
         </div>
     </div>
-</x-dashboard-layout>
+</x-admin-layout>

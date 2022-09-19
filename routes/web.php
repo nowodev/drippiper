@@ -2,13 +2,12 @@
 
 use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\ProfileController as CustomerProfileController;
-use App\Http\Controllers\Customer\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 
 /*
 |--------------------------------------------------------------------------
