@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('price');
+            $table->string('sales')->nullable()->comment('The new price due to sales or other events.');
+            $table->json('stock')->nullable(); // {size: SM, colour: {Red, Black, Blue}, qty: 4 }
+            $table->longText('description');
             $table->timestamps();
         });
     }
