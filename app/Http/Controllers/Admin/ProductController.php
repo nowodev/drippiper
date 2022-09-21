@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductStoreRequest;
-use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -39,28 +36,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductStoreRequest $request)
+    public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
-
-            $data = $request->validated();
-
-            $product = Product::query()->create([
-                'name'        => data_get($data, 'name'),
-                'price'       => data_get($data, 'price'),
-                'sales_price' => data_get($data, 'sales_price'),
-                'description' => data_get($data, 'description'),
-            ]);
-
-            $product->stocks()->create([
-                'size'     => data_get($data, 'size'),
-                'colour'   => data_get($data, 'colour'),
-                'quantity' => data_get($data, 'quantity'),
-            ]);
-        });
-
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Product Created Successfully');
+        //
     }
 
     /**
@@ -94,30 +72,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductUpdateRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
-        DB::transaction(function () use ($request, $product) {
-
-            $data = $request->validated();
-
-            return info($data);
-
-            $product->update([
-                'name'        => data_get($data, 'name'),
-                'price'       => data_get($data, 'price'),
-                'sales_price' => data_get($data, 'sales_price'),
-                'description' => data_get($data, 'description'),
-            ]);
-
-            $product->stocks()->update([
-                'size'     => data_get($data, 'size'),
-                'colour'   => data_get($data, 'colour'),
-                'quantity' => data_get($data, 'quantity'),
-            ]);
-        });
-
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Product Updated Successfully');
+        //
     }
 
     /**

@@ -3,13 +3,6 @@
         {{ __('Edit Product') }}
     </x-slot>
 
-
-    <form action="{{ route('admin.products.update', $product) }}" method="POST"
-        enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-
-        @include('admin.products.form', ['buttonName' => 'Save'])
-    </form>
+    <livewire:product-form :product="$product" :stocks="$product->stocks" :product_id="$product->id" />
 
 </x-admin-layout>

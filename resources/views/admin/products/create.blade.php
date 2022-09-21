@@ -3,11 +3,6 @@
         {{ __('Create Product') }}
     </x-slot>
 
-
-    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-
-        @include('admin.products.form', ['buttonName' => 'Create'])
-    </form>
+    <livewire:product-form>
 
 </x-admin-layout>
