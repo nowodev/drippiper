@@ -1,7 +1,7 @@
-@props(['field'])
+@props(['for', 'customMessage'])
 
-@error($field)
-<span class="text-xs tracking-tight text-red-500">
-    <em>{{ $message }}</em>
+@error($for)
+<span {{ $attributes->merge(['class' => 'text-xs tracking-tight text-red-500']) }}">
+    <em>{{ $customMessage ?? $message }}</em>
 </span>
 @enderror
