@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Stock;
 use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ProductForm extends Component
 {
+    use LivewireAlert;
     use WithFileUploads;
 
     public $product;
@@ -58,9 +61,13 @@ class ProductForm extends Component
         $this->stocks[] = $this->i++;
     }
 
-    public function remove($i)
+    public function remove($id)
     {
-        unset($this->stocks[$i]);
+        Stock::query()->find($id)->delete();
+
+        unset($this->stocks[$id]);
+
+        $this->alert('error', "Stock Deleted Successfully");
     }
 
     public function store()
@@ -111,8 +118,9 @@ class ProductForm extends Component
                     'description' => data_get($data, 'product.description'),
                 ]);
 
-                foreach ($this->stocks as $key => $stock) {
-                    $this->product->stocks()->update([
+                // Update individual stock
+                foreach ($this->stocks as $stock) {
+                    Stock::query()->find(data_get($stock, 'id'))->update([
                         'size'     => data_get($stock, 'size'),
                         'colour'   => data_get($stock, 'colour'),
                         'quantity' => data_get($stock, 'quantity'),

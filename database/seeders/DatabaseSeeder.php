@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
 
         $product = \App\Models\Product::factory()->create();
 
-        info($product);
         \App\Models\Stock::factory(3)->create([
             'product_id' => $product->id,
         ]);
