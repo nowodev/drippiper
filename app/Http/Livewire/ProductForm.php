@@ -61,11 +61,11 @@ class ProductForm extends Component
         $this->stocks[] = $this->i++;
     }
 
-    public function remove($id)
+    public function remove($key, $id)
     {
-        Stock::query()->find($id)->delete();
+        unset($this->stocks[$key]);
 
-        unset($this->stocks[$id]);
+        Stock::query()->find($id)->delete();
 
         $this->alert('error', "Stock Deleted Successfully");
     }
