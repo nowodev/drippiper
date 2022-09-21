@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
@@ -87,6 +88,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        DB::transaction(function () use ($product) {
+            $product->stocks()->delete();
+            $product->images()->delete();
+
+            $product->delete();
+        });
+
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product Deleted Successfully');
     }
 }
