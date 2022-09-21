@@ -3,6 +3,7 @@
         {{ __('Products') }}
     </x-slot>
 
+    <x-success />
 
     <div class="flex flex-col space-y-2">
         <div class="flex justify-end">

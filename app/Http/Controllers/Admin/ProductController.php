@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
 
@@ -39,16 +40,25 @@ class ProductController extends Controller
      */
     public function store(ProductStoreRequest $request)
     {
-        
-        info($request);
-        //
+        DB::transaction(function () use ($request) {
 
-        // $table->string('name');
-        // $table->string('price');
-        // $table->string('sales')->nullable()->comment('The new price due to sales or other events.');
-        // $table->json('stock')->nullable(); // {size: SM, colour: {Red, Black, Blue}, qty: 4 }
-        // $table->longText('description');
-        // $table->timestamps();
+            $data = $request->validated();
+
+            $product = Product::query()->create([
+                'name'        => data_get($data, 'name'),
+                'price'       => data_get($data, 'sales_price'),
+                'description' => data_get($data, 'description'),
+            ]);
+
+            $product->stocks()->create([
+                'size'     => data_get($data, 'size'),
+                'colour'   => data_get($data, 'colour'),
+                'quantity' => data_get($data, 'quantity'),
+            ]);
+        });
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product Created Successfully');
     }
 
     /**
