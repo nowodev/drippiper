@@ -2,28 +2,54 @@
     <div class="grid grid-cols-1 gap-6 mdgrid-cols-2">
         <div>
             <x-input-label>Name</x-input-label>
-            <x-input type="text" wire:model="product.name" />
+            <x-input type="text" wire:model.defer="product.name" />
             <x-input-error for="product.name" />
         </div>
 
         <div class="flex gap-x-6">
             <div>
                 <x-input-label>Price</x-input-label>
-                <x-input type="number" wire:model="product.price" />
+                <x-input type="number" wire:model.defer="product.price" />
                 <x-input-error for="product.price" />
             </div>
 
             <div>
                 <x-input-label>Sales Price</x-input-label>
-                <x-input type="number" wire:model="product.sales_price" />
+                <x-input type="number" wire:model.defer="product.sales_price" />
                 <x-input-error for="product.sales_price" />
             </div>
         </div>
 
         <div>
             <x-input-label>Description</x-input-label>
-            <x-textarea type="name" wire:model="product.description"></x-textarea>
+            <x-textarea wire:model.defer="product.description"></x-textarea>
             <x-input-error for="product.description" />
+        </div>
+
+        <div>
+            <x-input type="file" wire:model="cover_image" />
+            <x-input-error for="cover_image" />
+
+            <div class="mt-2">
+                @if ($cover_image)
+                <p class="mb-2">Cover Image Preview: </p>
+                <img src="{{ $cover_image->temporaryUrl() }}">
+                @endif
+            </div>
+        </div>
+
+        <div>
+            <x-input type="file" wire:model="images" multiple />
+            <x-input-error for="images" />
+
+            <div class="mt-2">
+                @if ($images)
+                <p class="mb-2">Images Preview: </p>
+                @foreach ($images as $image)
+                <img src="{{ $image->temporaryUrl() }}">
+                @endforeach
+                @endif
+            </div>
         </div>
     </div>
 
@@ -31,18 +57,18 @@
     <div class="grid grid-cols-3 gap-6" wire:key="stock-{{ $key }}">
         <div>
             <x-input-label>Size</x-input-label>
-            <x-input type="text" wire:model="stocks.{{ $key }}.size" />
+            <x-input type="text" wire:model.defer="stocks.{{ $key }}.size" />
             <x-input-error for="stocks.{{ $key }}.size" />
         </div>
         <div>
             <x-input-label>Colour</x-input-label>
-            <x-input type="text" wire:model="stocks.{{ $key }}.colour" />
+            <x-input type="text" wire:model.defer="stocks.{{ $key }}.colour" />
             <x-input-error for="stocks.{{ $key }}.colour" />
         </div>
 
         <div>
             <x-input-label>Quantity</x-input-label>
-            <x-input type="number" wire:model="stocks.{{ $key }}.quantity" />
+            <x-input type="number" wire:model.defer="stocks.{{ $key }}.quantity" />
             <x-input-error for="stocks.{{ $key }}.quantity" />
         </div>
     </div>

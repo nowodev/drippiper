@@ -33,9 +33,9 @@
                 @foreach ($product->stocks as $stock)
                 <div
                     class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="p-8 rounded-t-lg" src="" alt="product image">
-                    </a>
+                    <div>
+                        <img class="p-8 rounded-t-lg" src="https://api.lorem.space/image/fashion" alt="product image">
+                    </div>
                     <div class="flex justify-between px-5 pb-5 font-bold text-white">
                         <p>{{ $stock->size }}</p>
                         <p>{{ $stock->colour }}</p>
