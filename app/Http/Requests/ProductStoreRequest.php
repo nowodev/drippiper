@@ -29,7 +29,7 @@ class ProductStoreRequest extends FormRequest
             'sales_price' => 'sometimes|nullable|integer',
             'description' => 'required|string',
             'size'        => 'required|string',
-            'color'       => 'required|string',
+            'colour'      => 'required|string',
             'quantity'    => 'required|string',
         ];
     }

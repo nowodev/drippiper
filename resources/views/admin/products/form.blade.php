@@ -1,5 +1,5 @@
-<div class="flex flex-col space-y-6 max-w-sm">
-    <div class="grid grid-cols-1 mdgrid-cols-2 gap-6">
+<div class="flex flex-col max-w-sm space-y-6">
+    <div class="grid grid-cols-1 gap-6 mdgrid-cols-2">
         <div>
             <x-input-label>Name</x-input-label>
             <x-input type="text" name="name" value="{{ old('name') }}" />
@@ -37,9 +37,9 @@
         </div>
 
         <div>
-            <x-input-label>Color</x-input-label>
-            <x-input type="text" name="color" value="{{ old('color') }}" />
-            <x-input-error field="color" />
+            <x-input-label>Colour</x-input-label>
+            <x-input type="text" name="colour" value="{{ old('colour') }}" />
+            <x-input-error field="colour" />
         </div>
 
         <div>
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="justify-end flex">
+    <div class="flex justify-end">
         <x-primary-button type="submit">Create</x-primary-button>
     </div>
 </div>
