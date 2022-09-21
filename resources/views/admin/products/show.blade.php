@@ -15,36 +15,50 @@
     </x-slot>
 
     <section class="max-w-4xl mx-auto overflow-hidden text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 mx-auto space-y-6">
             <div class="flex flex-col w-full mb-20 text-center">
+                <div>
+                    <img class="p-8 rounded-lg" src="{{ asset('storage/'. $product->cover_image) }}"
+                        alt="product image">
+                </div>
+
                 <h1 class="mb-2 text-3xl font-medium text-gray-900 sm:text-4xl title-font">
                     {{ $product->name }}
                 </h1>
                 <p class="mx-auto text-base leading-relaxed text-gray-500 lg:w-2/3">
                     {{ $product->description }}
                 </p>
+
                 <div class="flex mx-auto mt-6 overflow-hidden border-2 border-green-500 rounded">
                     <button class="px-4 py-1 text-white bg-green-500 focus:outline-none">N{{
                         $product->sales_price }}</button>
                     <button class="px-4 py-1 focus:outline-none">N{{ $product->price }}</button>
                 </div>
             </div>
-            <div class="flex justify-between gap-x-6">
+
+            <div class="flex gap-x-6 w-full justify-center">
                 @foreach ($product->stocks as $stock)
                 <div
                     class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <div>
-                        <img class="p-8 rounded-t-lg" src="https://api.lorem.space/image/fashion" alt="product image">
-                    </div>
-                    <div class="flex justify-between px-5 pb-5 font-bold text-white">
+                    <div class="flex justify-between p-5 font-bold text-white">
                         <p>{{ $stock->size }}</p>
                         <p>{{ $stock->colour }}</p>
                         <p>{{ $stock->quantity }}</p>
                     </div>
                 </div>
-
                 @endforeach
             </div>
+
+            <div class="grid grid-cols-3 gap-6">
+
+                @foreach ($product->images as $image)
+                <div
+                    class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <img src="{{ asset('storage/' . $image->name) }}" alt="product image">
+                </div>
+                @endforeach
+            </div>
+        </div>
         </div>
     </section>
 </x-admin-layout>

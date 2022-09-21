@@ -26,7 +26,7 @@ class ProductForm extends Component
         'product.sales_price' => 'sometimes|nullable|integer',
         'product.description' => 'required|string',
         'cover_image'         => 'required|image|mimes:jpg,jpeg,png,svg',
-        'images.*'            => 'required|image|mimes:jpg,jpeg,png,svg',
+        'images.*'            => 'sometimes|image|mimes:jpg,jpeg,png,svg|nullable',
         'stocks.*.size'       => 'required|string',
         'stocks.*.colour'     => 'required|string',
         'stocks.*.quantity'   => 'required|string',
@@ -68,19 +68,16 @@ class ProductForm extends Component
         DB::transaction(function () {
             $data = $this->validate();
 
-            $cover_image = $this->cover_image->store('photos');
-
             // If id is not set, create data
             if (!$this->product_id) {
-                // Save cover image
-                $this->cover_image->store('photos');
+                $cover_image_name = $this->cover_image->getClientOriginalName();
 
                 $product = Product::query()->create([
                     'name'        => data_get($data, 'product.name'),
                     'price'       => data_get($data, 'product.price'),
                     'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),
-                    'cover_image' => $cover_image,
+                    'cover_image' => $cover_image_name,
                 ]);
 
                 foreach ($this->stocks as $stock) {
@@ -91,12 +88,17 @@ class ProductForm extends Component
                     ]);
                 }
 
+                // Save cover image
+                $this->cover_image->storeAs('public', $cover_image_name);
+
                 // Save other images
                 foreach ($this->images as $image) {
-                    $image = $image->store('photos');
+                    $image_name = $image->getClientOriginalName();
+
+                    $image = $image->storeAs('public', $image_name);
 
                     $product->images()->create([
-                        'name' => $image,
+                        'name' => $image_name,
                     ]);
                 }
             } else {
