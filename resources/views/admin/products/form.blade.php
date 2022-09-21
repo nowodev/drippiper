@@ -50,6 +50,6 @@
     </div>
 
     <div class="flex justify-end">
-        <x-primary-button type="submit">Create</x-primary-button>
+        <x-primary-button type="submit">{{ $buttonName }}</x-primary-button>
     </div>
 </div>

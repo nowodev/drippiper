@@ -7,7 +7,7 @@
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        @include('admin.products.form')
+        @include('admin.products.form', ['buttonName' => 'Create'])
     </form>
 
 </x-admin-layout>
