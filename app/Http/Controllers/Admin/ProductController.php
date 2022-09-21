@@ -49,7 +49,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $product->load('stocks');
+
+        return view('admin.products.show', compact('product'));
     }
 
     /**
