@@ -4,8 +4,8 @@
             Featured products
         </h3>
     </div>
-    <div class="container flex justify-center items-center mb-32">
-        <div class="flex space-x-4">
+    <div class="container md:flex justify-center items-center mb-32">
+        <div class="md:flex md:space-x-4">
             <div class="relative cursor-pointer shaadow-lg group overflow-hidden">
                 <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
                     alt="" class="h-96 duration-500 group-hover:opacity-0">
