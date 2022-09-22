@@ -59,7 +59,13 @@ class ProductForm extends Component
 
     public function add()
     {
-        $this->stocks[] = $this->i++;
+        // Add value to array when creating products
+        if (array($this->stocks)) {
+            return $this->stocks[] = $this->i++;
+        }
+
+        // Add value to collection when updating products
+        return $this->stocks->push(Stock::make());
     }
 
     public function remove($key, $id)
@@ -136,13 +142,20 @@ class ProductForm extends Component
 
                 // Update individual stock
                 foreach ($this->stocks as $stock) {
-                    Stock::query()->find(data_get($stock, 'id'))->update([
-                        'size'     => data_get($stock, 'size'),
-                        'colour'   => data_get($stock, 'colour'),
-                        'quantity' => data_get($stock, 'quantity'),
-                    ]);
+                    $this->product->stocks()->updateOrCreate(
+                        [
+                            'id' => data_get($stock, 'id')
+                        ],
+                        [
+                            'size'     => data_get($stock, 'size'),
+                            'colour'   => data_get($stock, 'colour'),
+                            'quantity' => data_get($stock, 'quantity'),
+                        ]
+                    );
                 }
             }
+
+            $this->stocks = [];
         });
 
 

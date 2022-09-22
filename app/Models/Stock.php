@@ -9,6 +9,13 @@ class Stock extends Model
 {
     use HasFactory;
 
+    /**
+     * Had to declare this line in order to add new fields in the stock section
+     * of the product form
+     * @var string
+     */
+    protected $connection = 'mysql';
+
     protected $guarded = [];
 
     public function product()
