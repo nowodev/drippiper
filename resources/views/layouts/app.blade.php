@@ -16,8 +16,10 @@
 
 <body>
     @include('layouts.header')
+    @include('layouts.hero')
     @include('layouts.headerLink')
     @include('layouts.featured')
+
 
 
     <main>
