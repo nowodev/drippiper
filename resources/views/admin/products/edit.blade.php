@@ -14,7 +14,7 @@
         </div>
     </x-slot>
 
-    <livewire:product-form :product="$product" :stocks="$product->stocks"
-        :product_id="$product->id" />
+    <livewire:product-form :product="$product" :stocks="$product->stocks" :product_id="$product->id"
+        :edit_mode="true" />
 
 </x-admin-layout>

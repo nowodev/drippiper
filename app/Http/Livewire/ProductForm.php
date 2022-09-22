@@ -15,14 +15,15 @@ class ProductForm extends Component
     use LivewireAlert;
     use WithFileUploads;
 
+    public $i = 1;
+    public $status;
     public $product;
     public $product_id;
-    public $cover_image;
-    public $images = [];
     public $buttonName;
-    public $status;
-    public $stocks = [0];
-    public $i      = 1;
+    public $cover_image;
+    public $images    = [];
+    public $stocks    = [0];
+    public $edit_mode = false;
 
     protected array $rules = [
         'product.name'        => 'required|string',
@@ -60,7 +61,7 @@ class ProductForm extends Component
     public function add()
     {
         // Add value to array when creating products
-        if (array($this->stocks)) {
+        if (!$this->edit_mode) {
             return $this->stocks[] = $this->i++;
         }
 
@@ -68,13 +69,15 @@ class ProductForm extends Component
         return $this->stocks->push(Stock::make());
     }
 
-    public function remove($key, $id)
+    public function remove($key, $id = '')
     {
         unset($this->stocks[$key]);
 
-        Stock::query()->find($id)->delete();
+        if ($this->edit_mode && !empty($id)) {
+            Stock::query()->find($id)->delete();
 
-        $this->alert('error', "Stock Deleted Successfully");
+            $this->alert('error', "Stock Deleted Successfully");
+        }
     }
 
     public function store()
