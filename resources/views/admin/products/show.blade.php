@@ -17,8 +17,8 @@
     <section class="max-w-4xl mx-auto overflow-hidden text-gray-600 body-font">
         <div class="container px-5 mx-auto space-y-6">
             <div class="flex flex-col w-full mb-20 text-center">
-                <div>
-                    <img class="p-8 rounded-lg" src="{{ asset('storage/'. $product->cover_image) }}"
+                <div class="flex justify-center p-5 mb-2">
+                    <img class="rounded-lg" src="{{ asset('storage/'. $product->cover_image) }}"
                         alt="product image">
                 </div>
 

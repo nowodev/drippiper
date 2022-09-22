@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Image;
 use App\Models\Stock;
 use App\Models\Product;
 use Livewire\Component;
@@ -75,9 +76,11 @@ class ProductForm extends Component
         DB::transaction(function () {
             $data = $this->validate();
 
+            $cover_image_name = $this->cover_image->getClientOriginalName();
+
             // If id is not set, create data
             if (!$this->product_id) {
-                $cover_image_name = $this->cover_image->getClientOriginalName();
+                $this->cover_image->storeAs('public', $cover_image_name);
 
                 $product = Product::query()->create([
                     'name'        => data_get($data, 'product.name'),
@@ -95,8 +98,10 @@ class ProductForm extends Component
                     ]);
                 }
 
-                // Save cover image
-                $this->cover_image->storeAs('public', $cover_image_name);
+                // Image::make($this->cover_image)->resize(225, 100)
+                //     ->save(public_path('storage/' . $cover_image_name));
+                //         // Save cover image
+                //         Image::make($this->cover_image->getRealPath())->resize(320, 240)->save(public_path('storage/' . $cover_image_name));
 
                 // Save other images
                 foreach ($this->images as $image) {
@@ -109,6 +114,16 @@ class ProductForm extends Component
                     ]);
                 }
             } else {
+                // Save cover image
+                // Image::make($this->cover_image)->resize(225, 100)
+                //     ->save(public_path('storage/' . $cover_image_name));
+                // Image::make($this->cover_image)
+                //     ->fit(300)
+                //     // ->fit(320, 320, fn ($constraint) => $constraint->upsize())
+                //     // ->resize(320, 320, fn ($constraint) => $constraint->aspectRatio())
+                //     ->save(public_path('storage/' . $cover_image_name));
+
+                $this->cover_image->storeAs('public', $cover_image_name);
 
                 // Update data
                 $this->product->update([
@@ -116,6 +131,7 @@ class ProductForm extends Component
                     'price'       => data_get($data, 'product.price'),
                     'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),
+                    'cover_image' => $cover_image_name,
                 ]);
 
                 // Update individual stock
