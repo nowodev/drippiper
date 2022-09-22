@@ -16,6 +16,7 @@
 
 <body>
     @include('layouts.header')
+    @include('layouts.headerLink')
 
 
     <main>
