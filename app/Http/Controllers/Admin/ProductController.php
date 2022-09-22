@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -89,9 +90,28 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         DB::transaction(function () use ($product) {
-            $product->stocks()->delete();
-            $product->images()->delete();
 
+            // Delete & Remove Cover Image
+            $image_path = public_path('storage/' . $product->cover_image);
+
+            if (File::exists($image_path)) {
+                unlink($image_path);
+            }
+
+            // Delete & Remove Other Images
+            foreach ($product->images as $image) {
+                $image_path = public_path('storage/' . $image->name);
+
+                if (File::exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+
+            // Delete stocks
+            $product->stocks()->delete();
+            // Delete images
+            $product->images()->delete();
+            // Delete product
             $product->delete();
         });
 
