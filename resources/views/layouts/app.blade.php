@@ -17,7 +17,7 @@
 <body>
     @include('layouts.header')
     @include('layouts.headerLink')
-    @include('layouts.carousels')
+    @include('layouts.featured')
 
 
     <main>
