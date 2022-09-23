@@ -1,8 +1,13 @@
 <section>
     <div class="container text-center mb-4 text-3xl font-semibold">
-        <h3>
+        <h3 class="text-[#6366F1]">
             Featured products
         </h3>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-8 h-8 mx-auto text-[#6366F1]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+        </svg>
+
     </div>
     <div class="container md:flex justify-center items-center mb-32">
         <div class="md:flex md:space-x-4">
