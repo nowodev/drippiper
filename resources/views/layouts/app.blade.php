@@ -19,6 +19,7 @@
     @include('layouts.hero')
     @include('layouts.headerLink')
     @include('layouts.featured')
+    @include('layouts.testimonial')
 
 
 
