@@ -20,6 +20,7 @@
     @include('layouts.headerLink')
     @include('layouts.featured')
     @include('layouts.testimonial')
+    @include('layouts.cart')
 
 
 

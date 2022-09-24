@@ -17,7 +17,7 @@
                 <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
                     alt="" class="h-96 absolute top-0 z-[-1]">
                 <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
-            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">ADD TO CART</button>
+            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW PRODUCT</button>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor"
@@ -36,7 +36,8 @@
                 <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
                     alt="" class="h-96 absolute top-0 z-[-1]">
                 <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
-            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">ADD TO CART</button>
+            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">
+                    <a href="./cart.blade.php"> VIEW PRODUCT</a></button>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor"
                     class="w-8 h-8 absolute bg-black text-white  rounded-full p-2 duration-500 right-[-60px] top-5 hover:bg-slate-800 group-hover:right-2 delay-100">
@@ -54,7 +55,7 @@
                 <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
                     alt="" class="h-96 absolute top-0 z-[-1]">
                 <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
-            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">ADD TO CART</button>
+            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW PRODUCT</button>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor"
                     class="w-8 h-8 absolute bg-black text-white  rounded-full p-2 duration-500 right-[-60px] top-5 hover:bg-slate-800 group-hover:right-2 delay-100">
@@ -72,7 +73,7 @@
                 <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
                     alt="" class="h-96 absolute top-0 z-[-1]">
                 <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
-            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">ADD TO CART</button>
+            left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW PRODUCT</button>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor"
                     class="w-8 h-8 absolute bg-black text-white  rounded-full p-2 duration-500 right-[-60px] top-5 hover:bg-slate-800 group-hover:right-2 delay-100">
