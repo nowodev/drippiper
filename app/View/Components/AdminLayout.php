@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class DashboardLayout extends Component
+class AdminLayout extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +13,6 @@ class DashboardLayout extends Component
      */
     public function render()
     {
-        return view('layouts.dashboard.app');
+        return view('layouts.admin.app');
     }
 }
