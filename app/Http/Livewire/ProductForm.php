@@ -6,6 +6,7 @@ use Image;
 use App\Models\Stock;
 use App\Models\Product;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -27,6 +28,7 @@ class ProductForm extends Component
 
     protected array $rules = [
         'product.name'        => 'required|string',
+        'product.category_id' => 'required|string',
         'product.price'       => 'required|integer',
         'product.sales_price' => 'sometimes|nullable|integer',
         'product.description' => 'required|string',
@@ -39,6 +41,7 @@ class ProductForm extends Component
 
     protected array $validationAttributes = [
         'product.name'        => 'name',
+        'product.category_id' => 'category',
         'product.price'       => 'price',
         'product.sales_price' => 'sales_price',
         'product.description' => 'description',
@@ -55,7 +58,9 @@ class ProductForm extends Component
 
     public function render()
     {
-        return view('livewire.product-form');
+        $categories = Category::get();
+
+        return view('livewire.product-form', compact('categories'));
     }
 
     public function add()
@@ -93,6 +98,7 @@ class ProductForm extends Component
 
                 $product = Product::query()->create([
                     'name'        => data_get($data, 'product.name'),
+                    'category_id' => data_get($data, 'product.category_id'),
                     'price'       => data_get($data, 'product.price'),
                     'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),
@@ -137,6 +143,7 @@ class ProductForm extends Component
                 // Update data
                 $this->product->update([
                     'name'        => data_get($data, 'product.name'),
+                    'category_id' => data_get($data, 'product.category_id'),
                     'price'       => data_get($data, 'product.price'),
                     'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),

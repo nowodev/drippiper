@@ -6,6 +6,12 @@
             <x-input-error for="product.name" />
         </div>
 
+        <div>
+            <x-input-label>Category</x-input-label>
+            <x-select name="Select Category" :options="$categories" wire:model="product.category_id" />
+            <x-input-error for="product.category_id" />
+        </div>
+
         <div class="flex gap-x-6">
             <div>
                 <x-input-label>Price</x-input-label>
