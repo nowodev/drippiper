@@ -33,8 +33,8 @@
             {{ __('Dashboard') }}
         </x-nav-link>
 
-        <x-nav-link href="{{ route('admin.products.index') }}"
-            :active="request()->routeIs('admin.products.index')">
+        <x-nav-link href="{{ route('admin.categories.index') }}"
+            :active="request()->routeIs('admin.categories.index')">
             <x-slot name="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
