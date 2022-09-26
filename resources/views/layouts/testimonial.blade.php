@@ -14,11 +14,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab beatae exercitationem dicta, labore libero
                 repellat amet cupiditate pariatur nemo odio sunt quis vel distinctio officia iusto sit tenetur rerum,
                 qui minima ea eligendi dolorem possimus? Delectus unde, animi doloremque quibusdam cum blanditiis vitae
-                omnis error fugiat veniam qui distinctio consequuntur ea quam eius quod sed dolor aliquid. Sequi culpa
-                repudiandae possimus optio iure adipisci provident, repellendus quasi iusto laudantium rerum
-                perspiciatis sunt dignissimos suscipit nemo iste molestias, ab ullam aut. Perspiciatis fugit nihil error
-                explicabo voluptates pariatur libero saepe repudiandae, nobis suscipit? Reprehenderit, repellendus.
-                Saepe voluptas nemo officia fugiat inventore?
+                omnis error fugiat veniam qui distinctio consequuntur ea quam eius quod sed dolor aliquid.
             </p>
             <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
             <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Piper Wears</h2>
