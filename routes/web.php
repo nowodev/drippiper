@@ -20,11 +20,11 @@ use App\Http\Controllers\Customer\ProfileController as CustomerProfileController
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 require __DIR__ . '/auth.php';
+
+// Pages
+Route::view('/', 'index');
+Route::view('/product-view', 'product-view')->name('product.view');
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
