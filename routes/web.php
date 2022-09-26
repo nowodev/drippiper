@@ -1,13 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\Customer;
 use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
-use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,26 +26,28 @@ Route::view('/product-view', 'product-view')->name('product.view');
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
 
-    Route::resource('products', ProductController::class);
+    Route::resource('categories', Admin\CategoryController::class);
 
-    Route::resource('orders', OrderController::class);
+    Route::resource('products', Admin\ProductController::class);
 
-    Route::resource('customers', CustomerController::class)->only('index', 'show');
+    Route::resource('orders', Admin\OrderController::class);
 
-    Route::resource('transaction', TransactionController::class)->only('index', 'show');
+    Route::resource('customers', Admin\CustomerController::class)->only('index', 'show');
+
+    Route::resource('transaction', Admin\TransactionController::class)->only('index', 'show');
 
     // Route::get('settings', [SettingController::class, 'index'])->name('users');
 
-    Route::get('profile', [AdminProfileController::class, 'show'])->name('profile.show');
+    Route::get('profile', [Admin\ProfileController::class, 'show'])->name('profile.show');
 
-    Route::put('profile', [AdminProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile', [Admin\ProfileController::class, 'update'])->name('profile.update');
 });
 
 // Customer route
 Route::middleware('auth')->name('customer.')->group(function () {
     Route::view('/dashboard', 'customer.dashboard')->name('dashboard');
 
-    Route::get('profile', [CustomerProfileController::class, 'show'])->name('profile.show');
+    Route::get('profile', [Customer\ProfileController::class, 'show'])->name('profile.show');
 
-    Route::put('profile', [CustomerProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile', [Customer\ProfileController::class, 'update'])->name('profile.update');
 });
