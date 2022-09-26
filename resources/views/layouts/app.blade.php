@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Piper Wears') }}</title>
+        <title>{{ config('app.name', 'Piper Wears') }}</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <!-- Fonts -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
 
-<body>
-    @include('layouts.header')
-    @include('layouts.hero')
-    @include('layouts.headerLink')
-    @include('layouts.featured')
-    @include('layouts.testimonial')
-    @include('layouts.cart')
+    <body>
+        @include('layouts.header')
 
+        <main>
+            {{ $slot }}
+        </main>
 
-    <main>
-        {{ $slot }}
-    </main>
+        @include('layouts.footer')
 
-    @include('layouts.footer')
-</body>
+        @stack('scripts')
+    </body>
 
-</html>@
+</html>
