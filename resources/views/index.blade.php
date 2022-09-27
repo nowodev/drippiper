@@ -255,8 +255,8 @@
     {{-- Testimonial Section --}}
     <section class="text-gray-600 body-font">
         <div class="text-center mb-4 mt-8 text-3xl font-semibold ">
-            <h3 class=" text-[#6366F1]">
-                Our Customer Speaks..
+            <h3 class=" text-[#6366F1] font-Raleway">
+                Our Customer Speak For Us..
             </h3>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-8 h-8 mx-auto text-[#6366F1]">
