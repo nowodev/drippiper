@@ -174,11 +174,11 @@
 
         </div>
         <div class="container mx-auto flex justify-between md:px-24 px-5">
-            <h3 class="md:text-sm text-xs cursor-pointer">Collections</h3>
+            <h3 class="md:text-sm text-xs cursor-pointer text-[#6366F1] ">Collections</h3>
             <div class="flex justify-center items-center space-x-2 md:text-sm text-xs cursor-pointer">
-                <h3 class=" ">Show all </h3>
+                <h3 class="text-[#6366F1] ">Show all </h3>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
+                    stroke="currentColor" class="w-6 h-6 text-[#6366F1] ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
             </div>
@@ -246,7 +246,8 @@
         </div>
 
         <div class="text-center mb-4">
-            <button class="cursor-pointer text-white bg-black p-3 rounded w-1/6 text-xl hover:bg-pink-700">
+            <button
+                class="cursor-pointer text-white bg-black p-3 rounded md:w-1/6 w-1/3 md:text-xl text-sm hover:bg-pink-700">
                 View all
             </button>
         </div>
@@ -254,8 +255,8 @@
 
     {{-- Testimonial Section --}}
     <section class="text-gray-600 body-font">
-        <div class="text-center mb-4 mt-8 text-3xl font-semibold ">
-            <h3 class=" text-[#6366F1] font-Raleway">
+        <div class="text-center md:mb-4 mt-8 md:text-3xl text-sm font-semibold ">
+            <h3 class=" text-[#6366F1]">
                 Our Customer Speak For Us..
             </h3>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -271,9 +272,13 @@
                         <img alt="testimonial"
                             class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                             src="https://dummyimage.com/302x302">
-                        <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki
-                            taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote
-                            bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                        <p class="leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque iusto ex velit
+                            repellendus laborum! Delectus voluptate tempora ullam, porro totam quidem eos vel non fuga
+                            ut corrupti, est odio aperiam deserunt id recusandae unde quos nam ab, molestias possimus
+                            ipsum doloremque odit. Veritatis laudantium blanditiis labore quam quis? Distinctio,
+                            ratione?
+                        </p>
                         <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
                         <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
                         <p class="text-gray-500">Senior Product Designer</p>
@@ -284,9 +289,12 @@
                         <img alt="testimonial"
                             class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                             src="https://dummyimage.com/300x300">
-                        <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki
-                            taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote
-                            bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                        <p class="leading-relaxed">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate ullam, fugit
+                            accusantium praesentium consectetur voluptatum? Tenetur eveniet eius consequuntur ab porro
+                            quam cum officiis perferendis delectus maxime blanditiis ad libero vero ipsa, unde autem
+                            iure, tempora ut qui quisquam omnis nemo et? Nisi adipisci maxime nobis ad aliquid rem illo!
+                        </p>
                         <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
                         <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ALPER KAMU</h2>
                         <p class="text-gray-500">UI Develeoper</p>
@@ -297,9 +305,13 @@
                         <img alt="testimonial"
                             class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                             src="https://dummyimage.com/305x305">
-                        <p class="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki
-                            taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote
-                            bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                        <p class="leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nam placeat, fugiat magni
+                            inventore itaque voluptate qui ut facilis molestias sapiente veritatis enim numquam quos.
+                            Minus sint cupiditate expedita, non quae tempora pariatur obcaecati delectus vel
+                            voluptatibus possimus alias sed, at dolorum voluptate animi deserunt! Fugit exercitationem
+                            quos aperiam asperiores!
+                        </p>
                         <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
                         <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HENRY LETHAM</h2>
                         <p class="text-gray-500">CTO</p>
