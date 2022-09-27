@@ -26,7 +26,7 @@ Route::view('/product-view', 'product-view')->name('product.view');
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
 
-    Route::resource('categories', Admin\CategoryController::class);
+    Route::resource('categories', Admin\CategoryController::class)->except('show');
 
     Route::resource('products', Admin\ProductController::class);
 

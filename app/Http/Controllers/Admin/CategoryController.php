@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
@@ -27,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,7 +40,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        DB::transaction(function () use ($data) {
+            Category::create([
+                'name' => $data['name'],
+                'slug' => Str::slug($data['name']),
+            ]);
+        });
+
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', "Category Created Successfully");
     }
 
     /**
@@ -49,7 +64,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -60,7 +75,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -72,7 +87,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        DB::transaction(function () use ($category, $data) {
+
+            $category->update([
+                'name' => $data['name'],
+                'slug' => Str::slug($data['name']),
+            ]);
+        });
+
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', "Category Updated Successfully");
     }
 
     /**
@@ -83,6 +112,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Category Deleted Successfully');
     }
 }
