@@ -26,8 +26,11 @@ Route::view('/product-view', 'product-view')->name('product.view');
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
     Route::view('/', 'admin.dashboard')->name('dashboard');
 
+
     Route::resource('categories', Admin\CategoryController::class)->except('show');
 
+    Route::put('products/{product}/status', [Admin\ProductController::class, 'updateStatus'])
+        ->name('products.status');
     Route::resource('products', Admin\ProductController::class);
 
     Route::resource('orders', Admin\OrderController::class);
