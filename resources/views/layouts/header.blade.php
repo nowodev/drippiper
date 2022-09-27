@@ -1,7 +1,6 @@
 <header>
     {{-- Desktop Nav --}}
     <div class="hidden md:flex container mx-auto px-3 py-6 bg-white justify-between items-center">
-        <div></div>
         <div class="flex jusify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
