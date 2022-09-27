@@ -26,7 +26,7 @@
     </section> --}}
 
     {{-- Featured Section --}}
-    <section class="w-full border border-red-900">
+    <section class="w-full">
         <div class="text-center mb-4 text-3xl font-semibold ">
             <h3 class=" text-[#6366F1]">
                 Featured products
@@ -117,11 +117,15 @@
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap">
             <div class="flex w-full mb-20 flex-wrap">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Master
-                    Cleanse Reliac Heirloom</h1>
-                <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon
-                    brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard
-                    of them man bun deep jianbing selfies heirloom.</p>
+                <h1 class="sm:text-3xl text-3xl font-bold title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">
+                    Gallery
+                </h1>
+                <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aliquid, fuga doloribus temporibus
+                    voluptate, sequi sapiente optio aspernatur laborum distinctio, autem nobis. Ab iusto labore et
+                    explicabo dignissimos vero voluptatibus enim ipsam, repellendus asperiores voluptatem accusantium
+                    itaque ad voluptatum numquam.
+                </p>
             </div>
             <div class="flex flex-wrap md:-m-2 -m-1">
                 <div class="flex flex-wrap w-1/2">
@@ -159,7 +163,7 @@
 
     <!-- New collection -->
     <section>
-        <div class="text-center mb-4 text-3xl font-semibold ">
+        <div class="text-center mb-8 text-3xl font-semibold">
             <h3 class=" text-[#6366F1]">
                 New Collections
             </h3>
@@ -250,6 +254,16 @@
 
     {{-- Testimonial Section --}}
     <section class="text-gray-600 body-font">
+        <div class="text-center mb-4 mt-8 text-3xl font-semibold ">
+            <h3 class=" text-[#6366F1]">
+                Our Customer Speaks..
+            </h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 mx-auto text-[#6366F1]">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+            </svg>
+
+        </div>
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
                 <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
