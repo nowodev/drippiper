@@ -8,6 +8,7 @@
 
     <title>{{ config('app.name', 'Piper Wears') }}</title>
 
+<<<<<<< HEAD
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+=======
+        <!-- Fonts -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap">
+>>>>>>> refs/remotes/origin/frontend
 
 <body>
     @include('layouts.header')
