@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,5 @@ use App\Http\Controllers\Api\ProductController;
 //     return $request->user();
 // });
 
-Route::apiResource('products', ProductController::class)->only('index', 'show');
+Route::apiResource('products', Api\ProductController::class)->only('index', 'show');
+Route::apiResource('carts', Api\CartController::class);
