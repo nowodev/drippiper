@@ -25,6 +25,7 @@ require __DIR__ . '/auth.php';
 // Pages
 Route::view('/', 'index');
 Route::view('/product-view', 'product-view')->name('product.view');
+Route::view('/checkout', 'checkout')->name('checkout');
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
