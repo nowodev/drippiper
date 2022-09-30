@@ -7,7 +7,9 @@
                 viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
             </svg>
-            <span class="ml-3 text-3xl font-bold">Piper Wears</span>
+            <a href="{{route('home')}}">
+                <span class="ml-3 text-3xl font-bold">Piper Wears</span>
+            </a>
         </div>
 
         <!-- <input type="text" placeholder="Search" class="w-64 border border-black rounded"> -->
