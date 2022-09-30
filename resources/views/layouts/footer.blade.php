@@ -1,5 +1,5 @@
-<footer>
-    <div class="mx-auto md:px-24 px-12 py-4 md:py-6 md:flex justify-between items-center bg-black text-white">
+<footer class="md:py-14">
+    <div class="mx-auto md:px-24 px-12 py-4 md:py-14 md:flex justify-between items-center bg-black text-white">
         <div class="md:w-1/3">
             <h3 class="text-2xl mb-4">
                 Join our community

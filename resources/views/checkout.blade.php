@@ -1,68 +1,5 @@
 <x-app-layout>
-    <header class="flex flex-wrap">
-        <nav class="flex w-screen justify-between bg-gray-50 text-gray-600">
-            <div class="w-full xl:px-12 py-6 px-5 flex space-x-12 items-center ">
-                <a class="text-2xl font-bold" href="#">
-                    Your Logo
-                </a>
-                <ul class="hidden md:flex mx-auto px-5 font-semibold space-x-12">
-                    <li><a class="hover:text-gray-900" href="#">Home</a></li>
-                    <li><a class="hover:text-gray-900" href="#">Products</a></li>
-                    <li><a class="hover:text-gray-900" href="#">Contact Us</a></li>
-                </ul>
-                <div class="flex-grow border-2 py-1 px-3 lg:flex justify-between round hidden">
-                    <input class="flex-grow text-gray-600 focus:outline-none" type="text"
-                        placeholder="Search Product ..." />
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 text-gray-400 hover:text-gray-600 transition duration-100 cursor-pointer"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="hidden xl:flex items-center text-gray-600 space-x-5 items-center">
-                    <a class="hover:text-gray-900" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </a>
-                    <a class="flex items-center hover:text-gray-900" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        <span class="absolute flex ml-4 -mt-5">
-                            <span
-                                class="h-3 w-3 animate-ping absolute inline-flex rounded-full bg-pink-500 opacity-75"></span>
-                            <span class="h-3 w-3 relative inline-flex rounded-full bg-pink-600"></span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <a class="flex xl:hidden items-center mr-6 hover:text-gray-900" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                <span class="flex absolute -mt-5 ml-4">
-                    <span class="h-3 w-3 absolute bg-pink-500 opacity-75 inline-flex rounded-full animate-ping"></span>
-                    <span class="h-3 w-3 relative inline-flex rounded-full bg-pink-600"></span>
-                </span>
-            </a>
-            <a class="xl:hidden self-center mr-12 hover:text-gray-900" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </a>
-        </nav>
-    </header>
+
     <div class="h-screen grid grid-cols-3">
         <div class="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-12">
             <div class="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md">
@@ -95,13 +32,13 @@
                         <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
                             <label class="flex border-b border-gray-200 h-12 py-3 items-center">
                                 <span class="text-right px-2">Name</span>
-                                <input name="name" class="focus:outline-none px-3" placeholder="Try Odinsson"
+                                <input name="name" class="focus:outline-none px-3 w-full" placeholder="Full Name"
                                     required="">
                             </label>
                             <label class="flex border-b border-gray-200 h-12 py-3 items-center">
                                 <span class="text-right px-2">Email</span>
-                                <input name="email" type="email" class="focus:outline-none px-3"
-                                    placeholder="try@example.com" required="">
+                                <input name="email" class="focus:outline-none px-3 w-full" placeholder="sample@mail.com"
+                                    required="">
                             </label>
                             <label class="flex border-b border-gray-200 h-12 py-3 items-center">
                                 <span class="text-right px-2">Address</span>
@@ -110,15 +47,15 @@
                             <label class="flex border-b border-gray-200 h-12 py-3 items-center">
                                 <span class="text-right px-2">City</span>
                                 <input name="city" class="focus:outline-none px-3" placeholder="San Francisco">
-                            </label>
-                            <label class="inline-flex w-2/4 border-gray-200 py-3">
-                                <span class="text-right px-2">State</span>
-                                <input name="state" class="focus:outline-none px-3" placeholder="CA">
-                            </label>
-                            <label
-                                class="xl:w-1/4 xl:inline-flex py-3 items-center flex xl:border-none border-t border-gray-200 py-3">
-                                <span class="text-right px-2 xl:px-0 xl:text-none">ZIP</span>
-                                <input name="postal_code" class="focus:outline-none px-3" placeholder="98603">
+                                <label class="inline-flex w-2/6 border-gray-200 py-3">
+                                    <span class="text-right px-2">State</span>
+                                    <input name="state" class="focus:outline-none px-3" placeholder="CA">
+                                </label>
+                                <label
+                                    class="xl:w-1/4 xl:inline-flex items-center px-3 flex xl:border-none border-t border-gray-200 py-3">
+                                    <span class="text-right px-2 xl:px-0 xl:text-none">ZIP</span>
+                                    <input name="postal_code" class="focus:outline-none px-3" placeholder="98603">
+                                </label>
                             </label>
                             <label class="flex border-t border-gray-200 h-12 py-3 items-center select relative">
                                 <span class="text-right px-2">Country</span>
@@ -168,8 +105,8 @@
                     </fieldset>
                 </section>
             </div>
-            <button
-                class="submit-button px-4 py-3 rounded-full bg-pink-400 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors">
+            <button class="submit-button px-4 py-3 rounded-md bg-[#6366F1] text-white focus:ring 
+                focus:outline-none w-1/3 mb-4  text-xl font-semibold transition-colors">
                 Pay €846.98
             </button>
         </div>
