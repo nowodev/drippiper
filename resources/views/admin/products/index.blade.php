@@ -19,6 +19,9 @@
                         </th>
                         <th
                             class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                        </th>
+                        <th
+                            class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
                             Name
                         </th>
                         <th
@@ -41,6 +44,9 @@
                 <tbody>
                     @forelse($products as $product)
                     <tr>
+                        <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                            {{ $loop->iteration }}
+                        </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <img src="{{ asset('storage/' . $product->cover_image) }}" class="w-12"
                                 alt="Img">

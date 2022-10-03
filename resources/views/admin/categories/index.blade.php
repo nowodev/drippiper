@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th
-                            class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                            class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200 w-4">
                         </th>
                         <th
                             class="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
@@ -30,9 +30,7 @@
                     @forelse($categories as $category)
                     <tr>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            {{-- <img src="{{ asset('storage/' . $product->cover_image) }}"
-                            class="w-12"
-                            alt="Img"> --}}
+                            {{ $loop->iteration }}
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <p class="text-gray-900 whitespace-no-wrap">{{ $category->name }}</p>
