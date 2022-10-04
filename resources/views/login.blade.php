@@ -3,10 +3,10 @@
         <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div class="w-full max-w-md space-y-8">
                 <div class="text-center">
-                    <h3 class="font-semibold text-xl">
+                    <h3 class="font-semibold text-xl mb-0">
                         Welcome Back {user.firstname}
                     </h3>
-                    <h2 class="mt-6 text-xl  tracking-tight text-gray-900">
+                    <h2 class="mt-6 md:text-xl md:mb-2 mb-3 text-sm tracking-tight text-gray-900">
                         Sign in to your account
                     </h2>
                     <span class="text-sm text-gray-600">
@@ -59,6 +59,12 @@
                             </span>
                             Sign in
                         </button>
+                    </div>
+                    <div class="flex gap-3 text-gray-600 text-sm">
+                        <span> Don't have an account?</span>
+                        <a href="{{route('register')}}" class="hover:text-indigo-600">
+                            <p>Click here</p>
+                        </a>
                     </div>
                 </form>
             </div>

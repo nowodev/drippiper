@@ -28,6 +28,7 @@ Route::view('/product-view', 'product-view')->name('product.view');
 Route::view('/checkout', 'checkout')->name('checkout');
 Route::view('/index', 'index')->name('home');
 Route::view('/login', 'login')->name('login');
+Route::view('/register', 'register')->name('register');
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
