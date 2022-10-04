@@ -15,18 +15,20 @@
         <!-- <input type="text" placeholder="Search" class="w-64 border border-black rounded"> -->
 
         <div class="flex space-x-4">
-            <h3 class="flex gap-x-1 items-center">
-                Account
+            <a href="{{route('login')}}">
+                <h3 class="flex gap-x-1 items-center">
+                    Account
 
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
 
-                </span>
-            </h3>
+                    </span>
+                </h3>
+            </a>
 
             <h3 class="flex gap-x-1 items-center">
                 Cart
@@ -46,7 +48,7 @@
 
     {{-- Mobile Nav --}}
 
-    <div class="md:hidden container mx-auto px-3 py-6 bg-white flex justify-between items-center">
+    <div class=" md:hidden container mx-auto px-3 py-6 bg-white flex justify-between items-center">
         <div class="flex jusify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"

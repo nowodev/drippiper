@@ -37,7 +37,11 @@
             </svg>
 
         </div>
-        <div class="w-full md:flex justify-center items-center md:mb-24">
+        <!-- overlay -->
+        <div class="fixed hidden inset-0 bg-black bg-opacity-600 overflow-y-auto h-full w-full " id="myModal"></div>
+        <!-- Modal Content -->
+        <div class="relative top-20"></div>
+        <div class=" w-full md:flex justify-center items-center md:mb-24">
             <div class="md:flex md:space-x-4 mb-4">
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0 ">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
