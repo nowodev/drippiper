@@ -11,10 +11,10 @@
                     <input type="hidden" name="remember" value="true">
                     <div class="-space-y-px rounded-md shadow-sm">
                         <div class="mb-4">
-                            <label for="email-address" class="sr-only">Email address</label>
-                            <input id="email-address" name="email" type="email" autocomplete="email" required
+                            <label for="otp" class="sr-only">otp</label>
+                            <input id="number" name="number" type="number" autocomplete="off" required
                                 class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                placeholder="Email address">
+                                placeholder="Enter OTP">
                         </div>
                     </div>
                     <div>
@@ -26,9 +26,9 @@
                         </button>
                     </div>
                     <div class="flex gap-3 text-gray-600 text-sm">
-                        <span> Don't have an accoun?</span>
+                        <span> Didn't get otp?</span>
                         <a href="{{route('register')}}" class="hover:text-indigo-600">
-                            <p>Click here</p>
+                            <p>Resend OTP</p>
                         </a>
                     </div>
                 </form>
