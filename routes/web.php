@@ -31,6 +31,7 @@ Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
 Route::view('/forgotpassword', 'forgotpassword')->name('forgotpassword');
 Route::view('/verify', 'verify')->name('verify');
+Route::view('/prof', 'prof')->name('prof');
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {

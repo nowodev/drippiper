@@ -15,20 +15,53 @@
         <!-- <input type="text" placeholder="Search" class="w-64 border border-black rounded"> -->
 
         <div class="flex space-x-4">
-            <a href="{{route('login')}}">
-                <h3 class="flex gap-x-1 items-center">
-                    Account
+            <div class="flex justify-center">
+                <div>
+                    <div class="dropdown relative">
+                        <h3 type="button" class="dropdown-toggle px-6 py-2.5 transition duration-150 ease-in-out
+                        flex items-center " id="dropdownMenuButton1tx" datab-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Account
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                            </span>
+                        </h3>
+                        <ul class="drodown-menu min-w-max absolute hidden text-base z-50 float-left py-2 list-none text-left
+                            mt-1 border-none" aria-labelledby="dropdownMenuBtton1tx">
+                            <li>
+                                <a href="{{route('prof')}}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full bg-white 
+                                    text-gray-700 hover:bg-gray-100 ">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('profile')}}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full bg-white 
+                                    text-gray-700 hover:bg-gray-100 ">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- <a href=" {{route('login')}}">
+                                    <h3 class="flex gap-x-1 items-center">
+                                        Account
 
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                        </svg>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                            </svg>
 
-                    </span>
-                </h3>
-            </a>
+                                        </span>
+                                    </h3>
+                                </a> -->
 
             <h3 class="flex gap-x-1 items-center">
                 Cart
