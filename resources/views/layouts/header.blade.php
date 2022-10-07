@@ -68,7 +68,9 @@
                     </a>
                 </li>
                 <li>
-                    Products
+                    <a href="{{route('products')}}" class="hover:text-gray-600">
+                        Products
+                    </a>
                 </li>
                 <li>
                     New In
