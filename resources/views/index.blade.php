@@ -45,9 +45,7 @@
             <div class="md:flex md:space-x-4 mb-4">
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0 ">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                     <a href="{{route('product.view')}}">
                         <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
                     left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW
@@ -62,10 +60,8 @@
                 </div>
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
-                    <a href="{{route('product.view')}}">
+                        alt="" class="h-96 duration-500">
+                    <a href=" {{route('product.view')}}">
                         <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
                     left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW
                             PRODUCT</button>
@@ -81,9 +77,7 @@
 
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                     <a href="{{route('product.view')}}">
                         <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
                     left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW
@@ -100,9 +94,7 @@
 
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                     <a href="{{route('product.view')}}">
                         <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
                     left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW
@@ -193,31 +185,23 @@
             <div class="md:flex md:space-x-4 mb-4">
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0 ">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                 </div>
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                 </div>
 
 
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                 </div>
 
 
                 <div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
                     <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                        alt="" class="h-96 duration-500 group-hover:opacity-0">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-                        alt="" class="h-96 absolute top-0 z-[-1]">
+                        alt="" class="h-96 duration-500">
                 </div>
             </div>
         </div>
@@ -313,3 +297,13 @@
     </script> --}}
     @endpush
 </x-app-layout>
+
+
+
+<!-- 
+<div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
+    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518" alt=""
+        class="h-96 duration-500 group-hover:opacity-0">
+    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
+        alt="" class="h-96 absolute top-0 z-[-1]">
+</div> -->
