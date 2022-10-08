@@ -23,10 +23,9 @@ use App\Http\Controllers\Customer\ProfileController as CustomerProfileController
 require __DIR__ . '/auth.php';
 
 // Pages
-Route::view('/', 'index');
+Route::view('/', 'index')->name('home');
 Route::view('/product-view', 'product-view')->name('product.view');
 Route::view('/checkout', 'checkout')->name('checkout');
-Route::view('/index', 'index')->name('home');
 Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
 Route::view('/forgotpassword', 'forgotpassword')->name('forgotpassword');
