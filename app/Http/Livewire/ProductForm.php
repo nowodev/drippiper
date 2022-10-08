@@ -28,7 +28,7 @@ class ProductForm extends Component
 
     protected array $rules = [
         'product.name'        => 'required|string',
-        'product.category_id' => 'required|string',
+        'product.category_id' => 'required',
         'product.price'       => 'required|integer',
         'product.sales_price' => 'sometimes|nullable|integer',
         'product.description' => 'required|string',

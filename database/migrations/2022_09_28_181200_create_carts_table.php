@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Stock;
 use App\Models\Product;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,6 +24,10 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignIdFor(Product::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignIdFor(Stock::class)
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
