@@ -12,6 +12,7 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        @stack('styles')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <x-livewire-alert::scripts />

@@ -1,4 +1,22 @@
 <x-admin-layout>
+    @push('styles')
+    <style>
+        table {
+            position: relative;
+        }
+
+        .rowlink::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3em;
+            /* don't forget to set the height! */
+        }
+    </style>
+    @endpush
+
     <x-slot name="header">
         {{ __('Products') }}
     </x-slot>
@@ -45,7 +63,9 @@
                     @forelse($products as $product)
                     <tr>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            {{ $loop->iteration }}
+                            <a href="{{ route('admin.products.edit', $product) }}" class="rowlink">
+                                {{ $loop->iteration }}
+                            </a>
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <img src="{{ asset('storage/' . $product->cover_image) }}" class="w-12"
@@ -58,7 +78,7 @@
                             <p class="text-gray-900 whitespace-no-wrap">{{ $product->price }}</p>
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            <p class="text-gray-900 font-bold whitespace-no-wrap">
+                            <p class="font-bold text-gray-900 whitespace-no-wrap">
                                 {{ $product->category->name }}
                             </p>
                         </td>
@@ -74,7 +94,7 @@
                             </form>
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            <div class="justify-end space-x-3 flex items-center">
+                            <div class="flex items-center justify-end space-x-3">
 
                                 <a href="{{ route('admin.products.edit', $product) }}"
                                     class="flex w-fit">
@@ -121,7 +141,7 @@
                     @empty
                     <tr>
                         <td colspan="6"
-                            class="text-center px-5 py-5 text-sm bg-white border-b border-gray-200">
+                            class="px-5 py-5 text-sm text-center bg-white border-b border-gray-200">
                             <p class="text-gray-900 whitespace-no-wrap">No Record Found</p>
                         </td>
                     </tr>
