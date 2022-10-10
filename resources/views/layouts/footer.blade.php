@@ -1,25 +1,41 @@
-<footer>
-    <div class="mx-auto px-12 py-6 md:flex justify-between items-center bg-black text-white">
-        <div class="md:w-1/3 mb-4 md:mb-0">
-            <a href="#"
-                class="flex title-font font-medium items-center md:justify-start justify-center text-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
-                <span class="ml-3 text-xl font-bold text-white">Piper Wears</span>
-            </a>
-            <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aut
-                suscipit tempora vel
-                obcaecati
-                laboriosam ipsum omnis illum reiciendis possimus aliquid repellat, laudantium
-                necessitatibus deserunt?
+<footer class="md:py-14">
+    <div
+        class="mx-auto md:px-24 px-12 py-4 md:py-14 md:flex justify-between items-center bg-gray-600 text-white">
+        <div class="md:w-1/3">
+            <h3 class="text-2xl mb-4">
+                Join our community
+            </h3>
+            <p class="mb-3">
+                Get 10% off your first order and be the first to get the latest updates on our
+                promotion campaigns,
+                products and services.
             </p>
+
+            <div class="flex space-x-4 text-black">
+                <x-input class="py-2 px-4 mt-0" placeholder="Enter Email" />
+                <x-primary-button>Subscribe</x-primary-button>
+            </div>
         </div>
         <div class="mb-4 md:mb-0">
             <h3 class=" font-bold text-xl ">
                 Explore
+            </h3>
+            <ul>
+                <li>
+                    <a href=""> Account</a>
+                </li>
+                <li>
+                    <a href="#  ">Cart</a>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mb-4 md:mb-0">
+            <h3 class=" font-bold text-xl ">
+                Quick Link
             </h3>
             <ul>
                 <li>
@@ -33,33 +49,18 @@
                 </li>
             </ul>
         </div>
-        <div class="md:w-1/3">
-            <h3 class="text-2xl mb-4">
-                Join our community
-            </h3>
-            <p class="mb-3">
-                Get 10% off your first order and be the first to get the latest updates on our
-                promotion campaigns,
-                products and services.
-            </p>
-            <input type=" text" name="newsletter" placeholder="Enter Email"
-                class="rounded block p-3 focus:no-outline">
-            <button
-                class="btn bg-white text-black px-3 py-2 mt-2 rounded cursor-pointer">Subscribe</button>
-        </div>
-
     </div>
     <!-- social media footer -->
-    <section class="bg-gray-200">
-        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    <section class="bg-black text-white">
+        <div class="container md:px-14 px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <a href="#"
-                class="flex title-font font-medium items-center md:justify-start justify-center text-gray-800">
+                class="flex title-font font-medium items-center md:justify-start justify-center text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
-                <span class="ml-3 text-xl">Piper Wears</span>
+                <span class="ml-3 text-xl">Drip Piper</span>
             </a>
             <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
                 &copy piperwears 2022

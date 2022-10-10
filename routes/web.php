@@ -19,8 +19,17 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 // Pages
-Route::view('/', 'index');
+Route::view('/', 'index')->name('home');
 Route::view('/product-view', 'product-view')->name('product.view');
+Route::view('/checkout', 'checkout')->name('checkout');
+Route::view('/login', 'login')->name('login');
+Route::view('/register', 'register')->name('register');
+Route::view('/forgotpassword', 'forgotpassword')->name('forgotpassword');
+Route::view('/verify', 'verify')->name('verify');
+Route::view('/prof', 'prof')->name('prof');
+Route::view('/cart', 'cart')->name('cart');
+Route::view('/sales', 'sales')->name('sales');
+Route::view('/products', 'products')->name('products');
 
 // Admin route
 Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.')->group(function () {
