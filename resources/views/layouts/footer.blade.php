@@ -1,8 +1,8 @@
-<footer class="md:py-14">
+<footer>
     <div
-        class="mx-auto md:px-24 px-12 py-4 md:py-14 md:flex justify-between items-center bg-gray-600 text-white">
+        class="items-center justify-between px-12 py-4 mx-auto text-white bg-gray-600 md:px-24 md:py-14 md:flex">
         <div class="md:w-1/3">
-            <h3 class="text-2xl mb-4">
+            <h3 class="mb-4 text-2xl">
                 Join our community
             </h3>
             <p class="mb-3">
@@ -12,12 +12,12 @@
             </p>
 
             <div class="flex space-x-4 text-black">
-                <x-input class="py-2 px-4 mt-0" placeholder="Enter Email" />
+                <x-input class="px-4 py-2 mt-0" placeholder="Enter Email" />
                 <x-primary-button>Subscribe</x-primary-button>
             </div>
         </div>
         <div class="mb-4 md:mb-0">
-            <h3 class=" font-bold text-xl ">
+            <h3 class="text-xl font-bold ">
                 Explore
             </h3>
             <ul>
@@ -25,7 +25,7 @@
                     <a href=""> Account</a>
                 </li>
                 <li>
-                    <a href="#  ">Cart</a>
+                    <a href="#">Cart</a>
                 </li>
                 <li>
                     <a href="#">Shop</a>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="mb-4 md:mb-0">
-            <h3 class=" font-bold text-xl ">
+            <h3 class="text-xl font-bold ">
                 Quick Link
             </h3>
             <ul>
@@ -42,7 +42,7 @@
                     <a href=""> About</a>
                 </li>
                 <li>
-                    <a href="#  ">Contact</a>
+                    <a href="#">Contact</a>
                 </li>
                 <li>
                     <a href="@">FAQs</a>
@@ -51,22 +51,22 @@
         </div>
     </div>
     <!-- social media footer -->
-    <section class="bg-black text-white">
-        <div class="container md:px-14 px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    <section class="text-white bg-black">
+        <div class="container flex flex-col items-center px-5 py-6 mx-auto md:px-14 sm:flex-row">
             <a href="#"
-                class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+                class="flex items-center justify-center font-medium text-white title-font md:justify-start">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                    class="w-10 h-10 p-2 text-white bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
                 <span class="ml-3 text-xl">Drip Piper</span>
             </a>
-            <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+            <p class="mt-4 text-sm text-gray-500 sm:ml-6 sm:mt-0">
                 &copy piperwears 2022
             </p>
             <!--- Social Media Icon -->
-            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <span class="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
                 <a class="text-gray-500">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -86,7 +86,8 @@
                     <svg fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
                         viewBox="0 0 24 24">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5">
+                        </rect>
                         <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                     </svg>
                 </a>
