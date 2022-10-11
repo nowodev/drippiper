@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('products') }}" class="hover:text-gray-600">
+                    <a href="{{ route('products.index') }}" class="hover:text-gray-600">
                         Products
                     </a>
                 </li>

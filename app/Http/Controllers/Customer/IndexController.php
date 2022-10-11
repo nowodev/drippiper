@@ -16,4 +16,18 @@ class IndexController extends Controller
 
         return view('customer.frontend.index', compact('products', 'newCollections'));
     }
+
+    public function productsIndex()
+    {
+        $products = Product::where('status', true)->with('category')->get();
+
+        return view('customer.frontend.products.index', compact('products'));
+    }
+
+    public function showProduct(Product $product)
+    {
+        $product = Product::where('status', true)->with('category')->find($product);
+
+        return view('customer.frontend.products.show', compact('product'));
+    }
 }
