@@ -9,7 +9,7 @@
         {{-- Featured Section --}}
         <section>
             <div class="mb-3 text-center">
-                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 lg:mb-0">
                     Featured products
                 </h3>
 
@@ -31,9 +31,9 @@
                         class="relative w-full pl-6 mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
                         <img src="{{ asset('storage/' . $product->cover_image) }}"
                             alt="Product Image" class="h-96 max-w-[300px] duration-500">
-                        <a href="{{ route('product.view') }}"
-                            class="absolute px-5 py-2 bg-black text-white left-1/4 font-semibold rounded bottom-[-65px] group-hover:bottom-14 duration-700">View
-                            Product
+                        <a href="{{ route('products.show', $product) }}"
+                            class="absolute px-5 py-2 bg-black text-white left-1/4 font-semibold rounded bottom-[-65px] group-hover:bottom-14 duration-700">
+                            View Product
                         </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor"
@@ -50,8 +50,7 @@
         <section class="text-gray-600 body-font">
             <div class="container flex flex-wrap px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20">
-                    <h1
-                        class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl title-font lg:w-1/3 lg:mb-0">
+                    <h1 class="mb-4 text-3xl font-bold text-gray-900 title-font lg:w-1/3 lg:mb-0">
                         Gallery
                     </h1>
                     <p class="mx-auto text-base leading-relaxed lg:pl-6 lg:w-2/3">
@@ -109,7 +108,7 @@
         <!-- New collection -->
         <section>
             <div class="mb-3 text-center">
-                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 lg:mb-0">
                     New Collections
                 </h3>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -145,7 +144,7 @@
         {{-- Testimonial Section --}}
         <section class="text-gray-600">
             <div class="mb-3 text-center">
-                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 lg:mb-0">
                     Our Customer Speak For Us..
                 </h3>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
