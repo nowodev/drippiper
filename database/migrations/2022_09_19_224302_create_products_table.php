@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('sales_price')->nullable()->comment('The new price due to sales or other events.');
             $table->longText('description');
             $table->string('cover_image');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
