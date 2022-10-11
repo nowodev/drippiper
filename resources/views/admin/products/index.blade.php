@@ -68,8 +68,8 @@
                             </a>
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            <img src="{{ asset('storage/' . $product->cover_image) }}" class="w-12"
-                                alt="Img">
+                            <img src="{{ asset('storage/' . $product->cover_image) }}"
+                                class="w-8 h-8 rounded-full" alt="Img">
                         </td>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <p class="text-gray-900 whitespace-no-wrap">{{ $product->name }}</p>
@@ -82,7 +82,7 @@
                                 {{ $product->category->name }}
                             </p>
                         </td>
-                        <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                        <td class="relative px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <form action="{{ route('admin.products.status', $product) }}"
                                 method="POST">
                                 @csrf
