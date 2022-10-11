@@ -2,8 +2,7 @@
     <section>
 
         {{-- Desktop Nav --}}
-        <div
-            class="items-center justify-between hidden px-12 py-3 mx-auto bg-white md:flex">
+        <div class="items-center justify-between hidden px-12 py-3 mx-auto bg-white md:flex">
             <div class="flex items-center jusify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -19,8 +18,8 @@
                 <div class="flex items-center justify-center">
 
                     <div class="flex justify-center">
-                        <div x-data="{show: false}" @click.away="show = false"> <button
-                                @click="show = ! show"
+                        <div x-data="{ show: false }" @click.away="show = false">
+                            <button @click="show = ! show"
                                 class="relative overflow-hidden transition duration-150 ease-in-out focus:outline-none focus:border-white">
                                 <div class="flex justify-between">
                                     Account
@@ -34,22 +33,28 @@
                                     </span>
                                 </div>
                             </button>
+
                             <div x-show="show"
-                                class="absolute w-48 py-2 mt-2 transition duration-500 ease-in-out bg-white rounded-lg shadow-xl">
-                                <a href="{{route('prof')}}"
-                                    class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">
-                                    Profile</a>
+                                class="absolute w-48 mt-2 transition duration-500 ease-in-out bg-white border rounded-lg shadow-xl">
                                 <a href="#"
-                                    class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Signout</a>
+                                    class="block px-4 py-2 text-gray-800 rounded-t-lg hover:bg-indigo-500 hover:text-white">
+                                    Profile
+                                </a>
+
+                                <a href="#"
+                                    class="block px-4 py-2 text-gray-800 rounded-b-lg hover:bg-indigo-500 hover:text-white">
+                                    Logout
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="{{route('cart')}}" class="flex items-center justify-center gap-x-2">
+
+                <a href="{{ route('cart') }}" class="flex items-center justify-center gap-x-2">
                     <h3 class="">
                         Cart
-
                     </h3>
+
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
@@ -65,7 +70,7 @@
         {{-- Mobile Nav --}}
 
         <div
-            class="container flex items-center justify-between px-3 py-6 mx-auto bg-white  md:hidden">
+            class="container flex items-center justify-between px-3 py-6 mx-auto bg-white md:hidden">
             <div class="flex items-center jusify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -112,7 +117,7 @@
         <nav class="flex">
             <ul class="flex gap-8 mx-auto">
                 <li>
-                    <a href="{{ route('home')}}" class="hover:text-gray-600">
+                    <a href="{{ route('home') }}" class="hover:text-gray-600">
                         Home
                     </a>
                 </li>

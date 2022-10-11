@@ -22,7 +22,7 @@
             </h3>
             <ul>
                 <li>
-                    <a href=""> Account</a>
+                    <a href="#"> Account</a>
                 </li>
                 <li>
                     <a href="#">Cart</a>
@@ -39,13 +39,13 @@
             </h3>
             <ul>
                 <li>
-                    <a href=""> About</a>
+                    <a href="#"> About</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
                 </li>
                 <li>
-                    <a href="@">FAQs</a>
+                    <a href="#">FAQs</a>
                 </li>
             </ul>
         </div>
