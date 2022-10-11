@@ -1,6 +1,6 @@
 <x-guest-layout>
     <a href="/" class="flex justify-center items-center mb-4">
-        <x-application-logo class="w-10 h-10 fill-current text-gray-500"/>
+        <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
     </a>
 
     <div class="mb-4 text-sm text-gray-600">
@@ -17,14 +17,9 @@
         @csrf
 
         <!-- Email Address -->
-        <x-label for="email" :value="__('Email')"/>
-        <x-input type="email"
-                 name="email"
-                 id="email"
-                 value="{{ old('email') }}"
-                 required
-                 autofocus
-        />
+        <x-label for="email" :value="__('Email')" />
+        <x-input type="email" name="email" id="email" value="{{ old('email') }}" required
+            autofocus />
 
         <div class="flex items-center justify-end mt-4">
             <x-button class="w-full">
