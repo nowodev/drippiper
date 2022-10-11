@@ -4,8 +4,7 @@
 
         @if($cartCount > 0)
         <span
-            class=" absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full
-        -top-2 -right-2 animate-bounce">
+            class="absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full -top-2 -right-2 animate-bounce">
         {{ $cartCount }}
         </span>
         @endif
@@ -63,8 +62,7 @@
                                                         alt="Img">
                                                 </div>
 
-                                                <div class=" flex flex-col flex-1 ml-4
-                                                        overflow-hidden">
+                                                <div class="flex flex-col flex-1 ml-4 overflow-hidden">
                                                     <div
                                                         class="flex justify-between text-base font-medium text-gray-900">
                                                         <h3>{{ $item->product->name }}</h3>
@@ -79,7 +77,7 @@
 
                                                         <div class="flex space-x-2">
                                                             <button class="hover:opacity-75"
-                                                                wire:click="reduceUnit({{ $item->quantity}}, {{ $item->id }})">
+                                                                wire:click="reduceQuantity({{ $item->quantity}}, {{ $item->id }})">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     viewBox="0 0 24 24" width="24"
                                                                     height="24">
@@ -92,7 +90,7 @@
                                                             </button>
 
                                                             <button class="hover:opacity-75"
-                                                                wire:click="increaseUnit({{ $item->units }}, {{ $item->id }})">
+                                                                wire:click="increaseQuantity({{ $item->quantity }}, {{ $item->id }})">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     viewBox="0 0 24 24" width="24"
                                                                     height="24">

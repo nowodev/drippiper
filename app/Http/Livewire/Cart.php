@@ -40,59 +40,59 @@ class Cart extends Component
     }
 
     // Increase item in cart by 1
-    public function increaseUnit($unit, $cartId)
+    public function increaseQuantity($quantity, $cartId)
     {
-        DB::transaction(function () use ($unit, $cartId) {
+        DB::transaction(function () use ($quantity, $cartId) {
 
             $cart = CartModel::query()->find($cartId);
 
-            // Get current units of item in the cart
-            $currentUnitsInCart = $cart?->units;
+            // Get current quantity of item in the cart
+            $currentQuantityInCart = $cart?->quantity;
 
             // Get current amount of item in the cart
             $currentAmountInCart = $cart?->total;
 
             // Get new amount to add to cart
-            $newAmount = ($currentAmountInCart / $currentUnitsInCart) + $currentAmountInCart;
+            $newAmount = ($currentAmountInCart / $currentQuantityInCart) + $currentAmountInCart;
 
             // Add item to cart for the authenticated user and if item already exists,
             // increase the unit item
             $cart->update(
                 [
-                    'units' => ++$unit,
-                    'total' => $newAmount
+                    'quantity' => ++$quantity,
+                    'total'    => $newAmount
                 ]
             );
         });
     }
 
     // Reduce item in cart by 1
-    public function reduceUnit($unit, $cartId)
+    public function reduceQuantity($quantity, $cartId)
     {
-        // Ensure the least unit is 1, and not something like -1
-        // $unit = $unit == 1 ? 1 : --$unit;
-        DB::transaction(function () use ($unit, $cartId) {
+        // Ensure the least quantity is 1, and not something like -1
+        // $quantity = $quantity == 1 ? 1 : --$quantity;
+        DB::transaction(function () use ($quantity, $cartId) {
 
-            if ($unit == 1) {
+            if ($quantity == 1) {
                 return;
             } else {
                 $cart = CartModel::query()->find($cartId);
 
                 // Get current units of item in the cart
-                $currentUnitsInCart = $cart?->units;
+                $currentQuantityInCart = $cart?->quantity;
 
                 // Get current amount of item in the cart
                 $currentAmountInCart = $cart?->total;
 
                 // Get new amount to add to cart
-                $newAmount = $currentAmountInCart - ($currentAmountInCart / $currentUnitsInCart);
+                $newAmount = $currentAmountInCart - ($currentAmountInCart / $currentQuantityInCart);
 
                 // Add item to cart for the authenticated user and if item already exists,
                 // increase the unit item
                 $cart->update(
                     [
-                        'units'  => --$unit,
-                        'total' => $newAmount
+                        'quantity' => --$quantity,
+                        'total'    => $newAmount
                     ]
                 );
             }
