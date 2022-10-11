@@ -8,7 +8,7 @@
 
         <div>
             <x-input-label>Category</x-input-label>
-            <x-select name="Select Category" :options="$categories" wire:model="product.category_id" />
+            <x-select name="Select Category" :options="$categories" wire:model.defer="product.category_id" />
             <x-input-error for="product.category_id" />
         </div>
 
