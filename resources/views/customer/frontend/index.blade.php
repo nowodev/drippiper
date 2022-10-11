@@ -3,13 +3,13 @@
         {{-- Hero Section --}}
         <section>
             <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/files/ASHLUXE-PARADISE-INYONI-LOCATION0057-1_1296x.png?v=1628967799"
-                alt="background__image" class="w-full align-center justify-center mx-auto">
+                alt="background__image" class="justify-center w-full mx-auto align-center">
         </section>
 
         {{-- Featured Section --}}
         <section>
-            <div class="text-center mb-3">
-                <h3 class="sm:text-3xl text-3xl font-bold text-gray-900 lg:mb-0 mb-4">
+            <div class="mb-3 text-center">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
                     Featured products
                 </h3>
 
@@ -20,20 +20,20 @@
             </div>
 
             <!-- overlay -->
-            <div class="fixed hidden inset-0 bg-black bg-opacity-600 overflow-y-auto h-full w-full "
+            <div class="fixed inset-0 hidden w-full h-full overflow-y-auto bg-black bg-opacity-600 "
                 id="myModal"></div>
             <!-- Modal Content -->
             <div class="relative top-20"></div>
-            <div class=" w-full md:flex justify-center items-center md:mb-24">
-                <div class="md:flex md:space-x-4 mb-4">
-                    @for ($i = 1; $i <= 4; $i++) <div
-                        class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0 ">
-                        <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                            alt="" class="h-96 duration-500">
-                        <a href="{{route('product.view')}}">
-                            <button class="absolute px-5 py-2 bg-black text-white font-semibold rounded
-                    left-1/4 bottom-[-65px] group-hover:bottom-14 duration-700">VIEW
-                                PRODUCT</button>
+            <div class="items-center justify-center w-full md:flex md:mb-24">
+                <div class="mb-4 md:flex md:space-x-4">
+                    @foreach ($products as $product)
+                    <div
+                        class="relative w-full pl-6 mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
+                        <img src="{{ asset('storage/' . $product->cover_image) }}"
+                            alt="Product Image" class="h-96 max-w-[300px] duration-500">
+                        <a href="{{ route('product.view') }}"
+                            class="absolute px-5 py-2 bg-black text-white left-1/4 font-semibold rounded bottom-[-65px] group-hover:bottom-14 duration-700">View
+                            Product
                         </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor"
@@ -41,20 +41,20 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                         </svg>
+                    </div>
+                    @endforeach
                 </div>
-                @endfor
-            </div>
         </section>
 
         <!-- Gallery -->
         <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
-                <div class="flex w-full mb-20 flex-wrap">
+            <div class="container flex flex-wrap px-5 py-24 mx-auto">
+                <div class="flex flex-wrap w-full mb-20">
                     <h1
-                        class="sm:text-3xl text-3xl font-bold title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">
+                        class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl title-font lg:w-1/3 lg:mb-0">
                         Gallery
                     </h1>
-                    <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">
+                    <p class="mx-auto text-base leading-relaxed lg:pl-6 lg:w-2/3">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aliquid,
                         fuga
                         doloribus temporibus
@@ -66,38 +66,38 @@
                         itaque ad voluptatum numquam.
                     </p>
                 </div>
-                <div class="flex flex-wrap md:-m-2 -m-1">
+                <div class="flex flex-wrap -m-1 md:-m-2">
                     <div class="flex flex-wrap w-1/2">
-                        <div class="md:p-2 p-1 w-1/2">
+                        <div class="w-1/2 p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full object-cover h-full object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/500x300">
                         </div>
-                        <div class="md:p-2 p-1 w-1/2">
+                        <div class="w-1/2 p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full object-cover h-full object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/501x301">
                         </div>
-                        <div class="md:p-2 p-1 w-full">
+                        <div class="w-full p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full h-full object-cover object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/600x360">
                         </div>
                     </div>
                     <div class="flex flex-wrap w-1/2">
-                        <div class="md:p-2 p-1 w-full">
+                        <div class="w-full p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full h-full object-cover object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/601x361">
                         </div>
-                        <div class="md:p-2 p-1 w-1/2">
+                        <div class="w-1/2 p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full object-cover h-full object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/502x302">
                         </div>
-                        <div class="md:p-2 p-1 w-1/2">
+                        <div class="w-1/2 p-1 md:p-2">
                             <img alt="gallery"
-                                class="w-full object-cover h-full object-center block"
+                                class="block object-cover object-center w-full h-full"
                                 src="https://dummyimage.com/503x303">
                         </div>
                     </div>
@@ -108,8 +108,8 @@
 
         <!-- New collection -->
         <section>
-            <div class="text-center mb-3">
-                <h3 class="sm:text-3xl text-3xl font-bold text-gray-900 lg:mb-0 mb-4">
+            <div class="mb-3 text-center">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
                     New Collections
                 </h3>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -118,10 +118,10 @@
                 </svg>
 
             </div>
-            <div class="container mx-auto flex justify-between md:px-24 px-5">
+            <div class="container flex justify-between px-5 mx-auto md:px-24">
                 <span></span>
                 <div
-                    class="flex justify-center items-center space-x-2 md:text-sm text-xs cursor-pointer">
+                    class="flex items-center justify-center space-x-2 text-xs cursor-pointer md:text-sm">
                     <h3 class="text-[#6366F1] ">Show all </h3>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#6366F1] ">
@@ -130,21 +130,22 @@
                     </svg>
                 </div>
             </div>
-            <div class="w-full md:flex justify-center items-center md:mb-24">
-                <div class="md:flex md:space-x-4 mb-4">
-                    @for ($i = 1; $i <= 4; $i++) <div
-                        class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0 ">
-                        <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518"
-                            alt="" class="h-96 duration-500">
+            <div class="items-center justify-center w-full md:flex md:mb-24">
+                <div class="mb-4 md:flex md:space-x-4">
+                    @foreach ($newCollections as $newCollection)
+                    <div
+                        class="relative pl-6 mb-6 overflow-hidden cursor-pointer shaadow-lg group md:pl-0 md:mb-0 ">
+                        <img src="{{ asset('storage/' . $newCollection->cover_image) }}"
+                            alt="New Collection" class="h-96 max-w-[300px] duration-500">
+                    </div>
+                    @endforeach
                 </div>
-                @endfor
-            </div>
         </section>
 
         {{-- Testimonial Section --}}
         <section class="text-gray-600">
-            <div class="text-center mb-3">
-                <h3 class="sm:text-3xl text-3xl font-bold text-gray-900 lg:mb-0 mb-4">
+            <div class="mb-3 text-center">
+                <h3 class="mb-4 text-3xl font-bold text-gray-900 sm:text-3xl lg:mb-0">
                     Our Customer Speak For Us..
                 </h3>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -155,10 +156,10 @@
             </div>
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap -m-4">
-                    @for ($i = 1; $i <= 3; $i++) <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+                    @for ($i = 1; $i <= 3; $i++) <div class="p-4 mb-6 lg:w-1/3 lg:mb-0">
                         <div class="h-full text-center">
                             <img alt="testimonial"
-                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                                class="inline-block object-cover object-center w-20 h-20 mb-8 bg-gray-100 border-2 border-gray-200 rounded-full"
                                 src="https://dummyimage.com/302x302">
                             <p class="leading-relaxed">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
@@ -174,8 +175,8 @@
                                 ratione?
                             </p>
                             <span
-                                class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">
+                                class="inline-block w-10 h-1 mt-6 mb-4 bg-indigo-500 rounded"></span>
+                            <h2 class="text-sm font-medium tracking-wider text-gray-900 title-font">
                                 HOLDEN CAULFIELD</h2>
                             <p class="text-gray-500">Senior Product Designer</p>
                         </div>
@@ -185,28 +186,4 @@
         </section>
 
     </div>
-
-    @push('scripts')
-    {{-- <script>
-        setTimeout(function() {
-            let activeSlide = document.querySelector('.slide.translate-x-0');
-            activeSlide.classList.remove('translate-x-0');
-            activeSlide.classList.add('-translate-x-full');
-
-            let nextSlide = activeSlide.nextElementSibling;
-            nextSlide.classList.remove('translate-x-full');
-            nextSlide.classList.add('translate-x-0');
-        }, 3000);
-    </script> --}}
-    @endpush
 </x-app-layout>
-
-
-
-<!--
-<div class="relative cursor-pointer shaadow-lg group overflow-hidden pl-6 md:pl-0 mb-6 md:mb-0">
-    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/PufferJacket2_360x.png?v=1663679518" alt=""
-        class="h-96 duration-500 group-hover:opacity-0">
-    <img src="https://cdn.shopify.com/s/files/1/0066/2326/4828/products/image_67c584d0-d8d4-4452-8bd5-a360370b647d_360x.jpg?v=1662634229"
-        alt="" class="h-96 absolute top-0 z-[-1]">
-</div> -->
