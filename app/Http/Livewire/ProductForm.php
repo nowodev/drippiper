@@ -55,12 +55,18 @@ class ProductForm extends Component
         $this->buttonName = $this->product_id ? 'Save' : 'Create';
         $this->status     = $this->product_id ? 'Updated' : 'Created';
 
-        // add empty data to stocks to use color picker
-        $this->stocks[] = [
-            'size' => null,
-            'colour' => null,
-            'quantity' => null,
-        ];
+        /**
+         * Add empty data to stocks to use for color picker.
+         * Only do this when creating. The stocks are 
+         * automatically loaded when editing.
+         */
+        if (!$this->stocks) {
+            $this->stocks[] = [
+                'size' => null,
+                'colour' => null,
+                'quantity' => null,
+            ];
+        }
     }
 
     public function render()
