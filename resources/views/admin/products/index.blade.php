@@ -63,7 +63,7 @@
                     @forelse($products as $product)
                     <tr>
                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                            <a href="{{ route('admin.products.edit', $product) }}" class="rowlink">
+                            <a href="{{ route('admin.products.show', $product) }}" class="rowlink">
                                 {{ $loop->iteration }}
                             </a>
                         </td>
@@ -93,7 +93,7 @@
                                 </button>
                             </form>
                         </td>
-                        <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                        <td class="relative px-5 py-5 text-sm bg-white border-b border-gray-200">
                             <div class="flex items-center justify-end space-x-3">
 
                                 <a href="{{ route('admin.products.edit', $product) }}"
