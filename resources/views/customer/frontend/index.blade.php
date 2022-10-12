@@ -25,12 +25,12 @@
             <!-- Modal Content -->
             <div class="relative top-20"></div>
             <div class="items-center justify-center w-full md:flex md:mb-24">
-                <div class="mb-4 md:flex md:space-x-4">
+                <div class="mb-4 md:flex md:space-x-4 overflow-clip">
                     @foreach ($products as $product)
                     <div
-                        class="relative w-full pl-6 mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
+                        class="relative w-fit mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
                         <img src="{{ asset('storage/' . $product->cover_image) }}"
-                            alt="Product Image" class="h-96 max-w-[300px] duration-500">
+                            alt="Product Image" class="h-96 max-w-[240px] duration-500">
                         <a href="{{ route('products.show', $product) }}"
                             class="absolute px-5 py-2 bg-black text-white left-1/4 font-semibold rounded bottom-[-65px] group-hover:bottom-14 duration-700">
                             View Product
@@ -133,9 +133,9 @@
                 <div class="mb-4 md:flex md:space-x-4">
                     @foreach ($newCollections as $newCollection)
                     <div
-                        class="relative pl-6 mb-6 overflow-hidden cursor-pointer shaadow-lg group md:pl-0 md:mb-0 ">
+                        class="relative mb-6 w-fit overflow-hidden cursor-pointer shadow-lg group md:pl-0 md:mb-0 ">
                         <img src="{{ asset('storage/' . $newCollection->cover_image) }}"
-                            alt="New Collection" class="h-96 max-w-[300px] duration-500">
+                            alt="New Collection" class="h-96 max-w-[240px] duration-500">
                     </div>
                     @endforeach
                 </div>

@@ -5,11 +5,12 @@
     </h3>
     <div class="items-center justify-center w-full md:flex md:mb-8">
         <div class="mb-4 md:flex md:space-x-4">
+
             @foreach ($products as $product)
             <div
-                class="relative w-full pl-6 mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
+                class="relative w-fit mb-6 overflow-hidden shadow-lg cursor-pointer group md:pl-0 md:mb-0">
                 <img src="{{ asset('storage/' . $product->cover_image) }}" alt="Product Image"
-                    class="h-96 max-w-[300px] duration-500">
+                    class="h-96 max-w-[240px] duration-500">
                 <a href="{{ route('products.show', $product) }}"
                     class="absolute px-5 py-2 bg-black text-white left-1/4 font-semibold rounded bottom-[-65px] group-hover:bottom-14 duration-700">
                     View Product
