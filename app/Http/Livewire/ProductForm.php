@@ -23,7 +23,7 @@ class ProductForm extends Component
     public $buttonName;
     public $cover_image;
     public $images    = [];
-    public $stocks    = [0];
+    public $stocks    = [];
     public $edit_mode = false;
 
     protected array $rules = [
@@ -54,6 +54,13 @@ class ProductForm extends Component
     {
         $this->buttonName = $this->product_id ? 'Save' : 'Create';
         $this->status     = $this->product_id ? 'Updated' : 'Created';
+
+        // add empty data to stocks to use color picker
+        $this->stocks[] = [
+            'size' => null,
+            'colour' => null,
+            'quantity' => null,
+        ];
     }
 
     public function render()

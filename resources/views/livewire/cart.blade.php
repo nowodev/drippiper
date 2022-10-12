@@ -4,7 +4,7 @@
 
         @if($cartCount > 0)
         <span
-            class="absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full  -top-2 -right-2 animate-bounce">
+            class="absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full -top-2 -right-2 animate-bounce">
         {{ $cartCount }}
         </span>
         @endif

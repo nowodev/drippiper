@@ -8,7 +8,8 @@
 
         <div>
             <x-input-label>Category</x-input-label>
-            <x-select name="Select Category" :options="$categories" wire:model.defer="product.category_id" />
+            <x-select name="Select Category" :options="$categories"
+                wire:model.defer="product.category_id" />
             <x-input-error for="product.category_id" />
         </div>
 
@@ -70,7 +71,7 @@
         </div>
         <div>
             <x-input-label>Colour</x-input-label>
-            <x-input type="text" wire:model.defer="stocks.{{ $key }}.colour" />
+            <x-color-picker wire:model="stocks.{{ $key }}.colour" />
             <x-input-error for="stocks.{{ $key }}.colour" />
         </div>
 
