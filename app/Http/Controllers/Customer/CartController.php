@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Customer;
 
 use App\Models\Cart;
+use App\Models\Stock;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CartCollection;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
@@ -20,7 +21,7 @@ class CartController extends Controller
     {
         $cart = Cart::where('user_id', $user_id)->get();
 
-        return new CartCollection($cart);
+        // return new CartCollection($cart);
     }
 
     /**
@@ -31,33 +32,35 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $data = $request->validate([
             'product_id' => 'required',
-            'price'      => 'required',
+            'size'       => 'required',
+            'colour'     => 'required',
             'quantity'   => 'required|numeric|min:1|max:10',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'errors' => $validator->errors(),
-            ], 400);
-        }
-        $total = $request->price * $request->quantity;
+        $productId = $data['product_id'];
+        $price     = Product::find($productId)->price;
+        $quantity  = $data['quantity'];
 
-        $cart = Cart::create([
+        // Get stock ID to determine exact product customer wants.
+        $stockId = Stock::whereProductId($productId)
+            ->whereSize($data['size'])
+            ->whereColour($data['colour'])
+            ->first()
+            ->id;
+
+        Cart::create([
             'uuid'       => Str::uuid(),
-            'user_id'    => $request->user_id,
-            'product_id' => $request->product_id,
-            'price'      => $request->price,
-            'quantity'   => $request->quantity,
-            'total'      => $total
+            'user_id'    => auth()->id(),
+            'product_id' => $productId,
+            'stock_id'   => $stockId,
+            'price'      => $price,
+            'quantity'   => $quantity,
+            'total'      => $price * $quantity
         ]);
 
-        return response()->json([
-            'error' => 0,
-            'message' => 'Item added to cart successfully',
-            'data' => $cart
-        ], 201);
+        return redirect()->back()->with('success', 'Item added to cart successfully.');
     }
 
     /**

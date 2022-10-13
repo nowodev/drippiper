@@ -60,4 +60,6 @@ Route::middleware('auth')->name('customer.')->group(function () {
     Route::get('profile', [Customer\ProfileController::class, 'show'])->name('profile.show');
 
     Route::put('profile', [Customer\ProfileController::class, 'update'])->name('profile.update');
+
+    Route::post('add-to-cart', [Customer\CartController::class, 'store'])->name('cart.store');
 });
