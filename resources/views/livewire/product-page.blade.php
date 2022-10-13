@@ -66,6 +66,7 @@
                     @csrf
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <input type="hidden" name="colour" value="{{ $colour }}">
 
                     <div x-data="{ colour: @entangle('colour') }"
                         class="flex flex-col pb-5 mt-6 mb-5 space-y-3 border-b-2 border-gray-100">
@@ -76,8 +77,6 @@
                                 :class="colour == @js($stock->colour) ? 'border-4 border-black' : ''"
                                 class="inline-flex w-8 h-8 p-2 mr-2 rounded-full shadow focus:outline-none bg-[{{ $stock->colour }}] focus:shadow-outline">
                             </button>
-
-                            <input type="hidden" name="colour" value="{{ $stock->colour }}">
                             @endforeach
                         </div>
 
