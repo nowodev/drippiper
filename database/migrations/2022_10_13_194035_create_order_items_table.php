@@ -1,6 +1,8 @@
 <?php
 
-use App\Models\User;
+use App\Models\Order;
+use App\Models\Stock;
+use App\Models\Product;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,13 +16,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->string('order_no');
-            $table->string('order_items');
-            $table->string('order_status');
-            $table->string('order_total')->nullable();
+            $table->foreignIdFor(Order::class);
+            $table->foreignIdFor(Product::class);
+            $table->foreignIdFor(Stock::class);
+            $table->string('price');
+            $table->string('quantity');
+            $table->string('total');
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_items');
     }
 };

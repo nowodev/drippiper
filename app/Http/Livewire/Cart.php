@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
 use Livewire\Component;
+use App\Enums\OrderStatus;
 use App\Models\Cart as CartModel;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -22,11 +24,8 @@ class Cart extends Component
 
     public function render()
     {
-        $cartItems = CartModel::query()->whereIn('user_id', [2, 3])
+        $cartItems = CartModel::query()->whereUserId(auth()->id())
             ->with('product:id,name,cover_image')->get();
-
-        // get logged in customer
-        // $cartItems = CartModel::query()->whereUserId(auth()->id())->get();
 
         $total = $cartItems->sum('total');
 
@@ -104,7 +103,7 @@ class Cart extends Component
     {
         CartModel::query()->find($cartId)->delete();
 
-        $this->emit('cartUpdated');
+        $this->dispatchBrowserEvent('close-cart');
 
         $this->alert('success', 'Item removed from cart.');
     }
@@ -114,38 +113,40 @@ class Cart extends Component
     {
         DB::transaction(function () use ($cartItems) {
 
-            $batchNo = sprintf('%s%06s', 'ZEYB', mt_rand(1000, 9999));
-
-            // Insert into batches table
-            $batch = auth()->user()->batches()->create([
-                'batch_no'    => $batchNo,
-                'order_items' => count($cartItems)
+            $order = Order::create([
+                'user_id'      => auth()->id(),
+                'order_no'     => sprintf('%s%06s', 'PPWR', mt_rand(1000, 9999)),
+                'order_items'  => count($cartItems),
+                'order_status' => OrderStatus::PROCESSING->value,
             ]);
 
-            foreach ($cartItems as $cart) {
-                $orderNo = sprintf('%s%06s', 'ZEY', mt_rand(10000, 99999));
+            $orderTotal = [];
 
+            foreach ($cartItems as $cart) {
                 $data = [
-                    'order_no'     => $orderNo,
-                    'concept_id'   => $cart['concept_id'],
-                    'concept_uuid' => $cart['concept_uuid'],
-                    'concept_name' => $cart['concept_name'],
-                    'price'        => $cart['price'],
-                    'units'        => $cart['units'],
-                    'total'        => $cart['total'],
+                    'product_id' => $cart['product_id'],
+                    'stock_id'   => $cart['stock_id'],
+                    'price'      => $cart['price'],
+                    'quantity'   => $cart['quantity'],
+                    'total'      => $cart['total'],
                 ];
 
-                // Insert into orders table
-                $batch->orders()->create($data);
+                $orderTotal[] = $cart['total'];
+
+                $order->order_items()->create($data);
             }
+
+            // Add order total
+            $order->update(['order_total' => collect($orderTotal)->sum()]);
 
             // Empty cart
             CartModel::query()->whereUserId(auth()->id())->delete();
+
+            $this->cartCount = 0;
         });
 
-        $this->emit('cartUpdated');
-
         // Close checkout slide-over
+        $this->dispatchBrowserEvent('close-cart');
 
         $this->alert('success', 'Order submitted.');
     }
