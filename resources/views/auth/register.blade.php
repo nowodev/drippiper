@@ -22,6 +22,12 @@
             <x-input type="email" name="email" id="email" value="{{ old('email') }}" required />
         </div>
 
+        <!-- Phone -->
+        <div class="mt-3">
+            <x-label for="phone" :value="__('Phone Number')" />
+            <x-input type="text" name="phone" id="phone" value="{{ old('phone') }}" required />
+        </div>
+
         <!-- Password -->
         <div class="mt-3">
             <x-label for="password" :value="__('Password')" />

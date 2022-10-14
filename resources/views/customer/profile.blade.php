@@ -28,6 +28,38 @@
                     </div>
 
                     <div>
+                        <x-label for="phone" :value="__('Phone Number')" />
+                        <x-input type="text" name="phone" id="phone"
+                            value="{{ old('phone', auth()->user()->phone) }}" required />
+                    </div>
+
+                    <div>
+                        <x-label for="address" :value="__(' Address')" />
+                        <x-input type="text" name="address" id="ddress"
+                            value="{{ old('address', auth()->user()->address) }}" />
+                    </div>
+
+                    <div>
+                        <x-label for="city" :value="__('City')" />
+                        <x-input type="text" name="city" id="city"
+                            value="{{ old('city', auth()->user()->city) }}" />
+                    </div>
+
+                    <div>
+                        <x-label for="state" :value="__('State')" />
+                        <x-input type="text" name="state" id="state"
+                            value="{{ old('state', auth()->user()->state) }}" />
+                    </div>
+
+                    <div>
+                        <x-label for="zip" :value="__('Zip')" />
+                        <x-input type="text" name="zip" id="zip"
+                            value="{{ old('zip', auth()->user()->zip) }}" />
+                    </div>
+
+                    <div></div>
+
+                    <div>
                         <x-label for="password" :value="__('Password')" />
                         <x-input type="password" name="password" id="password" />
                     </div>
