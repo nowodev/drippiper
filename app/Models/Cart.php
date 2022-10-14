@@ -15,4 +15,9 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class)->withDefault();
     }
+
+    public function stock()
+    {
+        return $this->belongsTo(Stock::class)->withDefault();
+    }
 }
