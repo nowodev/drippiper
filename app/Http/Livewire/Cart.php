@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Order;
 use Livewire\Component;
-use App\Enums\OrderStatus;
 use App\Models\Cart as CartModel;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -14,22 +12,24 @@ class Cart extends Component
     use LivewireAlert;
 
     public $cartCount = 0;
+    public $cartItems;
+    public $total;
 
     protected $listeners = ['cartUpdated'];
 
     public function mount()
     {
-        $this->cartCount = CartModel::count();
+        $this->cartCount = CartModel::whereUserId(auth()->id())->count();
     }
 
     public function render()
     {
-        $cartItems = CartModel::query()->whereUserId(auth()->id())
+        $this->cartItems = CartModel::query()->whereUserId(auth()->id())
             ->with('product:id,name,cover_image')->get();
 
-        $total = $cartItems->sum('total');
+        $this->total = $this->cartItems->sum('total');
 
-        return view('livewire.cart', compact('cartItems', 'total'));
+        return view('livewire.cart');
     }
 
     // Event Listener to display cart count
@@ -106,48 +106,5 @@ class Cart extends Component
         $this->dispatchBrowserEvent('close-cart');
 
         $this->alert('success', 'Item removed from cart.');
-    }
-
-    // Checkout
-    public function checkout($cartItems)
-    {
-        DB::transaction(function () use ($cartItems) {
-
-            $order = Order::create([
-                'user_id'      => auth()->id(),
-                'order_no'     => sprintf('%s%06s', 'PPWR', mt_rand(1000, 9999)),
-                'order_items'  => count($cartItems),
-                'order_status' => OrderStatus::PROCESSING->value,
-            ]);
-
-            $orderTotal = [];
-
-            foreach ($cartItems as $cart) {
-                $data = [
-                    'product_id' => $cart['product_id'],
-                    'stock_id'   => $cart['stock_id'],
-                    'price'      => $cart['price'],
-                    'quantity'   => $cart['quantity'],
-                    'total'      => $cart['total'],
-                ];
-
-                $orderTotal[] = $cart['total'];
-
-                $order->order_items()->create($data);
-            }
-
-            // Add order total
-            $order->update(['order_total' => collect($orderTotal)->sum()]);
-
-            // Empty cart
-            CartModel::query()->whereUserId(auth()->id())->delete();
-
-            $this->cartCount = 0;
-        });
-
-        // Close checkout slide-over
-        $this->dispatchBrowserEvent('close-cart');
-
-        $this->alert('success', 'Order submitted.');
     }
 }
