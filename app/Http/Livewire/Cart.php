@@ -12,25 +12,24 @@ class Cart extends Component
     use LivewireAlert;
 
     public $cartCount = 0;
+    public $cartItems;
+    public $total;
 
     protected $listeners = ['cartUpdated'];
 
     public function mount()
     {
-        $this->cartCount = CartModel::count();
+        $this->cartCount = CartModel::whereUserId(auth()->id())->count();
     }
 
     public function render()
     {
-        $cartItems = CartModel::query()->whereIn('user_id', [2, 3])
+        $this->cartItems = CartModel::query()->whereUserId(auth()->id())
             ->with('product:id,name,cover_image')->get();
 
-        // get logged in customer
-        // $cartItems = CartModel::query()->whereUserId(auth()->id())->get();
+        $this->total = $this->cartItems->sum('total');
 
-        $total = $cartItems->sum('total');
-
-        return view('livewire.cart', compact('cartItems', 'total'));
+        return view('livewire.cart');
     }
 
     // Event Listener to display cart count
@@ -104,49 +103,8 @@ class Cart extends Component
     {
         CartModel::query()->find($cartId)->delete();
 
-        $this->emit('cartUpdated');
+        $this->dispatchBrowserEvent('close-cart');
 
         $this->alert('success', 'Item removed from cart.');
-    }
-
-    // Checkout
-    public function checkout($cartItems)
-    {
-        DB::transaction(function () use ($cartItems) {
-
-            $batchNo = sprintf('%s%06s', 'ZEYB', mt_rand(1000, 9999));
-
-            // Insert into batches table
-            $batch = auth()->user()->batches()->create([
-                'batch_no'    => $batchNo,
-                'order_items' => count($cartItems)
-            ]);
-
-            foreach ($cartItems as $cart) {
-                $orderNo = sprintf('%s%06s', 'ZEY', mt_rand(10000, 99999));
-
-                $data = [
-                    'order_no'     => $orderNo,
-                    'concept_id'   => $cart['concept_id'],
-                    'concept_uuid' => $cart['concept_uuid'],
-                    'concept_name' => $cart['concept_name'],
-                    'price'        => $cart['price'],
-                    'units'        => $cart['units'],
-                    'total'        => $cart['total'],
-                ];
-
-                // Insert into orders table
-                $batch->orders()->create($data);
-            }
-
-            // Empty cart
-            CartModel::query()->whereUserId(auth()->id())->delete();
-        });
-
-        $this->emit('cartUpdated');
-
-        // Close checkout slide-over
-
-        $this->alert('success', 'Order submitted.');
     }
 }

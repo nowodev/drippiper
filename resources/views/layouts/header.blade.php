@@ -14,42 +14,68 @@
                 </a>
             </div>
 
-            <div class="flex w-1/5 space-x-4">
-                <div class="flex items-center justify-center">
+            <div class="flex w-1/5 ">
+                <div class="flex items-center justify-center space-x-4">
 
-                    <div class="flex justify-center">
-                        <div x-data="{ show: false }" @click.away="show = false">
-                            <button @click="show = ! show"
-                                class="relative flex overflow-hidden transition duration-150 ease-in-out focus:outline-none focus:border-white gap-x-1">
-                                Account
+                    @auth
 
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                    </svg>
-                                </span>
-                            </button>
+                    <div class="flex items-center">
+                        <x-dropdown>
+                            <x-slot name="trigger">
+                                <button @click="dropdownOpen = ! dropdownOpen"
+                                    class="relative flex overflow-hidden gap-x-1">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                    </span>
 
-                            <div x-show="show"
-                                class="absolute w-48 mt-2 transition duration-500 ease-in-out bg-white border rounded-lg shadow-xl">
-                                <a href="#"
-                                    class="block px-4 py-2 text-gray-800 rounded-t-lg hover:bg-indigo-500 hover:text-white">
-                                    Profile
-                                </a>
+                                    {{ Auth::user()->name }}
+                                </button>
+                            </x-slot>
 
-                                <a href="#"
-                                    class="block px-4 py-2 text-gray-800 rounded-b-lg hover:bg-indigo-500 hover:text-white">
-                                    Logout
-                                </a>
-                            </div>
-                        </div>
+                            <x-slot name="content">
+                                @if(Auth::user()->type == 'admin')
+                                <x-dropdown-link href="{{ route('admin.profile.show') }}">
+                                    {{ __('My profile') }}
+                                </x-dropdown-link>
+                                @else
+                                <x-dropdown-link href="{{ route('customer.profile.show') }}">
+                                    {{ __('My profile') }}
+                                </x-dropdown-link>
+                                @endif
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                        {{ __('Log out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
                     </div>
-                </div>
 
-                <livewire:cart />
+                    @else
+
+                    <a href="{{ route('login') }}"
+                        class="relative flex overflow-hidden transition duration-150 ease-in-out focus:outline-none focus:border-white gap-x-1">
+                        Login
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                        </svg>
+                    </a>
+
+                    @endauth
+
+                    <livewire:cart />
+                </div>
             </div>
         </div>
 
@@ -67,6 +93,7 @@
             </div>
 
             <div class="flex space-x-4">
+                @auth
                 <h3 class="flex items-center gap-x-1">
                     Account
 
@@ -95,6 +122,7 @@
 
                     </span>
                 </h3>
+                @endauth
             </div>
         </div>
     </section>

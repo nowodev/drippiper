@@ -1,7 +1,5 @@
 <div x-data="{ showCart: false }">
     <button @click="showCart = ! showCart" class="relative flex items-center justify-center gap-x-1"">
-        <h3>Cart</h3>
-
         @if($cartCount > 0)
         <span
             class="absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full -top-2 -right-2 animate-bounce">
@@ -127,13 +125,13 @@
                                     <p>₦{{ $total }}</p>
                                 </div>
                                 <div class="mt-6">
-                                    <a wire:click="checkout({{ $cartItems }})"
+                                    <a href="{{ route('customer.checkout') }}"
                                         class="flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm cursor-pointer hover:bg-indigo-700">Checkout</a>
                                 </div>
                                 <div
                                     class="flex justify-center mt-6 text-sm text-center text-gray-500">
                                     <p>
-                                        or <button type="button" wire:click="$toggle('show')"
+                                        or <button @click="showCart = ! showCart" type="button"
                                             class="font-medium text-indigo-600 hover:text-indigo-500">Continue
                                             Shopping<span aria-hidden="true">
                                                 &rarr;</span></button>

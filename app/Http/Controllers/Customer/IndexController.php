@@ -26,9 +26,7 @@ class IndexController extends Controller
 
     public function showProduct(Product $product)
     {
-        $product = Product::where('status', true)
-            ->with('category:id,name', 'stocks', 'images')
-            ->find($product);
+        $product->load('category:id,name', 'stocks', 'images');
 
         return view('customer.frontend.products.show', compact('product'));
     }
