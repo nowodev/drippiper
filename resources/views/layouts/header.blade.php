@@ -38,9 +38,15 @@
                             </x-slot>
 
                             <x-slot name="content">
+                                @if(Auth::user()->type == 'admin')
                                 <x-dropdown-link href="{{ route('admin.profile.show') }}">
                                     {{ __('My profile') }}
                                 </x-dropdown-link>
+                                @else
+                                <x-dropdown-link href="{{ route('customer.profile.show') }}">
+                                    {{ __('My profile') }}
+                                </x-dropdown-link>
+                                @endif
 
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
