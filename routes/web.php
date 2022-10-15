@@ -18,15 +18,32 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-// Pages
-Route::view('/checkout', 'checkout')->name('checkout');
-Route::view('/sales', 'sales')->name('sales');
-
 // Customer route
 Route::controller(Customer\IndexController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/products', 'productsIndex')->name('products.index');
     Route::get('/products/{product}', 'showProduct')->name('products.show');
+});
+
+// Authenticated Customer route
+Route::middleware('auth')->name('customer.')->group(function () {
+    Route::view('/dashboard', 'customer.dashboard')->name('dashboard');
+
+    Route::get('profile', [Customer\ProfileController::class, 'show'])->name('profile.show');
+
+    Route::put('profile', [Customer\ProfileController::class, 'update'])->name('profile.update');
+
+    Route::post('add-to-cart', [Customer\CartController::class, 'store'])->name('cart.store');
+
+    Route::get('checkout', [Customer\CartController::class, 'checkout'])->name('checkout');
+
+    Route::post('confirm-order', [Customer\CartController::class, 'confirmOrder'])->name('checkout.confirm.order');
+
+    Route::get('pay', [Customer\CartController::class, 'pay'])->name('checkout.pay');
+
+    Route::get('confirm-payment/{reference}', [Customer\CartController::class, 'confirmPayment'])->name('checkout.confirm.payment');
+
+    Route::get('thanks', [Customer\CartController::class, 'thanks'])->name('thanks');
 });
 
 // Admin route
@@ -51,15 +68,4 @@ Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.'
     Route::get('profile', [Admin\ProfileController::class, 'show'])->name('profile.show');
 
     Route::put('profile', [Admin\ProfileController::class, 'update'])->name('profile.update');
-});
-
-// Customer route
-Route::middleware('auth')->name('customer.')->group(function () {
-    Route::view('/dashboard', 'customer.dashboard')->name('dashboard');
-
-    Route::get('profile', [Customer\ProfileController::class, 'show'])->name('profile.show');
-
-    Route::put('profile', [Customer\ProfileController::class, 'update'])->name('profile.update');
-
-    Route::post('add-to-cart', [Customer\CartController::class, 'store'])->name('cart.store');
 });

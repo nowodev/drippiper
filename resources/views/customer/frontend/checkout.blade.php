@@ -1,163 +1,174 @@
 <x-app-layout>
+    <div class="bg-white">
+        <!-- Background color split screen for large screens -->
+        <div class="fixed top-0 left-0 hidden w-1/2 h-full bg-white lg:block" aria-hidden="true">
+        </div>
+        <div class="fixed top-0 right-0 hidden w-1/2 h-full bg-indigo-900 lg:block"
+            aria-hidden="true"></div>
 
-    <div class="h-screen grid grid-cols-3">
-        <div class="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-12">
-            <div class="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md">
-                <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
-                    <div class="text-yellow-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 sm:w-5 h-6 sm:h-5" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="text-sm font-medium ml-3">Checkout</div>
-                </div>
-                <div class="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">Complete your shipping and payment
-                    details below.</div>
-                <div
-                    class="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </div>
+        <header
+            class="relative py-6 mx-auto bg-indigo-900 max-w-7xl lg:bg-transparent lg:grid lg:grid-cols-2 lg:gap-x-16 lg:px-8 lg:pt-16 lg:pb-10">
+            <div class="flex max-w-2xl px-4 mx-auto lg:max-w-lg lg:w-full lg:px-0">
+                <a href="#">
+                    <span class="sr-only">Workflow</span>
+                    <img src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=300"
+                        alt="" class="w-auto h-8 lg:hidden">
+                    <img src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+                        alt="" class="hidden w-auto h-8 lg:block">
+                </a>
             </div>
-            <div class="rounded-md">
-                <form id="payment-form" method="POST" action="">
-                    <section>
-                        <h2 class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Shipping & Billing
-                            Information</h2>
-                        <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
-                            <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                                <span class="text-right px-2">Name</span>
-                                <input name="name" class="focus:outline-none px-3 w-full" placeholder="Full Name"
-                                    required="">
-                            </label>
-                            <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                                <span class="text-right px-2">Email</span>
-                                <input name="email" class="focus:outline-none px-3 w-full" placeholder="sample@mail.com"
-                                    required="">
-                            </label>
-                            <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                                <span class="text-right px-2">Address</span>
-                                <input name="address" class="focus:outline-none px-3" placeholder="10 Street XYZ 654">
-                            </label>
-                            <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                                <span class="text-right px-2">City</span>
-                                <input name="city" class="focus:outline-none px-3" placeholder="San Francisco">
-                                <label class="inline-flex w-2/6 border-gray-200 py-3">
-                                    <span class="text-right px-2">State</span>
-                                    <input name="state" class="focus:outline-none px-3" placeholder="CA">
-                                </label>
-                                <label
-                                    class="xl:w-1/4 xl:inline-flex items-center px-3 flex xl:border-none border-t border-gray-200 py-3">
-                                    <span class="text-right px-2 xl:px-0 xl:text-none">ZIP</span>
-                                    <input name="postal_code" class="focus:outline-none px-3" placeholder="98603">
-                                </label>
-                            </label>
-                            <label class="flex border-t border-gray-200 h-12 py-3 items-center select relative">
-                                <span class="text-right px-2">Country</span>
-                                <div id="country" class="focus:outline-none px-3 w-full flex items-center">
-                                    <select name="country"
-                                        class="border-none bg-transparent flex-1 cursor-pointer appearance-none focus:outline-none">
-                                        <option value="AU">Australia</option>
-                                        <option value="BE">Belgium</option>
-                                        <option value="BR">Brazil</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="CN">China</option>
-                                        <option value="DK">Denmark</option>
-                                        <option value="FI">Finland</option>
-                                        <option value="FR">France</option>
-                                        <option value="DE">Germany</option>
-                                        <option value="HK">Hong Kong</option>
-                                        <option value="IE">Ireland</option>
-                                        <option value="IT">Italy</option>
-                                        <option value="JP">Japan</option>
-                                        <option value="LU">Luxembourg</option>
-                                        <option value="MX">Mexico</option>
-                                        <option value="NL">Netherlands</option>
-                                        <option value="PL">Poland</option>
-                                        <option value="PT">Portugal</option>
-                                        <option value="SG">Singapore</option>
-                                        <option value="ES">Spain</option>
-                                        <option value="TN">Tunisia</option>
-                                        <option value="GB">United Kingdom</option>
-                                        <option value="US" selected="selected">United States</option>
-                                    </select>
+        </header>
+
+        <main class="relative grid grid-cols-1 mx-auto gap-x-16 max-w-7xl lg:px-8 lg:grid-cols-2">
+            <h1 class="sr-only">Checkout</h1>
+
+            <section aria-labelledby="summary-heading"
+                class="pt-6 pb-12 text-indigo-300 bg-indigo-900 md:px-10 lg:max-w-lg lg:w-full lg:mx-auto lg:px-0 lg:pt-0 lg:pb-24 lg:bg-transparent lg:row-start-1 lg:col-start-2">
+                <div class="max-w-2xl px-4 mx-auto lg:max-w-none lg:px-0">
+                    <h2 id="summary-heading" class="sr-only">Order summary</h2>
+
+                    <dl>
+                        <dt class="text-sm font-medium">Amount due</dt>
+                        <dd class="mt-1 text-3xl font-extrabold text-white">
+                            N{{ $total + 2500 }}
+                        </dd>
+                    </dl>
+
+                    <ul role="list"
+                        class="text-sm font-medium divide-y divide-white divide-opacity-10">
+                        @foreach ($cartItems as $item)
+                        <li class="flex items-start py-6 space-x-4">
+                            <img src="{{ asset('storage/' . $item->product->cover_image) }}" alt=""
+                                class="flex-none object-cover object-center w-20 h-20 rounded-md">
+                            <div class="flex-auto space-y-1">
+                                <h3 class="text-white">{{ $item->product->name }}</h3>
+                                <p>{{ $item->product->category->name }}</p>
+                                <p>Size: {{ $item->product->stocks->find($item->stock_id)->size }}
+                                </p>
+                                <p>Pcs: {{ $item->quantity }}</p>
+                            </div>
+                            <p class="flex-none text-base font-medium text-white">N{{ $item->total
+                                }}.00</p>
+                        </li>
+                        @endforeach
+                    </ul>
+
+                    <dl
+                        class="pt-6 space-y-6 text-sm font-medium border-t border-white border-opacity-10">
+                        <div class="flex items-center justify-between">
+                            <dt>Subtotal</dt>
+                            <dd>N{{ $total }}</dd>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <dt>Shipping</dt>
+                            <dd>N2500</dd>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between pt-6 text-white border-t border-white border-opacity-10">
+                            <dt class="text-base">Total</dt>
+                            <dd class="text-base">N{{ $total + 2500 }}</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+
+            <section aria-labelledby="payment-and-shipping-heading"
+                class="py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1">
+                <h2 id="payment-and-shipping-heading" class="sr-only">Payment and shipping details
+                </h2>
+
+                <form method="POST" action="{{ route('customer.checkout.confirm.order') }}">
+                    @csrf
+
+                    <x-errors class="mb-4" :errors="$errors" />
+
+                    <div class="max-w-2xl px-4 mx-auto lg:max-w-none lg:px-0">
+                        <div>
+                            <h3 id="contact-info-heading" class="text-lg font-medium text-gray-900">
+                                Contact information</h3>
+
+                            <div class="mt-6">
+                                <label for="email"
+                                    class="block text-sm font-medium text-gray-700">Email
+                                    address</label>
+                                <div class="mt-1">
+                                    <input type="email" name="email" readonly
+                                        value="{{ auth()->user()->email }}"
+                                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 </div>
-                            </label>
-                        </fieldset>
-                    </section>
+                            </div>
+
+                            <div class="mt-6">
+                                <label for="phone"
+                                    class="block text-sm font-medium text-gray-700">Phone
+                                    number</label>
+                                <div class="mt-1">
+                                    <input type="text" name="phone"
+                                        value="{{ old('phone', auth()->user()->phone) }}"
+                                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10">
+                            <h3 id="shipping-heading" class="text-lg font-medium text-gray-900">
+                                Shipping address</h3>
+
+                            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-3">
+                                <div class="sm:col-span-3">
+                                    <label for="address"
+                                        class="block text-sm font-medium text-gray-700">Address</label>
+                                    <div class="mt-1">
+                                        <input type="text" id="address" name="address"
+                                            value="{{ old('address', auth()->user()->address) }}"
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="city"
+                                        class="block text-sm font-medium text-gray-700">City</label>
+                                    <div class="mt-1">
+                                        <input type="text" id="city" name="city"
+                                            value="{{ old('city', auth()->user()->city) }}"
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="state"
+                                        class="block text-sm font-medium text-gray-700">State</label>
+                                    <div class="mt-1">
+                                        <input type="text" id="state" name="state"
+                                            value="{{ old('state', auth()->user()->state) }}"
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="postal-code"
+                                        class="block text-sm font-medium text-gray-700">Zip
+                                        code</label>
+                                    <div class="mt-1">
+                                        <input type="text" id="postal-code" name="zip"
+                                            value="{{ old('zip', auth()->user()->zip) }}"
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end pt-6 mt-10 border-t border-gray-200">
+                            <button type="submit"
+                                class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                                Confirm Order
+                            </button>
+                        </div>
+                    </div>
                 </form>
-            </div>
-            <div class="rounded-md">
-                <section>
-                    <h2 class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Payment Information
-                    </h2>
-                    <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">Card</span>
-                            <input name="card" class="focus:outline-none px-3 w-full"
-                                placeholder="Card number MM/YY CVC" required="">
-                        </label>
-                    </fieldset>
-                </section>
-            </div>
-            <button class="submit-button px-4 py-3 rounded-md bg-[#6366F1] text-white focus:ring 
-                focus:outline-none w-1/3 mb-4  text-xl font-semibold transition-colors">
-                Pay €846.98
-            </button>
-        </div>
-        <div class="col-span-1 bg-white lg:block hidden">
-            <h1 class="py-6 border-b-2 text-xl text-gray-600 px-8">Order Summary</h1>
-            <ul class="py-6 border-b space-y-6 px-8">
-                <li class="grid grid-cols-6 gap-2 border-b-1">
-                    <div class="col-span-1 self-center">
-                        <img src="https://bit.ly/3oW8yej" alt="Product" class="rounded w-full">
-                    </div>
-                    <div class="flex flex-col col-span-3 pt-2">
-                        <span class="text-gray-600 text-md font-semi-bold">Studio 2 Headphone</span>
-                        <span class="text-gray-400 text-sm inline-block pt-2">Red Headphone</span>
-                    </div>
-                    <div class="col-span-2 pt-3">
-                        <div class="flex items-center space-x-2 text-sm justify-between">
-                            <span class="text-gray-400">2 x €30.99</span>
-                            <span class="text-pink-400 font-semibold inline-block">€61.98</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="grid grid-cols-6 gap-2 border-b-1">
-                    <div class="col-span-1 self-center">
-                        <img src="https://bit.ly/3lCyoSx" alt="Product" class="rounded w-full">
-                    </div>
-                    <div class="flex flex-col col-span-3 pt-2">
-                        <span class="text-gray-600 text-md font-semi-bold">Apple iPhone 13</span>
-                        <span class="text-gray-400 text-sm inline-block pt-2">Phone</span>
-                    </div>
-                    <div class="col-span-2 pt-3">
-                        <div class="flex items-center space-x-2 text-sm justify-between">
-                            <span class="text-gray-400">1 x €785</span>
-                            <span class="text-pink-400 font-semibold inline-block">€785</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="px-8 border-b">
-                <div class="flex justify-between py-4 text-gray-600">
-                    <span>Subtotal</span>
-                    <span class="font-semibold text-pink-500">€846.98</span>
-                </div>
-                <div class="flex justify-between py-4 text-gray-600">
-                    <span>Shipping</span>
-                    <span class="font-semibold text-pink-500">Free</span>
-                </div>
-            </div>
-            <div class="font-semibold text-xl px-8 flex justify-between py-8 text-gray-600">
-                <span>Total</span>
-                <span>€846.98</span>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 </x-app-layout>
