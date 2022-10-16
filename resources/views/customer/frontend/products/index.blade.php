@@ -34,6 +34,10 @@
                 </div>
                 @endforeach
             </div>
+
+            <div class="max-w-7xl mx-auto mt-10">
+                {{ $products->links() }}
+            </div>
         </div>
     </div>
 

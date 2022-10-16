@@ -19,15 +19,8 @@ class IndexController extends Controller
 
     public function productsIndex()
     {
-        $products = Product::where('status', true)->with('category')->get();
+        $products = Product::where('status', true)->with('category')->paginate(16);
 
         return view('customer.frontend.products.index', compact('products'));
-    }
-
-    public function showProduct(Product $product)
-    {
-        $product->load('category:id,name', 'stocks', 'images');
-
-        return view('customer.frontend.products.show', compact('product'));
     }
 }
