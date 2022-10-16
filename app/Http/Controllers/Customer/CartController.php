@@ -97,7 +97,6 @@ class CartController extends Controller
 
         if ($error) return redirect()->back()->with('error', $error);
 
-
         return redirect()->route('customer.checkout.pay');
     }
 
@@ -110,8 +109,6 @@ class CartController extends Controller
 
     public function confirmPayment($reference)
     {
-        // T781087639505013
-
         $response = Http::withHeaders([
             'Authorization' => 'Bearer sk_test_db76df1736de145071b4607f8d9d9559b71dde9b'
         ])
