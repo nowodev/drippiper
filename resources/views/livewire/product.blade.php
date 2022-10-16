@@ -16,9 +16,9 @@
                 </li>
 
                 <li class="text-sm">
-                    <a href="#" aria-current="page"
-                        class="font-medium text-gray-500 hover:text-gray-600">
-                        {{ $product->name }} </a>
+                    <p class="font-medium text-gray-500 hover:text-gray-600">
+                        {{ $product->name }}
+                    </p>
                 </li>
             </ol>
         </nav>
@@ -29,6 +29,8 @@
                         <h1 class="text-xl font-medium text-gray-900">{{ $product->name }}</h1>
                         <p class="text-xl font-medium text-gray-900">₦{{ $product->price }}</p>
                     </div>
+
+                    <x-errors class="mt-8" />
                 </div>
 
                 <!-- Image gallery -->
@@ -51,7 +53,14 @@
                 </div>
 
                 <div class="mt-8 lg:col-span-5">
-                    <form>
+                    <form method="POST" action="{{ route('customer.cart.store') }}">
+                        @csrf
+
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="colour" value="{{ $colour }}">
+                        <input type="hidden" name="size" value="{{ $size }}">
+                        <input type="hidden" name="quantity" value="{{ $quantity }}">
+
                         <!-- Color picker -->
                         <div>
                             <h2 class="text-sm font-medium text-gray-900">Color</h2>
@@ -97,9 +106,7 @@
                                     <label @click="$wire.set('size', @js($item->size))"
                                         :class="size == @js($item->size) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
                                         class="border rounded-md p-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none">
-                                        <input type="radio" name="size" class="sr-only"
-                                            aria-labelledby="size-choice-0-label">
-                                        <p id="size-choice-0-label">{{ $item->size }}</p>
+                                        <p>{{ $item->size }}</p>
                                     </label>
                                     @endforeach
                                 </div>
@@ -127,9 +134,7 @@
                                         @click="$wire.set('quantity', @js($qty))"
                                         :class="quantity == @js($qty) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
                                         class="border rounded-md p-1 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none">
-                                        <input type="radio" name="quantity" class="sr-only"
-                                            aria-labelledby="size-choice-0-label">
-                                        <p id="size-choice-0-label">{{ $qty }}</p>
+                                        <p>{{ $qty }}</p>
                                         </label>
                                         @endfor
                                 </div>
