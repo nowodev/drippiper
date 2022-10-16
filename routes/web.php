@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Product;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Customer;
 use App\Http\Middleware\CheckIfAdmin;
@@ -22,7 +23,8 @@ require __DIR__ . '/auth.php';
 Route::controller(Customer\IndexController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/products', 'productsIndex')->name('products.index');
-    Route::get('/products/{product}', 'showProduct')->name('products.show');
+    // Route::get('/products/{product}', 'showProduct')->name('products.show');
+    Route::get('/products/{productId}', Product::class)->name('products.show');
 });
 
 // Authenticated Customer route
@@ -55,6 +57,7 @@ Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.'
 
     Route::put('products/{product}/status', [Admin\ProductController::class, 'updateStatus'])
         ->name('products.status');
+
     Route::resource('products', Admin\ProductController::class);
 
     Route::resource('orders', Admin\OrderController::class);
