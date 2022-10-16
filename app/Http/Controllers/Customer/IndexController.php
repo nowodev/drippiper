@@ -21,6 +21,6 @@ class IndexController extends Controller
     {
         $products = Product::where('status', true)->with('category')->paginate(16);
 
-        return view('customer.frontend.products.index', compact('products'));
+        return view('customer.frontend.products', compact('products'));
     }
 }
