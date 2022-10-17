@@ -192,15 +192,31 @@
                                                 <a href="{{ route('admin.profile.show') }}"
                                                     class="block px-4 py-2 text-sm text-gray-700"
                                                     role="menuitem" tabindex="-1"
-                                                    id="user-menu-item-0">Your
-                                                    Profile</a>
+                                                   >
+                                                    Your Profile
+                                                </a>
                                                 @else
 
                                                 <a href="{{ route('customer.profile.show') }}"
                                                     class="block px-4 py-2 text-sm text-gray-700"
                                                     role="menuitem" tabindex="-1"
-                                                    id="user-menu-item-0">Your
-                                                    Profile</a>
+                                                   >
+                                                    Your Profile
+                                                </a>
+
+                                                <a href="{{ route('customer.orders') }}"
+                                                    class="block px-4 py-2 text-sm text-gray-700"
+                                                    role="menuitem" tabindex="-1"
+                                                   >
+                                                    Orders
+                                                </a>
+
+                                                {{-- <a href="#"
+                                                    class="block px-4 py-2 text-sm text-gray-700"
+                                                    role="menuitem" tabindex="-1"
+                                                   >
+                                                    Order History
+                                                </a> --}}
                                                 @endif
 
                                                 <form method="POST" action="{{ route('logout') }}">
@@ -210,7 +226,7 @@
                                                         type="button"
                                                         class="block px-4 py-2 text-sm text-gray-700"
                                                         role="menuitem" tabindex="-1"
-                                                        id="user-menu-item-2">
+                                                       >
                                                         Sign out
                                                     </a>
                                                 </form>

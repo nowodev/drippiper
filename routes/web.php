@@ -35,6 +35,11 @@ Route::middleware('auth')->name('customer.')->group(function () {
 
     Route::put('profile', [Customer\ProfileController::class, 'update'])->name('profile.update');
 
+    Route::controller(Customer\OrderController::class)->group(function () {
+        Route::get('orders', 'index')->name('orders');
+        Route::get('orders/{order}', 'show')->name('orders.show');
+    });
+
     Route::post('add-to-cart', [Customer\CartController::class, 'store'])->name('cart.store');
 
     Route::get('checkout', [Customer\CartController::class, 'checkout'])->name('checkout');
