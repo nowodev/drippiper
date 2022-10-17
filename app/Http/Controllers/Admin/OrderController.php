@@ -15,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.orders.index');
+        $orders = Order::query()->with('user:id,name', 'transaction')->paginate();
+
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -47,7 +49,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $order->load('user', 'order_items', 'order_items.product', 'order_items.stock');
+
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
