@@ -77,7 +77,7 @@
                                         :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
                                         class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
                                         <span aria-hidden="true"
-                                            class="h-8 w-8 @if ($stock->colour == 'black') bg-black @else bg-{{ $stock->colour }}-600 @endif border border-black border-opacity-10 rounded-full"></span>
+                                            class="h-8 w-8 @if (in_array($stock->colour, ['black', 'white'])) bg-{{ $stock->colour }} @else bg-{{ $stock->colour }}-600 @endif border border-black border-opacity-10 rounded-full"></span>
                                     </label>
                                     @endforeach
                                 </div>
