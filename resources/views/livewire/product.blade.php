@@ -37,18 +37,15 @@
                 <div class="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
                     <h2 class="sr-only">Images</h2>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-featured-product-shot.jpg"
-                            alt="Back of women&#039;s Basic Tee in black."
+                    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gridrows-3 lg:gap-8">
+                        <img src="{{ asset('storage/' . $product->cover_image) }}"
                             class="rounded-lg lg:col-span-2 lg:row-span-2">
 
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg"
-                            alt="Side profile of women&#039;s Basic Tee in black."
-                            class="hidden rounded-lg lg:block">
-
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg"
-                            alt="Front of women&#039;s Basic Tee in black."
-                            class="hidden rounded-lg lg:block">
+                        @foreach ($product->images as $image)
+                        <img src="{{ asset('storage/' . $image->name) }}"
+                            src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg"
+                            alt="" class="hidden rounded-lg lg:block h-full">
+                        @endforeach
                     </div>
                 </div>
 
@@ -180,7 +177,7 @@
                                     <span class="mt-4 text-sm font-medium text-gray-900">
                                         Fast delivery </span>
                                 </dt>
-                                <dd class="mt-1 text-sm text-gray-500">Get your order in 2 years
+                                <dd class="mt-1 text-sm text-gray-500">Get your order in 2 days
                                 </dd>
                             </div>
                         </dl>

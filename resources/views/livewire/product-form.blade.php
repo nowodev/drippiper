@@ -35,8 +35,16 @@
 
         <div>
             <x-input-label>Cover Image</x-input-label>
+            @if ($product && !is_array($this->product) && $product->cover_image)
+            <div class="mt-2">
+                <img src="{{ asset('/storage/'. $product?->cover_image) }}">
+            </div>
+
+            @else
             <x-input type="file" wire:model="cover_image" />
             <x-input-error for="cover_image" />
+
+            @endif
 
             <div class="mt-2">
                 @if ($cover_image)
@@ -48,8 +56,19 @@
 
         <div>
             <x-input-label>Images</x-input-label>
+            @if (!$image)
             <x-input type="file" wire:model="images" multiple />
             <x-input-error for="images" />
+
+            @else
+
+            @foreach ($image as $img)
+            <div class="mt-2">
+                <img src="{{ asset('/storage/'. $img->name) }}">
+            </div>
+            @endforeach
+
+            @endif
 
             <div class="mt-2">
                 @if ($images)
