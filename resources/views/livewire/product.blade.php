@@ -1,14 +1,14 @@
 <div x-data="{ colour: @entangle('colour'), size: @entangle('size'), quantity: @entangle('quantity') }"
     class="bg-white">
     <div class="pt-6 pb-16 sm:pb-24">
-        <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <ol role="list" class="flex items-center space-x-4">
                 <li>
                     <div class="flex items-center">
                         <a href="#" class="mr-4 text-sm font-medium text-gray-900">
                             {{ $product?->category?->name }} </a>
                         <svg viewBox="0 0 6 20" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true" class="h-5 w-auto text-gray-300">
+                            aria-hidden="true" class="w-auto h-5 text-gray-300">
                             <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z"
                                 fill="currentColor" />
                         </svg>
@@ -22,7 +22,7 @@
                 </li>
             </ol>
         </nav>
-        <div class="mt-8 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="max-w-2xl px-4 mx-auto mt-8 sm:px-6 lg:max-w-7xl lg:px-8">
             <div class="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
                 <div class="lg:col-start-8 lg:col-span-5">
                     <div class="flex justify-between">
@@ -40,15 +40,15 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
                         <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-featured-product-shot.jpg"
                             alt="Back of women&#039;s Basic Tee in black."
-                            class="lg:col-span-2 lg:row-span-2 rounded-lg">
+                            class="rounded-lg lg:col-span-2 lg:row-span-2">
 
                         <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg"
                             alt="Side profile of women&#039;s Basic Tee in black."
-                            class="hidden lg:block rounded-lg">
+                            class="hidden rounded-lg lg:block">
 
                         <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg"
                             alt="Front of women&#039;s Basic Tee in black."
-                            class="hidden lg:block rounded-lg">
+                            class="hidden rounded-lg lg:block">
                     </div>
                 </div>
 
@@ -76,8 +76,6 @@
                                     <label @click="$wire.set('colour', @js($stock->colour))"
                                         :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
                                         class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                                        <input type="radio" name="color" class="sr-only"
-                                            aria-labelledby="color-choice-0-label">
                                         <span aria-hidden="true"
                                             class="h-8 w-8 @if ($stock->colour == 'black') bg-black @else bg-{{ $stock->colour }}-600 @endif border border-black border-opacity-10 rounded-full"></span>
                                     </label>
@@ -105,7 +103,7 @@
                                     @foreach ($sizes as $item)
                                     <label @click="$wire.set('size', @js($item->size))"
                                         :class="size == @js($item->size) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
-                                        class="border rounded-md p-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none">
+                                        class="flex items-center justify-center p-3 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
                                         <p>{{ $item->size }}</p>
                                     </label>
                                     @endforeach
@@ -133,7 +131,7 @@
                                     @for($qty = 1; $qty <= $totalQuantity; $qty++) <label
                                         @click="$wire.set('quantity', @js($qty))"
                                         :class="quantity == @js($qty) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
-                                        class="border rounded-md p-1 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none">
+                                        class="flex items-center justify-center p-1 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
                                         <p>{{ $qty }}</p>
                                         </label>
                                         @endfor
@@ -143,7 +141,7 @@
                         </div>
 
                         <button type="submit"
-                            class="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
+                            class="flex items-center justify-center w-full px-8 py-3 mt-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
                             to cart</button>
                     </form>
 
@@ -151,7 +149,7 @@
                     <div class="mt-10">
                         <h2 class="text-sm font-medium text-gray-900">Description</h2>
 
-                        <div class="mt-4 prose prose-sm text-gray-500">
+                        <div class="mt-4 prose-sm prose text-gray-500">
                             <p>The Basic tee is an honest new take on a classic. The tee uses
                                 super soft, pre-shrunk cotton for true comfort and a dependable
                                 fit. They are hand cut and sewn locally, with a special dye
@@ -168,10 +166,10 @@
                         <dl
                             class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                             <div
-                                class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
+                                class="p-6 text-center border border-gray-200 rounded-lg bg-gray-50">
                                 <dt>
                                     <!-- Heroicon name: outline/globe -->
-                                    <svg class="mx-auto h-6 w-6 flex-shrink-0 text-gray-400"
+                                    <svg class="flex-shrink-0 w-6 h-6 mx-auto text-gray-400"
                                         xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor"
                                         aria-hidden="true">
