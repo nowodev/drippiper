@@ -5,21 +5,21 @@
     </h3>
 
     <div class="bg-white">
-        <div class="container mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="container px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900"></h2>
 
             <div
-                class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                class="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 @foreach ($products as $product)
 
                 <div class="relative">
                     <div
-                        class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        class="w-full overflow-hidden bg-gray-200 rounded-md min-h-80 aspect-w-1 aspect-h-1 group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="{{ asset('storage/' . $product->cover_image ) }}"
                             alt="Front of men&#039;s Basic Tee in black."
-                            class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                            class="object-cover object-center w-full h-full lg:w-full lg:h-full">
                     </div>
-                    <div class="mt-4 flex justify-between">
+                    <div class="flex justify-between mt-4">
                         <div>
                             <h3 class="text-sm text-gray-700">
                                 <a href="{{ route('products.show', $product) }}">
@@ -35,7 +35,7 @@
                 @endforeach
             </div>
 
-            <div class="max-w-7xl mx-auto mt-10">
+            <div class="mx-auto mt-10 max-w-7xl">
                 {{ $products->links() }}
             </div>
         </div>
