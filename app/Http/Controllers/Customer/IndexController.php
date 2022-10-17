@@ -14,13 +14,13 @@ class IndexController extends Controller
 
         $newCollections = Product::where('status', true)->get()->random(2);
 
-        return view('customer.frontend.index', compact('products', 'newCollections'));
+        return view('customer.index', compact('products', 'newCollections'));
     }
 
     public function productsIndex()
     {
         $products = Product::where('status', true)->with('category')->paginate(16);
 
-        return view('customer.frontend.products', compact('products'));
+        return view('customer.products', compact('products'));
     }
 }

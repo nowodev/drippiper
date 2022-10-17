@@ -67,7 +67,7 @@ class CartController extends Controller
 
         $total = $cartItems->sum('total');
 
-        return view('customer.frontend.checkout', compact('cartItems', 'total'));
+        return view('customer.checkout', compact('cartItems', 'total'));
     }
 
     public function confirmOrder(Request $request)
@@ -80,6 +80,9 @@ class CartController extends Controller
             'state'   => ['required', 'string', 'max:255'],
             'zip'     => ['nullable', 'string', 'max:255'],
         ]);
+
+        // Update address
+        User::whereEmail($data['email'])->update($data);
 
         $cartItems = Cart::whereUserId(auth()->id())->with('product', 'stock')->get();
 
@@ -104,7 +107,7 @@ class CartController extends Controller
     {
         $total = Cart::whereUserId(auth()->id())->sum('total');
 
-        return view('customer.frontend.pay', compact('total'));
+        return view('customer.pay', compact('total'));
     }
 
     public function confirmPayment($reference)
@@ -173,6 +176,6 @@ class CartController extends Controller
 
     public function thanks()
     {
-        return view('customer.frontend.thanks');
+        return view('customer.thanks');
     }
 }
