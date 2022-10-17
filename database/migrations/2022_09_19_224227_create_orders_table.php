@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('order_no');
-            $table->string('order_items');
+            $table->string('orders');
             $table->string('order_status');
             $table->string('order_total')->nullable();
             $table->timestamps();

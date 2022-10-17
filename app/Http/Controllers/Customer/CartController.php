@@ -127,7 +127,7 @@ class CartController extends Controller
             $order = Order::create([
                 'user_id'      => $user->id,
                 'order_no'     => sprintf('%s%06s', 'PPWR', mt_rand(1000, 9999)),
-                'order_items'  => count($cartItems),
+                'orders'  => count($cartItems),
                 'order_status' => OrderStatus::PROCESSING->value,
                 'order_total'  => $total
             ]);
