@@ -12,7 +12,8 @@ class IndexController extends Controller
     {
         $products = Product::where('status', true)->take(4)->get();
 
-        $newCollections = Product::where('status', true)->get()->random(2);
+        $newCollections = Product::where('status', true)->get()
+            ->random(fn ($items) => min(4, count($items)));
 
         return view('customer.index', compact('products', 'newCollections'));
     }
