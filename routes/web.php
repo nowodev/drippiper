@@ -65,13 +65,13 @@ Route::middleware(['auth', CheckIfAdmin::class])->prefix('admin')->name('admin.'
     Route::put('products/{product}/status', [Admin\ProductController::class, 'updateStatus'])
         ->name('products.status');
 
-    Route::resource('products', Admin\ProductController::class);
+    Route::resource('products', Admin\ProductController::class)->except('store', 'update');
 
-    Route::resource('orders', Admin\OrderController::class);
+    Route::resource('orders', Admin\OrderController::class)->except('create', 'store', 'destroy');
 
-    Route::resource('customers', Admin\CustomerController::class)->only('index', 'show');
+    Route::resource('customers', Admin\CustomerController::class)->only('index');
 
-    Route::resource('transaction', Admin\TransactionController::class)->only('index', 'show');
+    Route::resource('transaction', Admin\TransactionController::class)->only('index');
 
     // Route::get('settings', [SettingController::class, 'index'])->name('users');
 
