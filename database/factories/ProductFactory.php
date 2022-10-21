@@ -20,7 +20,6 @@ class ProductFactory extends Factory
             'name'        => fake()->name(),
             'description' => fake()->sentence(),
             'price'       => fake()->numerify('####'),
-            'sales_price' => fake()->numerify('####'),
             'cover_image' => '',
         ];
     }

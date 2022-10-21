@@ -29,8 +29,6 @@
                 </p>
 
                 <div class="flex mx-auto mt-6 overflow-hidden border-2 border-green-500 rounded">
-                    <button class="px-4 py-1 text-white bg-green-500 focus:outline-none">N{{
-                        $product->sales_price }}</button>
                     <button class="px-4 py-1 focus:outline-none">N{{ $product->price }}</button>
                 </div>
             </div>
