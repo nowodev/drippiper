@@ -176,7 +176,7 @@
                                                 aria-haspopup="true">
                                                 <span class="sr-only">Open user menu</span>
                                                 <img class="w-8 h-8 rounded-full"
-                                                    src="{{ asset('storage/avatar.png') }}"
+                                                    src="{{ asset('images/avatar.png') }}"
                                                     alt="">
                                             </button>
 
