@@ -72,7 +72,7 @@
                                 @forelse($transactions as $transaction)
                                 <tr>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href="{{ route('admin.transaction.show', $transaction) }}"
+                                        <a href="{{ route('admin.orders.show', $transaction->order_id) }}"
                                             class="rowlink">
                                             {{ $loop->iteration }}
                                         </a>
