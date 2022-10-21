@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
+use App\Enums\OrderStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -51,7 +52,16 @@ class OrderController extends Controller
     {
         $order->load('user', 'order_items', 'order_items.product', 'order_items.stock');
 
-        return view('admin.orders.show', compact('order'));
+        $progress_no = null;
+        
+        if (OrderStatus::PROCESSING->value == $order->order_status)
+            $progress_no = 2;
+        if (OrderStatus::SHIPPED->value == $order->order_status)
+            $progress_no = 4;
+        if (OrderStatus::DELIVERED->value == $order->order_status)
+            $progress_no = 8;
+
+        return view('admin.orders.show', compact('order', 'progress_no'));
     }
 
     /**
@@ -62,7 +72,9 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $orderStatuses = OrderStatus::cases();
+
+        return view('admin.orders.edit', compact('order', 'orderStatuses'));
     }
 
     /**
@@ -74,7 +86,17 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $validated = $request->validate([
+            'order_status' => 'required'
+        ]);
+
+        $order->update([
+            'order_status' => $validated['order_status']
+        ]);
+
+
+        return redirect()->route('admin.orders.index')
+            ->with('success', "Order Updated Successfully");
     }
 
     /**

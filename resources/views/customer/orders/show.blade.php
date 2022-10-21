@@ -43,7 +43,8 @@
                             Colour:
                             <label
                                 class="-m-0.5 relative p-0.5 rounded-full flex focus:outline-none">
-                                <span aria-hidden="true" style="background: {{ $item->stock->colour }}"
+                                <span aria-hidden="true"
+                                    style="background: {{ $item->stock->colour }}"
                                     class="h-8 w-8 border border-black border-opacity-10 rounded-full"></span>
                             </label>
                         </p>
@@ -65,11 +66,11 @@
                     <div class="mt-6">
                         <div class="overflow-hidden bg-gray-200 rounded-full">
                             <div class="h-2 bg-indigo-600 rounded-full"
-                                style="width: calc((1 * 2 + 1) / 8 * 100%)"></div>
+                                style="width: calc((1 * {{ $progress_no }} + 1) / 8 * 100%)"></div>
                         </div>
                         <div class="hidden grid-cols-4 mt-6 font-medium text-gray-600 sm:grid">
-                            <div class="text-indigo-600">Order placed</div>
-                            <div class="text-center text-indigo-600">Processing</div>
+                            <div class="">Order placed</div>
+                            <div class="text-center">Processing</div>
                             <div class="text-center">Shipped</div>
                             <div class="text-right">Delivered</div>
                         </div>
