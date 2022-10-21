@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,5 +24,14 @@ class IndexController extends Controller
         $products = Product::where('status', true)->with('category')->paginate(16);
 
         return view('customer.products', compact('products'));
+    }
+
+    public function category($slug)
+    {
+        $products = Product::whereHas('category', function($query) use ($slug) {
+            $query->whereSlug($slug);
+        })->paginate(16);
+
+        return view('customer.category', compact('products'));
     }
 }

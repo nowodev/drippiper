@@ -22,10 +22,12 @@ require __DIR__ . '/auth.php';
 // Customer route
 Route::controller(Customer\IndexController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/categories/{slug}', 'category')->name('category');
     Route::get('/products', 'productsIndex')->name('products.index');
     // Route::get('/products/{product}', 'showProduct')->name('products.show');
-    Route::get('/products/{productId}', Product::class)->name('products.show');
 });
+
+Route::get('/products/{productId}', Product::class)->name('products.show');
 
 // Authenticated Customer route
 Route::middleware('auth')->name('customer.')->group(function () {
