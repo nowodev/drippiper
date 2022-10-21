@@ -23,9 +23,8 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->string('name');
             $table->string('price');
-            $table->string('sales_price')->nullable()->comment('The new price due to sales or other events.');
             $table->longText('description');
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
