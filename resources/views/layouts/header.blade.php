@@ -47,21 +47,18 @@
                 <!-- Links -->
                 <div class="px-4 py-6 mt-2 space-y-6 border-t border-gray-200">
                     <div class="flow-root">
-                        <a href="#" class="block p-2 -m-2 font-medium text-gray-900">Men</a>
-                    </div>
-
-                    <div class="flow-root">
-                        <a href="#" class="block p-2 -m-2 font-medium text-gray-900">Women</a>
-                    </div>
-
-                    <div class="flow-root">
                         <a href="{{ route('products.index') }}"
                             class="block p-2 -m-2 font-medium text-gray-900">Products</a>
                     </div>
 
+                    @foreach ($categories as $category)
                     <div class="flow-root">
-                        <a href="#" class="block p-2 -m-2 font-medium text-gray-900">Shoes</a>
+                        <a href="{{ route('category', $category->slug) }}" class="block p-2 -m-2 font-medium text-gray-900">
+                            {{ $category->name }}
+                        </a>
                     </div>
+                    @endforeach
+
                 </div>
 
                 <div class="px-4 py-6 space-y-6 border-t border-gray-200">
@@ -126,17 +123,15 @@
                                 <div class="ml-8">
                                     <div class="flex justify-center h-full space-x-8">
 
-                                        <a href="#"
-                                            class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Men</a>
-
-                                        <a href="#"
-                                            class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Women</a>
-
                                         <a href="{{ route('products.index') }}"
                                             class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Products</a>
 
-                                        <a href="#"
-                                            class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+                                        @foreach ($categories as $category)
+                                        <a href="{{ route('category', $category->slug) }}"
+                                            class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
+                                            {{ $category->name }}
+                                        </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -176,8 +171,7 @@
                                                 aria-haspopup="true">
                                                 <span class="sr-only">Open user menu</span>
                                                 <img class="w-8 h-8 rounded-full"
-                                                    src="{{ asset('images/avatar.png') }}"
-                                                    alt="">
+                                                    src="{{ asset('images/avatar.png') }}" alt="">
                                             </button>
 
                                             <div x-show="showAvatar"
