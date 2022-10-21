@@ -76,16 +76,18 @@
                                         </a>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <img src="{{ asset('storage/' . $product->cover_image) }}"
+                                        <img src="{{ $product->thumbnail }}"
                                             class="w-8 h-8 rounded-full" alt="Img">
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            {{ $product->name }}</p>
+                                            {{ $product->name }}
+                                        </p>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            {{ $product->price }}</p>
+                                            {{ $product->price }}
+                                        </p>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                         <p class="font-bold text-gray-900 whitespace-no-wrap">

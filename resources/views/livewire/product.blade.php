@@ -38,13 +38,12 @@
                     <h2 class="sr-only">Images</h2>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 lg:gridrows-3 lg:gap-8">
-                        <img src="{{ asset('storage/' . $product->cover_image) }}"
+                        <img src="{{ $product->thumbnail }}" alt=""
                             class="rounded-lg lg:col-span-2 lg:row-span-2">
 
                         @foreach ($product->images as $image)
-                        <img src="{{ asset('storage/' . $image->name) }}"
-                            src="https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg"
-                            alt="" class="hidden rounded-lg lg:block h-full">
+                        <img src="{{ asset('storage/' . $image->name) }}" alt=""
+                            class="hidden rounded-lg lg:block h-full">
                         @endforeach
                     </div>
                 </div>

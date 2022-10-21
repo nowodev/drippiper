@@ -26,7 +26,7 @@
                 <div class="relative">
                     <div
                         class="w-full overflow-hidden bg-gray-200 rounded-md min-h-80 aspect-w-1 aspect-h-1 group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                        <img src="{{ asset('storage/' . $product->cover_image ) }}" alt=""
+                        <img src="{{ $product->thumbnail }}" alt=""
                             class="object-cover object-center w-full h-full lg:w-full lg:h-full">
                     </div>
                     <div class="flex justify-between mt-4">
@@ -116,7 +116,7 @@
                 <div class="relative">
                     <div
                         class="w-full overflow-hidden bg-gray-200 rounded-md min-h-80 aspect-w-1 aspect-h-1 group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                        <img src="{{ asset('storage/' . $product->cover_image ) }}" alt=""
+                        <img src="{{ $product->thumbnail }}" alt=""
                             class="object-cover object-center w-full h-full lg:w-full lg:h-full">
                     </div>
                     <div class="flex justify-between mt-4">
