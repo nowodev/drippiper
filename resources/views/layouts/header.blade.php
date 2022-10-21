@@ -176,7 +176,7 @@
                                                 aria-haspopup="true">
                                                 <span class="sr-only">Open user menu</span>
                                                 <img class="w-8 h-8 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                    src="{{ asset('storage/avatar.png') }}"
                                                     alt="">
                                             </button>
 
@@ -191,23 +191,20 @@
 
                                                 <a href="{{ route('admin.profile.show') }}"
                                                     class="block px-4 py-2 text-sm text-gray-700"
-                                                    role="menuitem" tabindex="-1"
-                                                   >
+                                                    role="menuitem" tabindex="-1">
                                                     Your Profile
                                                 </a>
                                                 @else
 
                                                 <a href="{{ route('customer.profile.show') }}"
                                                     class="block px-4 py-2 text-sm text-gray-700"
-                                                    role="menuitem" tabindex="-1"
-                                                   >
+                                                    role="menuitem" tabindex="-1">
                                                     Your Profile
                                                 </a>
 
                                                 <a href="{{ route('customer.orders') }}"
                                                     class="block px-4 py-2 text-sm text-gray-700"
-                                                    role="menuitem" tabindex="-1"
-                                                   >
+                                                    role="menuitem" tabindex="-1">
                                                     Orders
                                                 </a>
 
@@ -225,8 +222,7 @@
                                                         onclick="event.preventDefault(); this.closest('form').submit();"
                                                         type="button"
                                                         class="block px-4 py-2 text-sm text-gray-700"
-                                                        role="menuitem" tabindex="-1"
-                                                       >
+                                                        role="menuitem" tabindex="-1">
                                                         Sign out
                                                     </a>
                                                 </form>

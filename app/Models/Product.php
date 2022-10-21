@@ -30,6 +30,6 @@ class Product extends Model
         if ($this->cover_image) {
             return asset('storage/' . $this->cover_image);
         }
-        return asset('storage/thumbnail.png');
+        return asset('images/thumbnail.png');
     }
 }
