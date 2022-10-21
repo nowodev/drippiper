@@ -103,7 +103,8 @@
         </div>
         <div>
             <x-input-label>Colour</x-input-label>
-            <x-color-picker wire:model="stocks.{{ $key }}.colour" />
+            <x-color wire:model="stocks.{{ $key }}.colour" />
+            {{-- <x-color-picker wire:model="stocks.{{ $key }}.colour" /> --}}
             <x-input-error for="stocks.{{ $key }}.colour" />
         </div>
 

@@ -15,6 +15,8 @@
         @stack('styles')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <script src="https://unpkg.com/vanilla-picker@2"></script>
+
         <x-livewire-alert::scripts />
 
         @livewireStyles
