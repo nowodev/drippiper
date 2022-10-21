@@ -38,7 +38,7 @@
                         class="text-sm font-medium divide-y divide-white divide-opacity-10">
                         @foreach ($cartItems as $item)
                         <li class="flex items-start py-6 space-x-4">
-                            <img src="{{ asset('storage/' . $item->product->cover_image) }}" alt=""
+                            <img src="{{ $item->product->thumbnail }}" alt=""
                                 class="flex-none object-cover object-center w-20 h-20 rounded-md">
                             <div class="flex-auto space-y-1">
                                 <h3 class="text-white">{{ $item->product->name }}</h3>

@@ -25,7 +25,7 @@ class Cart extends Component
     public function render()
     {
         $this->cartItems = CartModel::query()->whereUserId(auth()->id())
-            ->with('product:id,name,cover_image')->get();
+            ->with('product')->get();
 
         $this->total = $this->cartItems->sum('total');
 

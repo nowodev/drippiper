@@ -2,7 +2,8 @@
     <button @click="showCart = ! showCart" class="relative flex items-center justify-center gap-x-1"">
         @if($cartCount > 0)
         <span
-            class="absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full -top-2 -right-2 animate-bounce">
+            class=" absolute w-5 h-5 text-sm font-extrabold text-white bg-red-500 rounded-full
+        -top-2 -right-2 animate-bounce">
         {{ $cartCount }}
         </span>
         @endif
@@ -55,7 +56,7 @@
                                             <li class="flex py-6">
                                                 <div
                                                     class="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
-                                                    <img src="{{ asset('storage/' . $item->product->cover_image) }}"
+                                                    <img src="{{ $item->product->thumbnail }}"
                                                         class="object-cover object-center w-full h-full"
                                                         alt="Img">
                                                 </div>

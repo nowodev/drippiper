@@ -27,7 +27,7 @@
                     class="grid grid-cols-1 text-sm sm:grid-rows-1 sm:grid-cols-12 sm:gap-x-6 md:gap-x-8 lg:gap-x-8">
                     <div class="sm:col-span-4 md:col-span-5 md:row-end-2 md:row-span-2">
                         <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1 bg-gray-50">
-                            <img src="{{ asset('storage/' . $item->product->cover_image ) }}" alt=""
+                            <img src="{{ $item->product->thumbnail }}" alt=""
                                 class="object-cover object-center">
                         </div>
                     </div>
@@ -43,8 +43,8 @@
                             Colour:
                             <label
                                 class="-m-0.5 relative p-0.5 rounded-full flex focus:outline-none">
-                                <span aria-hidden="true"
-                                    class="h-8 w-8 bg-{{ $item->stock->colour }}-500 border border-black border-opacity-10 rounded-full"></span>
+                                <span aria-hidden="true" style="background: {{ $item->stock->colour }}"
+                                    class="h-8 w-8 border border-black border-opacity-10 rounded-full"></span>
                             </label>
                         </p>
                         <p class="mt-1 font-medium text-gray-900">Size: {{ $item->stock->size }}
