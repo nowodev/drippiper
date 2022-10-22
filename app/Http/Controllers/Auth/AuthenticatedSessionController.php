@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(RouteServiceProvider::ADMINHOME);
         }
 
-        return redirect()->intended(RouteServiceProvider::CUSTOMERHOME);
+        return redirect()->route('home');
     }
 
     /**
