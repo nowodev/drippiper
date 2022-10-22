@@ -18,8 +18,7 @@
         <div class="container px-5 mx-auto space-y-6">
             <div class="flex flex-col w-full mb-20 text-center">
                 <div class="flex justify-center p-5 mb-2">
-                    <img class="rounded-lg" src="{{ asset('storage/'. $product->cover_image) }}"
-                        alt="product image">
+                    <img src="{{ $product->thumbnail }}" class="rounded-lg" alt="product image">
                 </div>
 
                 <h1 class="mb-2 text-3xl font-medium text-gray-900 sm:text-4xl title-font">
@@ -30,8 +29,6 @@
                 </p>
 
                 <div class="flex mx-auto mt-6 overflow-hidden border-2 border-green-500 rounded">
-                    <button class="px-4 py-1 text-white bg-green-500 focus:outline-none">N{{
-                        $product->sales_price }}</button>
                     <button class="px-4 py-1 focus:outline-none">N{{ $product->price }}</button>
                 </div>
             </div>

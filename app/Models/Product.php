@@ -20,4 +20,16 @@ class Product extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
+
+    public function getThumbnailAttribute() {
+        if ($this->cover_image) {
+            return asset('storage/' . $this->cover_image);
+        }
+        return asset('images/thumbnail.png');
+    }
 }

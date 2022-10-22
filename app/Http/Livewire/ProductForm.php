@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use Image;
+use App\Models\Image;
 use App\Models\Stock;
 use App\Models\Product;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ProductForm extends Component
@@ -21,17 +23,18 @@ class ProductForm extends Component
     public $product_id;
     public $buttonName;
     public $cover_image;
+    public $image;
     public $images    = [];
-    public $stocks    = [0];
+    public $stocks    = [];
     public $edit_mode = false;
 
     protected array $rules = [
         'product.name'        => 'required|string',
+        'product.category_id' => 'required',
         'product.price'       => 'required|integer',
-        'product.sales_price' => 'sometimes|nullable|integer',
         'product.description' => 'required|string',
-        'cover_image'         => 'required|image|mimes:jpg,jpeg,png,svg',
-        'images.*'            => 'sometimes|image|mimes:jpg,jpeg,png,svg|nullable',
+        'cover_image'         => 'sometimes|image|mimes:jpg,jpeg,png,svg|max:3072|nullable',
+        'images.*'            => 'sometimes|image|mimes:jpg,jpeg,png,svg|max:3072|nullable',
         'stocks.*.size'       => 'required|string',
         'stocks.*.colour'     => 'required|string',
         'stocks.*.quantity'   => 'required|string',
@@ -39,8 +42,8 @@ class ProductForm extends Component
 
     protected array $validationAttributes = [
         'product.name'        => 'name',
+        'product.category_id' => 'category',
         'product.price'       => 'price',
-        'product.sales_price' => 'sales_price',
         'product.description' => 'description',
         'stocks.*.size'       => 'size',
         'stocks.*.colour'     => 'colour',
@@ -51,11 +54,31 @@ class ProductForm extends Component
     {
         $this->buttonName = $this->product_id ? 'Save' : 'Create';
         $this->status     = $this->product_id ? 'Updated' : 'Created';
+
+        /**
+         * Add empty data to stocks to use for color picker.
+         * Only do this when creating. The stocks are
+         * automatically loaded when editing.
+         */
+        if (!$this->stocks) {
+            $this->stocks[] = [
+                'size' => null,
+                'colour' => null,
+                'quantity' => null,
+            ];
+        }
     }
 
     public function render()
     {
-        return view('livewire.product-form');
+        $categories = Category::get();
+
+        if ($this->product && !is_array($this->product)) {
+            $this->image = Image::where('product_id', $this->product->id)
+                ->get();
+        }
+
+        return view('livewire.product-form', compact('categories'));
     }
 
     public function add()
@@ -80,23 +103,42 @@ class ProductForm extends Component
         }
     }
 
+    public function deleteImage($item, $type = null)
+    {
+        if ($type == 'images') {
+            $image_path = public_path('storage/' . $item['name']);
+
+            Image::find($item['id'])->delete();
+        } else {
+            $image_path = public_path('storage/' . $item['cover_image']);
+
+            Product::find($item['id'])->update(['cover_image' => '']);
+        }
+
+        if (File::exists($image_path)) {
+            unlink($image_path);
+        }
+    }
+
     public function store()
     {
         DB::transaction(function () {
             $data = $this->validate();
 
-            $cover_image_name = $this->cover_image->getClientOriginalName();
+            $cover_image_name = $this?->cover_image?->getClientOriginalName();
 
             // If id is not set, create data
             if (!$this->product_id) {
-                $this->cover_image->storeAs('public', $cover_image_name);
+                $this?->cover_image?->storeAs('public', $cover_image_name);
+
+                $category_id = data_get($data, 'product.category_id') ?? null;
 
                 $product = Product::query()->create([
                     'name'        => data_get($data, 'product.name'),
+                    'category_id' => $category_id,
                     'price'       => data_get($data, 'product.price'),
-                    'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),
-                    'cover_image' => $cover_image_name,
+                    'cover_image' => $cover_image_name ?? null,
                 ]);
 
                 foreach ($this->stocks as $stock) {
@@ -106,11 +148,6 @@ class ProductForm extends Component
                         'quantity' => data_get($stock, 'quantity'),
                     ]);
                 }
-
-                // Image::make($this->cover_image)->resize(225, 100)
-                //     ->save(public_path('storage/' . $cover_image_name));
-                //         // Save cover image
-                //         Image::make($this->cover_image->getRealPath())->resize(320, 240)->save(public_path('storage/' . $cover_image_name));
 
                 // Save other images
                 foreach ($this->images as $image) {
@@ -123,24 +160,19 @@ class ProductForm extends Component
                     ]);
                 }
             } else {
-                // Save cover image
-                // Image::make($this->cover_image)->resize(225, 100)
-                //     ->save(public_path('storage/' . $cover_image_name));
-                // Image::make($this->cover_image)
-                //     ->fit(300)
-                //     // ->fit(320, 320, fn ($constraint) => $constraint->upsize())
-                //     // ->resize(320, 320, fn ($constraint) => $constraint->aspectRatio())
-                //     ->save(public_path('storage/' . $cover_image_name));
 
-                $this->cover_image->storeAs('public', $cover_image_name);
+                $this?->cover_image?->storeAs('public', $cover_image_name);
+
+                $category_id = data_get($data, 'product.category_id') ?? null;
 
                 // Update data
                 $this->product->update([
                     'name'        => data_get($data, 'product.name'),
+                    // 'category_id' => data_get($data, 'product.category_id'),
+                    'category_id' => $category_id,
                     'price'       => data_get($data, 'product.price'),
-                    'sales_price' => data_get($data, 'product.sales_price'),
                     'description' => data_get($data, 'product.description'),
-                    'cover_image' => $cover_image_name,
+                    'cover_image' => $cover_image_name ?? $this->product->cover_image,
                 ]);
 
                 // Update individual stock
@@ -155,6 +187,17 @@ class ProductForm extends Component
                             'quantity' => data_get($stock, 'quantity'),
                         ]
                     );
+                }
+
+                // Update images
+                foreach ($this->images as $image) {
+                    $image_name = $image?->getClientOriginalName();
+
+                    $image = $image?->storeAs('public', $image_name);
+
+                    $this->product->images()->create([
+                        'name' => $image_name ?? $image->name,
+                    ]);
                 }
             }
 

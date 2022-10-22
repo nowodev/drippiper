@@ -7,16 +7,17 @@
         </div>
 
         <div class="flex gap-x-6">
-            <div>
+            <div class="w-1/2">
+                <x-input-label>Category</x-input-label>
+                <x-select name="Select Category" :options="$categories"
+                    wire:model.defer="product.category_id" />
+                <x-input-error for="product.category_id" />
+            </div>
+
+            <div class="w-1/2">
                 <x-input-label>Price</x-input-label>
                 <x-input type="number" wire:model.defer="product.price" />
                 <x-input-error for="product.price" />
-            </div>
-
-            <div>
-                <x-input-label>Sales Price</x-input-label>
-                <x-input type="number" wire:model.defer="product.sales_price" />
-                <x-input-error for="product.sales_price" />
             </div>
         </div>
 
@@ -26,10 +27,27 @@
             <x-input-error for="product.description" />
         </div>
 
-        <div>
+        <div wire:poll.visible>
             <x-input-label>Cover Image</x-input-label>
+            @if ($product && !is_array($this->product) && $product->cover_image)
+            <div class="mt-2 relative">
+                <button wire:click="deleteImage({{ $product }})"
+                    class="absolute bg-red-500 right-0 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                    </svg>
+                </button>
+
+                <img src="{{ asset('/storage/'. $product?->cover_image) }}">
+            </div>
+
+            @else
             <x-input type="file" wire:model="cover_image" />
             <x-input-error for="cover_image" />
+
+            @endif
 
             <div class="mt-2">
                 @if ($cover_image)
@@ -41,8 +59,29 @@
 
         <div>
             <x-input-label>Images</x-input-label>
-            <x-input type="file" wire:model="images" multiple />
+            @if (!$image || count($image)
+            < 1) <x-input type="file" wire:model="images" multiple />
             <x-input-error for="images" />
+
+            @else
+
+            @foreach ($image as $img)
+
+            <div wire:poll.visible class="mt-2 relative">
+                <button wire:click="deleteImage({{ $img }}, 'images')"
+                    class="absolute bg-red-500 right-0 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                    </svg>
+                </button>
+
+                <img src="{{ asset('/storage/'. $img->name) }}">
+            </div>
+            @endforeach
+
+            @endif
 
             <div class="mt-2">
                 @if ($images)
@@ -64,7 +103,8 @@
         </div>
         <div>
             <x-input-label>Colour</x-input-label>
-            <x-input type="text" wire:model.defer="stocks.{{ $key }}.colour" />
+            <x-color wire:model="stocks.{{ $key }}.colour" />
+            {{-- <x-color-picker wire:model="stocks.{{ $key }}.colour" /> --}}
             <x-input-error for="stocks.{{ $key }}.colour" />
         </div>
 
