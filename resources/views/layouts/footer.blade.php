@@ -1,7 +1,9 @@
 <footer class="bg-gray-900" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="container px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8">
-        <div class="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
+        <div class="py-4 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
+            <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
+
             <div class="flex space-x-6 md:order-2">
                 <a href="#">
                     <span class="sr-only">Facebook</span>

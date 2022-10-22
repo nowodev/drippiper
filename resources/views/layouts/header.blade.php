@@ -53,7 +53,8 @@
 
                     @foreach ($categories as $category)
                     <div class="flow-root">
-                        <a href="{{ route('category', $category->slug) }}" class="block p-2 -m-2 font-medium text-gray-900">
+                        <a href="{{ route('category', $category->slug) }}"
+                            class="block p-2 -m-2 font-medium text-gray-900">
                             {{ $category->name }}
                         </a>
                     </div>
@@ -112,9 +113,8 @@
                             <div class="hidden lg:flex lg:items-center">
                                 <a href="/">
                                     <span class="sr-only">PiperWears</span>
-                                    <img class="w-auto h-8"
-                                        src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                                        alt="">
+                                    <x-application-logo
+                                        class="w-10 h-10 fill-current text-gray-500" />
                                 </a>
                             </div>
 
@@ -154,9 +154,8 @@
 
                             <!-- Logo (lg-) -->
                             <a href="/" class="lg:hidden">
-                                <span class="sr-only">Workflow</span>
-                                <img src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                                    alt="" class="w-auto h-8">
+                                <span class="sr-only">Piperwears</span>
+                                <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
                             </a>
 
                             <div class="flex items-center justify-end flex-1">
