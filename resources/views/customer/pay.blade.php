@@ -55,7 +55,7 @@
                     first_name: '{{ auth()->user()->name }}',
                     phone: '{{ auth()->user()->phone }}',
                     email: '{{ auth()->user()->email }}',
-                    amount: ({{ $total }} + 2500) * 100,
+                    amount: {{ $total }} * 100,
 
                     onSuccess: (transaction) => {
                         // Payment complete! Reference: transaction.reference
@@ -63,7 +63,7 @@
                     },
                     onCancel: () => {
                         // user closed popup
-                        alert('Window closed.');
+                        // alert('Window closed.');
                     }
                 });
             }

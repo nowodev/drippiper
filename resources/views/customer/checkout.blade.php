@@ -27,7 +27,7 @@
                     <dl>
                         <dt class="text-sm font-medium">Amount due</dt>
                         <dd class="mt-1 text-3xl font-extrabold text-white">
-                            N{{ $total + 2500 }}
+                            N{{ $total }}
                         </dd>
                     </dl>
 
@@ -58,14 +58,24 @@
                         </div>
 
                         <div class="flex items-center justify-between">
+                            <dt>Tax</dt>
+                            <dd>N0</dd>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <dt>Discount</dt>
+                            <dd>N0</dd>
+                        </div>
+
+                        {{-- <div class="flex items-center justify-between">
                             <dt>Shipping</dt>
                             <dd>N2500</dd>
-                        </div>
+                        </div> --}}
 
                         <div
                             class="flex items-center justify-between pt-6 text-white border-t border-white border-opacity-10">
                             <dt class="text-base">Total</dt>
-                            <dd class="text-base">N{{ $total + 2500 }}</dd>
+                            <dd class="text-base">N{{ $total }}</dd>
                         </div>
                     </dl>
                 </div>
