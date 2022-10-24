@@ -1,4 +1,4 @@
-# Piper Wears
+# DripPiper
 
 An E-commerce website for a client.
 
@@ -7,8 +7,8 @@ An E-commerce website for a client.
 Clone the repo locally:
 
 ```sh
-git clone https://github.com/BitsandNibble/piperwears.git
-cd piperwears
+git clone https://github.com/BitsandNibble/drippiper.git
+cd drippiper
 ```
 
 Install PHP dependencies:
@@ -41,10 +41,10 @@ Generate application key:
 php artisan key:generate
 ```
 
-Create a MySQL database called "piperwears". You can also use another database (SQLite, Postgres), simply update your configuration accordingly.
+Create a MySQL database called "drippiper". You can also use another database (SQLite, Postgres), simply update your configuration accordingly.
 
 ```mysql
-CREATE DATABASE piperwears;
+CREATE DATABASE drippiper;
 ```
 
 Run database migrations:
