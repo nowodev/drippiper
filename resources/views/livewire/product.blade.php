@@ -1,5 +1,5 @@
 <div x-data="{ colour: @entangle('colour'), size: @entangle('size'), quantity: @entangle('quantity') }"
-    class="bg-white">
+    class="container mx-auto bg-white">
     <div class="pt-6 pb-16 sm:pb-24">
         <nav aria-label="Breadcrumb" class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <ol role="list" class="flex items-center space-x-4">
@@ -43,7 +43,7 @@
 
                         @foreach ($product->images as $image)
                         <img src="{{ asset('storage/' . $image->name) }}" alt=""
-                            class="hidden rounded-lg lg:block h-full">
+                            class="hidden h-full rounded-lg lg:block">
                         @endforeach
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                         :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
                                         class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
                                         <span aria-hidden="true"
-                                            class="h-8 w-8 border border-black border-opacity-10 rounded-full"
+                                            class="w-8 h-8 border border-black rounded-full border-opacity-10"
                                             style="background: {{ $stock->colour }};"></span>
                                     </label>
                                     @endforeach
