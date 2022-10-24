@@ -71,7 +71,7 @@
                             <p class="mt-1 font-medium text-gray-900">Size: {{ $item->stock->size }}
                             </p>
                             <p class="mt-1 font-medium text-gray-900">Qty:
-                                {{ $item->stock->quantity }}
+                                {{ $item->quantity }}
                             </p>
                             <p class="mt-3 text-gray-500">
                                 {{ $item->product->description }}
@@ -81,8 +81,9 @@
                     @endforeach
 
                     <div class="sm:col-span-12 md:col-span-7">
-                        <p class="mt-6 font-medium text-gray-900 md:mt-10">Processing on <time
-                                datetime="2021-03-24">March 24, 2021</time></p>
+                        <p class="mt-6 font-medium text-gray-900 md:mt-10">Processing on
+                            {{ $order->created_at->format('F d, Y') }}
+                        </p>
                         <div class="mt-6">
                             <div class="overflow-hidden bg-gray-200 rounded-full">
                                 <div class="h-2 bg-indigo-600 rounded-full"
