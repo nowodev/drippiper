@@ -10,7 +10,7 @@
             class="relative py-6 mx-auto bg-indigo-900 max-w-7xl lg:bg-transparent lg:grid lg:grid-cols-2 lg:gap-x-16 lg:px-8 lg:pt-16 lg:pb-10">
             <div class="flex max-w-2xl px-4 mx-auto lg:max-w-lg lg:w-full lg:px-0">
                 <a href="#">
-                    <span class="sr-only">Piperwears</span>
+                    <span class="sr-only">DripPiper</span>
                     <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
                 </a>
             </div>

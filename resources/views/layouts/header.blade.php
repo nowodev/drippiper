@@ -112,7 +112,7 @@
                             <!-- Logo (lg+) -->
                             <div class="hidden lg:flex lg:items-center">
                                 <a href="/">
-                                    <span class="sr-only">PiperWears</span>
+                                    <span class="sr-only">DripPiper</span>
                                     <x-application-logo
                                         class="w-10 h-10 fill-current text-gray-500" />
                                 </a>
@@ -154,7 +154,7 @@
 
                             <!-- Logo (lg-) -->
                             <a href="/" class="lg:hidden">
-                                <span class="sr-only">Piperwears</span>
+                                <span class="sr-only">DripPiper</span>
                                 <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
                             </a>
 
