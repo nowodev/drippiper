@@ -16,7 +16,7 @@
                     fill="white" />
             </svg>
 
-            <span class="text-white text-2xl mx-2 font-semibold">{{ __('Piper Wears') }}</span>
+            <span class="text-white text-2xl mx-2 font-semibold">{{ __('DripPiper') }}</span>
         </div>
     </div>
 
