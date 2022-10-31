@@ -4,8 +4,8 @@
         <div class="relative h-screen bg-gray-900">
             <!-- Decorative image and overlay -->
             <div aria-hidden="true" class="absolute inset-0 overflow-hidden">
-                <img src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
-                    alt="" class="object-cover object-center w-full h-full">
+                <img src="{{ asset('images/hero.jpg') }}" alt=""
+                    class="object-cover object-center w-full h-full">
             </div>
 
             <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div>
