@@ -86,9 +86,9 @@
                 <!-- Top navigation -->
                 <div class="bg-gray-900">
                     <div
-                        class="flex items-center justify-between h-10 px-4 mx-auto container sm:px-6 lg:px-8">
-                        <p class="flex-1 text-sm font-medium text-center text-white lg:flex-none">
-                            Get free delivery on orders over ₦10000</p>
+                        class="container flex items-center justify-between h-10 px-4 mx-auto sm:px-6 lg:px-8">
+                        {{-- <p class="flex-1 text-sm font-medium text-center text-white lg:flex-none">
+                            Get free delivery on orders over ₦10000</p> --}}
 
                         @guest
                         <div
@@ -114,7 +114,7 @@
                                 <a href="/">
                                     <span class="sr-only">DripPiper</span>
                                     <x-application-logo
-                                        class="w-10 h-10 fill-current text-gray-500" />
+                                        class="w-10 h-10 text-gray-500 fill-current" />
                                 </a>
                             </div>
 
@@ -155,7 +155,7 @@
                             <!-- Logo (lg-) -->
                             <a href="/" class="lg:hidden">
                                 <span class="sr-only">DripPiper</span>
-                                <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
+                                <x-application-logo class="w-10 h-10 text-gray-500 fill-current" />
                             </a>
 
                             <div class="flex items-center justify-end flex-1">
