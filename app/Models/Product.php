@@ -26,10 +26,12 @@ class Product extends Model
         return $this->belongsTo(Category::class)->withDefault();
     }
 
-    public function getThumbnailAttribute() {
+    public function getThumbnailAttribute()
+    {
         if ($this->cover_image) {
             return asset('storage/' . $this->cover_image);
         }
+
         return asset('images/thumbnail.png');
     }
 }
