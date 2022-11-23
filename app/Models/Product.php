@@ -32,6 +32,6 @@ class Product extends Model
             return asset('storage/' . $this->cover_image);
         }
 
-        return asset('images/thumbnail.png');
+        return 'https://placehold.co/600x400@2x.png';
     }
 }
