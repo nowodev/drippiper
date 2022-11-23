@@ -51,7 +51,7 @@
                 const paystack = new PaystackPop();
 
                 paystack.newTransaction({
-                    key: 'pk_test_745396a668920336e76004a04860f41f2d5118cf',
+                    key: 'pk_test_82787d5ea4af10737099c8159c72191e90734e1b',
                     first_name: '{{ auth()->user()->name }}',
                     phone: '{{ auth()->user()->phone }}',
                     email: '{{ auth()->user()->email }}',
@@ -63,7 +63,7 @@
                     },
                     onCancel: () => {
                         // user closed popup
-                        // alert('Window closed.');
+                        alert('Window closed.');
                     }
                 });
             }

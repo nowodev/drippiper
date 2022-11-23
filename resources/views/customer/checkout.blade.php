@@ -11,7 +11,7 @@
             <div class="flex max-w-2xl px-4 mx-auto lg:max-w-lg lg:w-full lg:px-0">
                 <a href="#">
                     <span class="sr-only">DripPiper</span>
-                    <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
+                    <x-application-logo />
                 </a>
             </div>
         </header>

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <a href="/" class="flex justify-center items-center">
-        <x-application-logo class="w-20 h-20 text-gray-500 fill-current"/>
+        <x-application-logo />
     </a>
 
     <div class="mb-4 text-sm text-gray-600">
