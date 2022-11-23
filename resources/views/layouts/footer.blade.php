@@ -2,7 +2,7 @@
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="container px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8">
         <div class="py-4 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
-            <x-application-logo class="w-10 h-10 fill-current text-gray-500" />
+            <img src="{{ asset('images/logo-white.png') }}" class="w-10" alt="Logo">
 
             <div class="flex space-x-6 md:order-2 items-center">
                 <a href="https://instagram.com/Drip__with__piper" target="_blank">
