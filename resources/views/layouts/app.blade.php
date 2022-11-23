@@ -8,6 +8,8 @@
 
     <title>{{ config('app.name', 'DripPiper') }}</title>
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-white.png') }}">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
