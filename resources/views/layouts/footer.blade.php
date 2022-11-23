@@ -27,7 +27,7 @@
                     </svg>
                 </a>
 
-                <a href="https://wa.me/08101434302" target="_blank">
+                <a href="https://wa.me/8101434302" target="_blank">
                     <span class="sr-only">WhatsApp</span>
                     <img alt="Chat on WhatsApp"
                         src="{{ asset('images/WhatsAppButtonGreenSmall.png') }}" />

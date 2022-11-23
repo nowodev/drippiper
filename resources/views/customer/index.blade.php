@@ -4,14 +4,11 @@
         <div class="relative h-screen bg-gray-900">
             <!-- Decorative image and overlay -->
             <div aria-hidden="true" class="absolute inset-0 overflow-hidden">
-                <img src="{{ asset('images/hero.jpg') }}" alt="" class="w-full h-full object-fit">
+                <img src="{{ asset('images/hero.jpg') }}" alt="" class="hidden w-full h-full md:flex">
+                <img src="{{ asset('images/hero-mobile.jpeg') }}" alt="" class="w-full h-full md:hidden">
             </div>
 
-            <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div>
-
-            {{-- <div
-                class="relative flex flex-col items-center max-w-3xl px-6 mx-auto text-center py32 sm:py64 lg:px-0">
-            </div> --}}
+            {{-- <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div> --}}
         </div>
 
         {{-- Featured Section --}}

@@ -80,7 +80,7 @@
         <header class="relative">
             <nav aria-label="Top">
                 <!-- Top navigation -->
-                <div class="bg-gray-900 hidden lg:block">
+                <div class="bg-gray-900 @auth hidden @else hidden lg:block @endauth">
                     <div class="container flex items-center justify-between h-10 px-4 mx-auto sm:px-6 lg:px-8">
                         {{-- <p class="flex-1 text-sm font-medium text-center text-white lg:flex-none">
                             Get free delivery on orders over ₦10000</p> --}}
