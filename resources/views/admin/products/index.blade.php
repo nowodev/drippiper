@@ -163,7 +163,7 @@
 
                                 @empty
                                 <tr>
-                                    <td colspan="6"
+                                    <td colspan="7"
                                         class="px-5 py-5 text-sm text-center bg-white border-b border-gray-200">
                                         <p class="text-gray-900 whitespace-no-wrap">No Record Found
                                         </p>
