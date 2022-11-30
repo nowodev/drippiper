@@ -30,7 +30,7 @@ class ProductForm extends Component
 
     protected array $rules = [
         'product.name'        => 'required|string',
-        'product.category_id' => 'required',
+        'product.category_id' => 'nullable',
         'product.price'       => 'required|integer',
         'product.description' => 'required|string',
         'cover_image'         => 'sometimes|image|mimes:jpg,jpeg,png,svg|max:3072|nullable',
@@ -129,7 +129,7 @@ class ProductForm extends Component
 
             // If id is not set, create data
             if (!$this->product_id) {
-                $this?->cover_image?->storeAs('public', $cover_image_name);
+                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'cpanel');
 
                 $category_id = data_get($data, 'product.category_id') ?? null;
 
@@ -153,7 +153,7 @@ class ProductForm extends Component
                 foreach ($this->images as $image) {
                     $image_name = $image->getClientOriginalName();
 
-                    $image = $image->storeAs('public', $image_name);
+                    $image = $image?->storeAs('product_images', $image_name, 'cpanel');
 
                     $product->images()->create([
                         'name' => $image_name,
@@ -161,7 +161,7 @@ class ProductForm extends Component
                 }
             } else {
 
-                $this?->cover_image?->storeAs('public', $cover_image_name);
+                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'cpanel');
 
                 $category_id = data_get($data, 'product.category_id') ?? null;
 
@@ -193,7 +193,7 @@ class ProductForm extends Component
                 foreach ($this->images as $image) {
                     $image_name = $image?->getClientOriginalName();
 
-                    $image = $image?->storeAs('public', $image_name);
+                    $image = $image?->storeAs('product_images', $image_name, 'cpanel');
 
                     $this->product->images()->create([
                         'name' => $image_name ?? $image->name,

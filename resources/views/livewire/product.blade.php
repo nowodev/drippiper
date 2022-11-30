@@ -1,5 +1,4 @@
-<div x-data="{ colour: @entangle('colour'), size: @entangle('size'), quantity: @entangle('quantity') }"
-    class="container mx-auto bg-white">
+<div x-data="{ colour: @entangle('colour'), size: @entangle('size'), quantity: @entangle('quantity') }" class="container mx-auto bg-white">
     <div class="pt-6 pb-16 sm:pb-24">
         <nav aria-label="Breadcrumb" class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <ol role="list" class="flex items-center space-x-4">
@@ -7,10 +6,9 @@
                     <div class="flex items-center">
                         <a href="#" class="mr-4 text-sm font-medium text-gray-900">
                             {{ $product?->category?->name }} </a>
-                        <svg viewBox="0 0 6 20" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true" class="w-auto h-5 text-gray-300">
-                            <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z"
-                                fill="currentColor" />
+                        <svg viewBox="0 0 6 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                            class="w-auto h-5 text-gray-300">
+                            <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor" />
                         </svg>
                     </div>
                 </li>
@@ -42,8 +40,8 @@
                             class="rounded-lg lg:col-span-2 lg:row-span-2">
 
                         @foreach ($product->images as $image)
-                        <img src="{{ asset('storage/' . $image->name) }}" alt=""
-                            class="hidden h-full rounded-lg lg:block">
+                            <img src="{{ asset('uploads/product_images/' . $image->name) }}" alt=""
+                                class="hidden h-full rounded-lg lg:block">
                         @endforeach
                     </div>
                 </div>
@@ -69,13 +67,13 @@
                       Not Active and Checked: "ring-2"
                     -->
                                     @foreach ($product->stocks->unique('colour') as $stock)
-                                    <label @click="$wire.set('colour', @js($stock->colour))"
-                                        :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
-                                        class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                                        <span aria-hidden="true"
-                                            class="w-8 h-8 border border-black rounded-full border-opacity-10"
-                                            style="background: {{ $stock->colour }};"></span>
-                                    </label>
+                                        <label @click="$wire.set('colour', @js($stock->colour))"
+                                            :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
+                                            class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
+                                            <span aria-hidden="true"
+                                                class="w-8 h-8 border border-black rounded-full border-opacity-10"
+                                                style="background: {{ $stock->colour }};"></span>
+                                        </label>
                                     @endforeach
                                 </div>
                             </fieldset>
@@ -85,27 +83,29 @@
                         <div class="mt-8">
                             @if (!is_null($colour))
 
-                            <div class="flex items-center justify-between">
-                                <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                            </div>
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-sm font-medium text-gray-900">Size</h2>
+                                </div>
 
-                            <fieldset class="mt-2">
-                                <legend class="sr-only">Choose a size</legend>
-                                <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                                    <!--
+                                <fieldset class="mt-2">
+                                    <legend class="sr-only">Choose a size</legend>
+                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                                        <!--
                       In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
                       Active: "ring-2 ring-offset-2 ring-indigo-500"
                       Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
                     -->
-                                    @foreach ($sizes as $item)
-                                    <label @click="$wire.set('size', @js($item->size))"
-                                        :class="size == @js($item->size) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
-                                        class="flex items-center justify-center p-3 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
-                                        <p>{{ $item->size }}</p>
-                                    </label>
-                                    @endforeach
-                                </div>
-                            </fieldset>
+                                        @foreach ($sizes as $item)
+                                            <label @click="$wire.set('size', @js($item->size))"
+                                                :class="size == @js($item->size) ?
+                                                    'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' :
+                                                    'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
+                                                class="flex items-center justify-center p-3 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
+                                                <p>{{ $item->size }}</p>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </fieldset>
                             @endif
                         </div>
 
@@ -113,27 +113,29 @@
                         <div class="mt-8">
                             @if (!is_null($size))
 
-                            <div class="flex items-center justify-between">
-                                <h2 class="text-sm font-medium text-gray-900">Quantity</h2>
-                            </div>
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-sm font-medium text-gray-900">Quantity</h2>
+                                </div>
 
-                            <fieldset class="mt-2">
-                                <legend class="sr-only">Select quantity</legend>
-                                <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                                    <!--
+                                <fieldset class="mt-2">
+                                    <legend class="sr-only">Select quantity</legend>
+                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                                        <!--
                       In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
                       Active: "ring-2 ring-offset-2 ring-indigo-500"
                       Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
                     -->
-                                    @for($qty = 1; $qty <= $totalQuantity; $qty++) <label
-                                        @click="$wire.set('quantity', @js($qty))"
-                                        :class="quantity == @js($qty) ? 'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
-                                        class="flex items-center justify-center p-1 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
-                                        <p>{{ $qty }}</p>
-                                        </label>
+                                        @for ($qty = 1; $qty <= $totalQuantity; $qty++)
+                                            <label @click="$wire.set('quantity', @js($qty))"
+                                                :class="quantity == @js($qty) ?
+                                                    'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' :
+                                                    'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
+                                                class="flex items-center justify-center p-1 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
+                                                <p>{{ $qty }}</p>
+                                            </label>
                                         @endfor
-                                </div>
-                            </fieldset>
+                                    </div>
+                                </fieldset>
                             @endif
                         </div>
 
@@ -147,12 +149,9 @@
                         <h2 class="text-sm font-medium text-gray-900">Description</h2>
 
                         <div class="mt-4 prose-sm prose text-gray-500">
-                            <p>The Basic tee is an honest new take on a classic. The tee uses
-                                super soft, pre-shrunk cotton for true comfort and a dependable
-                                fit. They are hand cut and sewn locally, with a special dye
-                                technique that gives each tee it's own look.</p>
-                            <p>Looking to stock your closet? The Basic tee also comes in a
-                                3-pack or 5-pack at a bundle discount.</p>
+                            <p>
+                                {{ $product->description }}
+                            </p>
                         </div>
                     </div>
 
@@ -160,24 +159,20 @@
                     <section aria-labelledby="policies-heading" class="mt-10">
                         <h2 id="policies-heading" class="sr-only">Our Policies</h2>
 
-                        <dl
-                            class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                            <div
-                                class="p-6 text-center border border-gray-200 rounded-lg bg-gray-50">
+                        <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                            <div class="p-6 text-center border border-gray-200 rounded-lg bg-gray-50">
                                 <dt>
                                     <!-- Heroicon name: outline/globe -->
                                     <svg class="flex-shrink-0 w-6 h-6 mx-auto text-gray-400"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     <span class="mt-4 text-sm font-medium text-gray-900">
                                         Fast delivery </span>
                                 </dt>
-                                <dd class="mt-1 text-sm text-gray-500">Get your order in 2 days
+                                <dd class="mt-1 text-sm text-gray-500">Get your order in 3 days
                                 </dd>
                             </div>
                         </dl>
