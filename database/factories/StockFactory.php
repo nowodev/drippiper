@@ -18,8 +18,7 @@ class StockFactory extends Factory
     {
         return [
             'product_id' => '',
-            'size'     => fake()->randomElement(['S', 'M', 'L', 'XL']),
-            'colour'   => fake()->randomElement(['Red', 'Black', 'White', 'Green']),
+            'size'     => fake()->randomElement(['M', 'L', 'XL', 'XXL']),
             'quantity' => fake()->numerify('##'),
         ];
     }

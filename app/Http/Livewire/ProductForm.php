@@ -53,7 +53,7 @@ class ProductForm extends Component
     {
         $this->buttonName = $this->product_id ? 'Save' : 'Create';
         $this->status     = $this->product_id ? 'Updated' : 'Created';
-        $this->sizes      = ['M', 'X', 'XL', 'XXL'];
+        $this->sizes      = ['M', 'L', 'XL', 'XXL'];
 
         /**
          * Add empty data to stocks to use for color picker.

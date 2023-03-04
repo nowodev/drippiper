@@ -1,4 +1,4 @@
-<div x-data="{ colour: @entangle('colour'), size: @entangle('size'), quantity: @entangle('quantity') }" class="container mx-auto bg-white">
+<div x-data="{ size: @entangle('size'), quantity: @entangle('quantity') }" class="container mx-auto bg-white">
     <div class="pt-6 pb-16 sm:pb-24">
         <nav aria-label="Breadcrumb" class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <ol role="list" class="flex items-center space-x-4">
@@ -51,65 +51,37 @@
                         @csrf
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <input type="hidden" name="colour" value="{{ $colour }}">
                         <input type="hidden" name="size" value="{{ $size }}">
                         <input type="hidden" name="quantity" value="{{ $quantity }}">
 
-                        <!-- Color picker -->
-                        <div>
-                            <h2 class="text-sm font-medium text-gray-900">Color</h2>
+                        <!-- Size picker -->
+                        <div class="mt-8">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-sm font-medium text-gray-900">Size</h2>
+                            </div>
 
                             <fieldset class="mt-2">
-                                <legend class="sr-only">Choose a color</legend>
-                                <div class="flex items-center space-x-3">
+                                <legend class="sr-only">Choose a size</legend>
+                                <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
                                     <!--
-                      Active and Checked: "ring ring-offset-1"
-                      Not Active and Checked: "ring-2"
+                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+                      Active: "ring-2 ring-offset-2 ring-indigo-500"
+                      Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
                     -->
-                                    @foreach ($product->stocks->unique('colour') as $stock)
-                                        <label @click="$wire.set('colour', @js($stock->colour))"
-                                            :class="colour == @js($stock->colour) ? 'ring ring-offset-1' : ''"
-                                            class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                                            <span aria-hidden="true"
-                                                class="w-8 h-8 border border-black rounded-full border-opacity-10"
-                                                style="background: {{ $stock->colour }};"></span>
+                                    @foreach ($sizes as $item)
+                                        <label @click="$wire.set('size', @js($item->size))"
+                                            :class="size == @js($item->size) ?
+                                                'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' :
+                                                'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
+                                            class="flex items-center justify-center p-3 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
+                                            <p>{{ $item->size }}</p>
                                         </label>
                                     @endforeach
                                 </div>
                             </fieldset>
                         </div>
 
-                        <!-- Size picker -->
-                        <div class="mt-8">
-                            @if (!is_null($colour))
-
-                                <div class="flex items-center justify-between">
-                                    <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                                </div>
-
-                                <fieldset class="mt-2">
-                                    <legend class="sr-only">Choose a size</legend>
-                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                                        <!--
-                      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
-                      Active: "ring-2 ring-offset-2 ring-indigo-500"
-                      Checked: "bg-indigo-600 border-transparent text-white hover:bg-indigo-700", Not Checked: "bg-white border-gray-200 text-gray-900 hover:bg-gray-50"
-                    -->
-                                        @foreach ($sizes as $item)
-                                            <label @click="$wire.set('size', @js($item->size))"
-                                                :class="size == @js($item->size) ?
-                                                    'ring-2 ring-offset-2 ring-indigo-500 bg-indigo-600 border-transparent text-white hover:bg-indigo-700' :
-                                                    'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'"
-                                                class="flex items-center justify-center p-3 text-sm font-medium uppercase border rounded-md cursor-pointer sm:flex-1 focus:outline-none">
-                                                <p>{{ $item->size }}</p>
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                </fieldset>
-                            @endif
-                        </div>
-
-                        <!-- Size picker -->
+                        <!-- Quantity picker -->
                         <div class="mt-8">
                             @if (!is_null($size))
 
