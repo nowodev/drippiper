@@ -29,7 +29,6 @@ class CartController extends Controller
         $data = $request->validate([
             'product_id' => 'required',
             'size'       => 'required',
-            'colour'     => 'required',
             'quantity'   => 'required|numeric|min:1',
         ]);
 
