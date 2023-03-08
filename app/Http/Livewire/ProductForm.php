@@ -25,6 +25,7 @@ class ProductForm extends Component
     public $cover_image;
     public $image;
     public $images    = [];
+    public $sizes     = [];
     public $stocks    = [];
     public $edit_mode = false;
 
@@ -36,7 +37,6 @@ class ProductForm extends Component
         'cover_image'         => 'sometimes|image|mimes:jpg,jpeg,png,svg|max:3072|nullable',
         'images.*'            => 'sometimes|image|mimes:jpg,jpeg,png,svg|max:3072|nullable',
         'stocks.*.size'       => 'required|string',
-        'stocks.*.colour'     => 'required|string',
         'stocks.*.quantity'   => 'required|string',
     ];
 
@@ -46,7 +46,6 @@ class ProductForm extends Component
         'product.price'       => 'price',
         'product.description' => 'description',
         'stocks.*.size'       => 'size',
-        'stocks.*.colour'     => 'colour',
         'stocks.*.quantity'   => 'quantity',
     ];
 
@@ -54,6 +53,7 @@ class ProductForm extends Component
     {
         $this->buttonName = $this->product_id ? 'Save' : 'Create';
         $this->status     = $this->product_id ? 'Updated' : 'Created';
+        $this->sizes      = ['M', 'L', 'XL', 'XXL'];
 
         /**
          * Add empty data to stocks to use for color picker.
@@ -63,7 +63,6 @@ class ProductForm extends Component
         if (!$this->stocks) {
             $this->stocks[] = [
                 'size' => null,
-                'colour' => null,
                 'quantity' => null,
             ];
         }
@@ -144,7 +143,6 @@ class ProductForm extends Component
                 foreach ($this->stocks as $stock) {
                     $product->stocks()->create([
                         'size'     => data_get($stock, 'size'),
-                        'colour'   => data_get($stock, 'colour'),
                         'quantity' => data_get($stock, 'quantity'),
                     ]);
                 }
@@ -183,7 +181,6 @@ class ProductForm extends Component
                         ],
                         [
                             'size'     => data_get($stock, 'size'),
-                            'colour'   => data_get($stock, 'colour'),
                             'quantity' => data_get($stock, 'quantity'),
                         ]
                     );

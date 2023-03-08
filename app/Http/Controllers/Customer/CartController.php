@@ -29,7 +29,6 @@ class CartController extends Controller
         $data = $request->validate([
             'product_id' => 'required',
             'size'       => 'required',
-            'colour'     => 'required',
             'quantity'   => 'required|numeric|min:1',
         ]);
 
@@ -42,7 +41,6 @@ class CartController extends Controller
             // Get stock ID to determine exact product customer wants.
             $stockId = Stock::whereProductId($productId)
                 ->whereSize($data['size'])
-                ->whereColour($data['colour'])
                 ->first()
                 ->id;
 
@@ -94,7 +92,7 @@ class CartController extends Controller
             $qtyDifference = $cart->stock->quantity - $cart->quantity;
 
             if ($qtyDifference <= 0) {
-                $error[] = "There is/are only {$cart->stock->quantity} quantity left for this {$cart->product->name} colour {$cart->stock->colour}. Please reduce the quantity in the cart.";
+                $error[] = "There is/are only {$cart->stock->quantity} quantity left for this {$cart->product->name}. Please reduce the quantity in the cart.";
             }
         }
 
