@@ -30,12 +30,6 @@ return [
 
     'disks' => [
 
-        'cpanel' => [
-            'driver' => 'local',
-            'root'   => public_path() . '/uploads',
-            'throw'  => false,
-        ],
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

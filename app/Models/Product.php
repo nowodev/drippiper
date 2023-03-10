@@ -29,7 +29,7 @@ class Product extends Model
     public function getThumbnailAttribute()
     {
         if ($this->cover_image) {
-            return asset('uploads/product_cover_images/' . $this->cover_image);
+            return asset('storage/product_cover_images/' . $this->cover_image);
         }
 
         return 'https://placehold.co/600x400@2x.png';

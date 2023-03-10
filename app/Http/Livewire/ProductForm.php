@@ -105,11 +105,11 @@ class ProductForm extends Component
     public function deleteImage($item, $type = null)
     {
         if ($type == 'images') {
-            $image_path = public_path('storage/' . $item['name']);
+            $image_path = public_path('storage/product_images/' . $item['name']);
 
             Image::find($item['id'])->delete();
         } else {
-            $image_path = public_path('storage/' . $item['cover_image']);
+            $image_path = public_path('storage/product_cover_images/' . $item['cover_image']);
 
             Product::find($item['id'])->update(['cover_image' => '']);
         }
@@ -128,7 +128,7 @@ class ProductForm extends Component
 
             // If id is not set, create data
             if (!$this->product_id) {
-                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'cpanel');
+                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'public');
 
                 $category_id = data_get($data, 'product.category_id') ?? null;
 
@@ -151,7 +151,7 @@ class ProductForm extends Component
                 foreach ($this->images as $image) {
                     $image_name = $image->getClientOriginalName();
 
-                    $image = $image?->storeAs('product_images', $image_name, 'cpanel');
+                    $image = $image?->storeAs('product_images', $image_name, 'public');
 
                     $product->images()->create([
                         'name' => $image_name,
@@ -159,7 +159,7 @@ class ProductForm extends Component
                 }
             } else {
 
-                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'cpanel');
+                $this?->cover_image?->storeAs('product_cover_images', $cover_image_name, 'public');
 
                 $category_id = data_get($data, 'product.category_id') ?? null;
 
@@ -190,7 +190,7 @@ class ProductForm extends Component
                 foreach ($this->images as $image) {
                     $image_name = $image?->getClientOriginalName();
 
-                    $image = $image?->storeAs('product_images', $image_name, 'cpanel');
+                    $image = $image?->storeAs('product_images', $image_name, 'public');
 
                     $this->product->images()->create([
                         'name' => $image_name ?? $image->name,

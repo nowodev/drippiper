@@ -38,7 +38,7 @@
                         </svg>
                     </button>
 
-                    <img src="{{ asset('/storage/' . $product?->cover_image) }}">
+                    <img src="{{ asset('storage/product_cover_images/' . $product?->cover_image) }}">
                 </div>
             @else
                 <x-input type="file" wire:model="cover_image" />
@@ -70,7 +70,7 @@
                             </svg>
                         </button>
 
-                        <img src="{{ asset('/storage/' . $img->name) }}">
+                        <img src="{{ asset('storage/product_images/' . $img->name) }}">
                     </div>
                 @endforeach
 
