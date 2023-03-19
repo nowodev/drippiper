@@ -35,14 +35,17 @@
                 <div class="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
                     <h2 class="sr-only">Images</h2>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gridrows-3 lg:gap-8">
+                    <div class="grid grid-cols-1 gap-y-4 w-full">
                         <img src="{{ $product->thumbnail }}" alt=""
                             class="rounded-lg lg:col-span-2 lg:row-span-2">
 
-                        @foreach ($product->images as $image)
-                            <img src="{{ asset('uploads/product_images/' . $image->name) }}" alt=""
-                                class="hidden h-full rounded-lg lg:block">
-                        @endforeach
+
+                        <div class="w-full grid grid-cols-3 gap-x-4">
+                            @foreach ($product->images as $image)
+                                <img src="{{ asset('storage/product_images/' . $image->name) }}" alt=""
+                                    class="h-full rounded-lg lg:block">
+                            @endforeach
+                        </div>
                     </div>
                 </div>
 

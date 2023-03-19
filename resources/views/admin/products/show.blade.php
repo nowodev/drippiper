@@ -35,7 +35,7 @@
             <div class="flex gap-x-6 w-full justify-center">
                 @foreach ($product->stocks as $stock)
                     <div class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <div class="flex justify-between p-5 font-bold text-white">
+                        <div class="flex justify-between p-5 font-bold text-black">
                             <p>{{ $stock->size }}</p>
                             <p>{{ $stock->colour }}</p>
                             <p>{{ $stock->quantity }}</p>
@@ -48,7 +48,7 @@
 
                 @foreach ($product->images as $image)
                     <div class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                        <img src="{{ asset('uploads/product_images/' . $image->name) }}" alt="product image">
+                        <img src="{{ asset('storage/product_images/' . $image->name) }}" alt="product image">
                     </div>
                 @endforeach
             </div>
