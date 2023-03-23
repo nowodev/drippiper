@@ -40,7 +40,7 @@
                             class="rounded-lg lg:col-span-2 lg:row-span-2">
 
 
-                        <div class="w-full grid grid-cols-3 gap-x-4">
+                        <div class="w-full grid grid-cols-3 gap-4">
                             @foreach ($product->images as $image)
                                 <img src="{{ asset('storage/product_images/' . $image->name) }}" alt=""
                                     class="h-full rounded-lg lg:block">
