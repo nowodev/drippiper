@@ -1,14 +1,14 @@
 <x-app-layout>
     <div class="space-y-6">
         <!-- Hero section -->
-        <div class="relative h-screen bg-gray-900">
+        <div class="relative bg-gray-900">
             <!-- Decorative image and overlay -->
-            <div aria-hidden="true" class="absolute inset-0 overflow-hidden">
-                <img src="{{ asset('images/hero.jpg') }}" alt="" class="hidden w-full h-full md:flex">
-                <img src="{{ asset('images/hero-mobile.jpeg') }}" alt="" class="w-full h-full md:hidden">
+            <div aria-hidden="true" class="absolue inset-0 overflow-hidden">
+                <img src="{{ asset('images/hero.jpg') }}" alt="Piperwears" class="hidden w-full h-full md:flex">
+                <img src="{{ asset('images/hero-mobile.jpeg') }}" alt="Piperwears" class="w-full h-full md:hidden">
             </div>
 
-            {{-- <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div> --}}
+            <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div>
         </div>
 
         {{-- Featured Section --}}

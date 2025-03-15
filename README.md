@@ -69,3 +69,9 @@ You're ready to go! Visit DripPiper in your browser, and login with:
 
 - **Username:** admin@admin.com
 - **Password:** secret
+
+### Image Credit
+Photo by Kai Pilger: https://www.pexels.com/photo/assorted-clothes-996329/
+Photo by Terje Sollie: https://www.pexels.com/photo/pair-of-brown-leather-casual-shoes-on-table-298863/
+Photo by cottonbro studio: https://www.pexels.com/photo/two-people-pulling-a-blue-denim-jacket-6769371/
+Photo by Kofi Shelby: https://www.pexels.com/photo/stylish-man-pouring-sand-in-desert-scene-31149096/
